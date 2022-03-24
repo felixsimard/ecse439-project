@@ -76,14 +76,64 @@ public class MyRdsAdapterFactory extends AdapterFactoryImpl
     new MyRdsSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseRDS(RDS object)
       {
-        return createModelAdapter();
+        return createRDSAdapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter caseAbstractElement(AbstractElement object)
       {
-        return createGreetingAdapter();
+        return createAbstractElementAdapter();
+      }
+      @Override
+      public Adapter caseUserRole(UserRole object)
+      {
+        return createUserRoleAdapter();
+      }
+      @Override
+      public Adapter caseUser(User object)
+      {
+        return createUserAdapter();
+      }
+      @Override
+      public Adapter caseCustomer(Customer object)
+      {
+        return createCustomerAdapter();
+      }
+      @Override
+      public Adapter caseDeliveryDriver(DeliveryDriver object)
+      {
+        return createDeliveryDriverAdapter();
+      }
+      @Override
+      public Adapter caseOrder(Order object)
+      {
+        return createOrderAdapter();
+      }
+      @Override
+      public Adapter caseRestaurant(Restaurant object)
+      {
+        return createRestaurantAdapter();
+      }
+      @Override
+      public Adapter caseMenu(Menu object)
+      {
+        return createMenuAdapter();
+      }
+      @Override
+      public Adapter caseMenuItem(MenuItem object)
+      {
+        return createMenuItemAdapter();
+      }
+      @Override
+      public Adapter caseOrderItem(OrderItem object)
+      {
+        return createOrderItemAdapter();
+      }
+      @Override
+      public Adapter caseReview(Review object)
+      {
+        return createReviewAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -108,31 +158,181 @@ public class MyRdsAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.RDS <em>RDS</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.project.rds.myRds.Model
+   * @see org.xtext.project.rds.myRds.RDS
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createRDSAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.AbstractElement <em>Abstract Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.project.rds.myRds.Greeting
+   * @see org.xtext.project.rds.myRds.AbstractElement
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createAbstractElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.UserRole <em>User Role</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.UserRole
+   * @generated
+   */
+  public Adapter createUserRoleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.User <em>User</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.User
+   * @generated
+   */
+  public Adapter createUserAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.Customer <em>Customer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.Customer
+   * @generated
+   */
+  public Adapter createCustomerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.DeliveryDriver <em>Delivery Driver</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.DeliveryDriver
+   * @generated
+   */
+  public Adapter createDeliveryDriverAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.Order <em>Order</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.Order
+   * @generated
+   */
+  public Adapter createOrderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.Restaurant <em>Restaurant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.Restaurant
+   * @generated
+   */
+  public Adapter createRestaurantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.Menu <em>Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.Menu
+   * @generated
+   */
+  public Adapter createMenuAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.MenuItem <em>Menu Item</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.MenuItem
+   * @generated
+   */
+  public Adapter createMenuItemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.OrderItem <em>Order Item</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.OrderItem
+   * @generated
+   */
+  public Adapter createOrderItemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.Review <em>Review</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.rds.myRds.Review
+   * @generated
+   */
+  public Adapter createReviewAdapter()
   {
     return null;
   }

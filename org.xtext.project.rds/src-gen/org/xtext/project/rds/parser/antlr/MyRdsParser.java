@@ -27,7 +27,7 @@ public class MyRdsParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "RDS";
 	}
 
 	public MyRdsGrammarAccess getGrammarAccess() {

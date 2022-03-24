@@ -31,9 +31,74 @@ public class MyRdsParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, MyRdsGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getGreetingAccess().getGroup(), "rule__Greeting__Group__0");
-			builder.put(grammarAccess.getModelAccess().getGreetingsAssignment(), "rule__Model__GreetingsAssignment");
-			builder.put(grammarAccess.getGreetingAccess().getNameAssignment_1(), "rule__Greeting__NameAssignment_1");
+			builder.put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
+			builder.put(grammarAccess.getUserRoleAccess().getAlternatives(), "rule__UserRole__Alternatives");
+			builder.put(grammarAccess.getOrderStatusAccess().getAlternatives(), "rule__OrderStatus__Alternatives");
+			builder.put(grammarAccess.getMenuItemCategoryAccess().getAlternatives(), "rule__MenuItemCategory__Alternatives");
+			builder.put(grammarAccess.getUserAccess().getGroup(), "rule__User__Group__0");
+			builder.put(grammarAccess.getCustomerAccess().getGroup(), "rule__Customer__Group__0");
+			builder.put(grammarAccess.getDeliveryDriverAccess().getGroup(), "rule__DeliveryDriver__Group__0");
+			builder.put(grammarAccess.getOrderAccess().getGroup(), "rule__Order__Group__0");
+			builder.put(grammarAccess.getRestaurantAccess().getGroup(), "rule__Restaurant__Group__0");
+			builder.put(grammarAccess.getMenuAccess().getGroup(), "rule__Menu__Group__0");
+			builder.put(grammarAccess.getMenuItemAccess().getGroup(), "rule__MenuItem__Group__0");
+			builder.put(grammarAccess.getOrderItemAccess().getGroup(), "rule__OrderItem__Group__0");
+			builder.put(grammarAccess.getReviewAccess().getGroup(), "rule__Review__Group__0");
+			builder.put(grammarAccess.getDECIMALAccess().getGroup(), "rule__DECIMAL__Group__0");
+			builder.put(grammarAccess.getFULLNAMEAccess().getGroup(), "rule__FULLNAME__Group__0");
+			builder.put(grammarAccess.getPHONEAccess().getGroup(), "rule__PHONE__Group__0");
+			builder.put(grammarAccess.getEMAILAccess().getGroup(), "rule__EMAIL__Group__0");
+			builder.put(grammarAccess.getDATETIMEAccess().getGroup(), "rule__DATETIME__Group__0");
+			builder.put(grammarAccess.getADDRESSAccess().getGroup(), "rule__ADDRESS__Group__0");
+			builder.put(grammarAccess.getLICENCEAccess().getGroup(), "rule__LICENCE__Group__0");
+			builder.put(grammarAccess.getRDSAccess().getElementsAssignment(), "rule__RDS__ElementsAssignment");
+			builder.put(grammarAccess.getUserAccess().getIdAssignment_1(), "rule__User__IdAssignment_1");
+			builder.put(grammarAccess.getUserAccess().getUsernameAssignment_5(), "rule__User__UsernameAssignment_5");
+			builder.put(grammarAccess.getUserAccess().getPasswordAssignment_8(), "rule__User__PasswordAssignment_8");
+			builder.put(grammarAccess.getUserAccess().getNameAssignment_11(), "rule__User__NameAssignment_11");
+			builder.put(grammarAccess.getUserAccess().getPhoneAssignment_14(), "rule__User__PhoneAssignment_14");
+			builder.put(grammarAccess.getUserAccess().getEmailAssignment_17(), "rule__User__EmailAssignment_17");
+			builder.put(grammarAccess.getUserAccess().getElementsAssignment_18(), "rule__User__ElementsAssignment_18");
+			builder.put(grammarAccess.getCustomerAccess().getIdAssignment_1(), "rule__Customer__IdAssignment_1");
+			builder.put(grammarAccess.getCustomerAccess().getOrdersAssignment_3(), "rule__Customer__OrdersAssignment_3");
+			builder.put(grammarAccess.getDeliveryDriverAccess().getIdAssignment_1(), "rule__DeliveryDriver__IdAssignment_1");
+			builder.put(grammarAccess.getDeliveryDriverAccess().getIsAvailableAssignment_5(), "rule__DeliveryDriver__IsAvailableAssignment_5");
+			builder.put(grammarAccess.getDeliveryDriverAccess().getCarLicenceNumberAssignment_8(), "rule__DeliveryDriver__CarLicenceNumberAssignment_8");
+			builder.put(grammarAccess.getDeliveryDriverAccess().getOrdersAssignment_9(), "rule__DeliveryDriver__OrdersAssignment_9");
+			builder.put(grammarAccess.getOrderAccess().getIdAssignment_1(), "rule__Order__IdAssignment_1");
+			builder.put(grammarAccess.getOrderAccess().getOrderNumberAssignment_5(), "rule__Order__OrderNumberAssignment_5");
+			builder.put(grammarAccess.getOrderAccess().getStatusAssignment_8(), "rule__Order__StatusAssignment_8");
+			builder.put(grammarAccess.getOrderAccess().getDeliveryAddressAssignment_11(), "rule__Order__DeliveryAddressAssignment_11");
+			builder.put(grammarAccess.getOrderAccess().getOrderedDatetimeAssignment_14(), "rule__Order__OrderedDatetimeAssignment_14");
+			builder.put(grammarAccess.getOrderAccess().getDeliveredDatetimeAssignment_17(), "rule__Order__DeliveredDatetimeAssignment_17");
+			builder.put(grammarAccess.getOrderAccess().getRequestedDeliveryDatetimeAssignment_20(), "rule__Order__RequestedDeliveryDatetimeAssignment_20");
+			builder.put(grammarAccess.getOrderAccess().getOrderItemsAssignment_21(), "rule__Order__OrderItemsAssignment_21");
+			builder.put(grammarAccess.getOrderAccess().getReviewAssignment_24(), "rule__Order__ReviewAssignment_24");
+			builder.put(grammarAccess.getOrderAccess().getCustomerAssignment_27(), "rule__Order__CustomerAssignment_27");
+			builder.put(grammarAccess.getOrderAccess().getDeliveryDriverAssignment_30(), "rule__Order__DeliveryDriverAssignment_30");
+			builder.put(grammarAccess.getRestaurantAccess().getIdAssignment_1(), "rule__Restaurant__IdAssignment_1");
+			builder.put(grammarAccess.getRestaurantAccess().getNameAssignment_5(), "rule__Restaurant__NameAssignment_5");
+			builder.put(grammarAccess.getRestaurantAccess().getAddressAssignment_8(), "rule__Restaurant__AddressAssignment_8");
+			builder.put(grammarAccess.getRestaurantAccess().getMenuAssignment_11(), "rule__Restaurant__MenuAssignment_11");
+			builder.put(grammarAccess.getMenuAccess().getIdAssignment_1(), "rule__Menu__IdAssignment_1");
+			builder.put(grammarAccess.getMenuAccess().getRestaurantAssignment_5(), "rule__Menu__RestaurantAssignment_5");
+			builder.put(grammarAccess.getMenuAccess().getMenuItemsAssignment_6(), "rule__Menu__MenuItemsAssignment_6");
+			builder.put(grammarAccess.getMenuItemAccess().getIdAssignment_1(), "rule__MenuItem__IdAssignment_1");
+			builder.put(grammarAccess.getMenuItemAccess().getNameAssignment_5(), "rule__MenuItem__NameAssignment_5");
+			builder.put(grammarAccess.getMenuItemAccess().getPriceAssignment_8(), "rule__MenuItem__PriceAssignment_8");
+			builder.put(grammarAccess.getMenuItemAccess().getDescriptionAssignment_11(), "rule__MenuItem__DescriptionAssignment_11");
+			builder.put(grammarAccess.getMenuItemAccess().getCategoryAssignment_14(), "rule__MenuItem__CategoryAssignment_14");
+			builder.put(grammarAccess.getMenuItemAccess().getOrderItemsAssignment_15(), "rule__MenuItem__OrderItemsAssignment_15");
+			builder.put(grammarAccess.getMenuItemAccess().getMenuAssignment_18(), "rule__MenuItem__MenuAssignment_18");
+			builder.put(grammarAccess.getOrderItemAccess().getIdAssignment_1(), "rule__OrderItem__IdAssignment_1");
+			builder.put(grammarAccess.getOrderItemAccess().getQuantityAssignment_5(), "rule__OrderItem__QuantityAssignment_5");
+			builder.put(grammarAccess.getOrderItemAccess().getForOrderAssignment_8(), "rule__OrderItem__ForOrderAssignment_8");
+			builder.put(grammarAccess.getOrderItemAccess().getMenuItemAssignment_11(), "rule__OrderItem__MenuItemAssignment_11");
+			builder.put(grammarAccess.getReviewAccess().getIdAssignment_1(), "rule__Review__IdAssignment_1");
+			builder.put(grammarAccess.getReviewAccess().getNumStarsAssignment_5(), "rule__Review__NumStarsAssignment_5");
+			builder.put(grammarAccess.getReviewAccess().getDescriptionAssignment_8(), "rule__Review__DescriptionAssignment_8");
+			builder.put(grammarAccess.getReviewAccess().getReviewDatetimeAssignment_11(), "rule__Review__ReviewDatetimeAssignment_11");
+			builder.put(grammarAccess.getReviewAccess().getReviewedOrderAssignment_14(), "rule__Review__ReviewedOrderAssignment_14");
 		}
 	}
 	

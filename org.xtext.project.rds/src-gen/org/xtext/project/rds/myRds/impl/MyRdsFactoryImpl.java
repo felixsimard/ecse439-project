@@ -4,6 +4,7 @@
 package org.xtext.project.rds.myRds.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -65,8 +66,18 @@ public class MyRdsFactoryImpl extends EFactoryImpl implements MyRdsFactory
   {
     switch (eClass.getClassifierID())
     {
-      case MyRdsPackage.MODEL: return createModel();
-      case MyRdsPackage.GREETING: return createGreeting();
+      case MyRdsPackage.RDS: return createRDS();
+      case MyRdsPackage.ABSTRACT_ELEMENT: return createAbstractElement();
+      case MyRdsPackage.USER_ROLE: return createUserRole();
+      case MyRdsPackage.USER: return createUser();
+      case MyRdsPackage.CUSTOMER: return createCustomer();
+      case MyRdsPackage.DELIVERY_DRIVER: return createDeliveryDriver();
+      case MyRdsPackage.ORDER: return createOrder();
+      case MyRdsPackage.RESTAURANT: return createRestaurant();
+      case MyRdsPackage.MENU: return createMenu();
+      case MyRdsPackage.MENU_ITEM: return createMenuItem();
+      case MyRdsPackage.ORDER_ITEM: return createOrderItem();
+      case MyRdsPackage.REVIEW: return createReview();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -78,10 +89,17 @@ public class MyRdsFactoryImpl extends EFactoryImpl implements MyRdsFactory
    * @generated
    */
   @Override
-  public Model createModel()
+  public Object createFromString(EDataType eDataType, String initialValue)
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    switch (eDataType.getClassifierID())
+    {
+      case MyRdsPackage.ORDER_STATUS:
+        return createOrderStatusFromString(eDataType, initialValue);
+      case MyRdsPackage.MENU_ITEM_CATEGORY:
+        return createMenuItemCategoryFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
   }
 
   /**
@@ -90,10 +108,205 @@ public class MyRdsFactoryImpl extends EFactoryImpl implements MyRdsFactory
    * @generated
    */
   @Override
-  public Greeting createGreeting()
+  public String convertToString(EDataType eDataType, Object instanceValue)
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    switch (eDataType.getClassifierID())
+    {
+      case MyRdsPackage.ORDER_STATUS:
+        return convertOrderStatusToString(eDataType, instanceValue);
+      case MyRdsPackage.MENU_ITEM_CATEGORY:
+        return convertMenuItemCategoryToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RDS createRDS()
+  {
+    RDSImpl rds = new RDSImpl();
+    return rds;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AbstractElement createAbstractElement()
+  {
+    AbstractElementImpl abstractElement = new AbstractElementImpl();
+    return abstractElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UserRole createUserRole()
+  {
+    UserRoleImpl userRole = new UserRoleImpl();
+    return userRole;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public User createUser()
+  {
+    UserImpl user = new UserImpl();
+    return user;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Customer createCustomer()
+  {
+    CustomerImpl customer = new CustomerImpl();
+    return customer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DeliveryDriver createDeliveryDriver()
+  {
+    DeliveryDriverImpl deliveryDriver = new DeliveryDriverImpl();
+    return deliveryDriver;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Order createOrder()
+  {
+    OrderImpl order = new OrderImpl();
+    return order;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Restaurant createRestaurant()
+  {
+    RestaurantImpl restaurant = new RestaurantImpl();
+    return restaurant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Menu createMenu()
+  {
+    MenuImpl menu = new MenuImpl();
+    return menu;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MenuItem createMenuItem()
+  {
+    MenuItemImpl menuItem = new MenuItemImpl();
+    return menuItem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OrderItem createOrderItem()
+  {
+    OrderItemImpl orderItem = new OrderItemImpl();
+    return orderItem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Review createReview()
+  {
+    ReviewImpl review = new ReviewImpl();
+    return review;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OrderStatus createOrderStatusFromString(EDataType eDataType, String initialValue)
+  {
+    OrderStatus result = OrderStatus.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertOrderStatusToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MenuItemCategory createMenuItemCategoryFromString(EDataType eDataType, String initialValue)
+  {
+    MenuItemCategory result = MenuItemCategory.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertMenuItemCategoryToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

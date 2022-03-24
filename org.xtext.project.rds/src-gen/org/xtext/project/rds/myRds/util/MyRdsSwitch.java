@@ -73,17 +73,99 @@ public class MyRdsSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case MyRdsPackage.MODEL:
+      case MyRdsPackage.RDS:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        RDS rds = (RDS)theEObject;
+        T result = caseRDS(rds);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyRdsPackage.GREETING:
+      case MyRdsPackage.ABSTRACT_ELEMENT:
       {
-        Greeting greeting = (Greeting)theEObject;
-        T result = caseGreeting(greeting);
+        AbstractElement abstractElement = (AbstractElement)theEObject;
+        T result = caseAbstractElement(abstractElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.USER_ROLE:
+      {
+        UserRole userRole = (UserRole)theEObject;
+        T result = caseUserRole(userRole);
+        if (result == null) result = caseAbstractElement(userRole);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.USER:
+      {
+        User user = (User)theEObject;
+        T result = caseUser(user);
+        if (result == null) result = caseAbstractElement(user);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.CUSTOMER:
+      {
+        Customer customer = (Customer)theEObject;
+        T result = caseCustomer(customer);
+        if (result == null) result = caseUserRole(customer);
+        if (result == null) result = caseAbstractElement(customer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.DELIVERY_DRIVER:
+      {
+        DeliveryDriver deliveryDriver = (DeliveryDriver)theEObject;
+        T result = caseDeliveryDriver(deliveryDriver);
+        if (result == null) result = caseUserRole(deliveryDriver);
+        if (result == null) result = caseAbstractElement(deliveryDriver);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.ORDER:
+      {
+        Order order = (Order)theEObject;
+        T result = caseOrder(order);
+        if (result == null) result = caseAbstractElement(order);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.RESTAURANT:
+      {
+        Restaurant restaurant = (Restaurant)theEObject;
+        T result = caseRestaurant(restaurant);
+        if (result == null) result = caseAbstractElement(restaurant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.MENU:
+      {
+        Menu menu = (Menu)theEObject;
+        T result = caseMenu(menu);
+        if (result == null) result = caseAbstractElement(menu);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.MENU_ITEM:
+      {
+        MenuItem menuItem = (MenuItem)theEObject;
+        T result = caseMenuItem(menuItem);
+        if (result == null) result = caseAbstractElement(menuItem);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.ORDER_ITEM:
+      {
+        OrderItem orderItem = (OrderItem)theEObject;
+        T result = caseOrderItem(orderItem);
+        if (result == null) result = caseAbstractElement(orderItem);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyRdsPackage.REVIEW:
+      {
+        Review review = (Review)theEObject;
+        T result = caseReview(review);
+        if (result == null) result = caseAbstractElement(review);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,33 +174,193 @@ public class MyRdsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>RDS</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>RDS</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseRDS(RDS object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreeting(Greeting object)
+  public T caseAbstractElement(AbstractElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>User Role</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>User Role</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUserRole(UserRole object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>User</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>User</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUser(User object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Customer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Customer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCustomer(Customer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Delivery Driver</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Delivery Driver</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeliveryDriver(DeliveryDriver object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Order</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Order</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOrder(Order object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Restaurant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Restaurant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRestaurant(Restaurant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Menu</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Menu</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMenu(Menu object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Menu Item</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Menu Item</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMenuItem(MenuItem object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Order Item</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Order Item</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOrderItem(OrderItem object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Review</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Review</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReview(Review object)
   {
     return null;
   }

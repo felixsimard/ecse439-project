@@ -1,0 +1,111 @@
+grammar org.xtext.project.rds.MyRds with org.eclipse.xtext.common.Terminals
+
+generate myRds "http://www.xtext.org/project/rds/MyRds"
+
+//Model:
+//	greetings+=Greeting*;
+//	
+//Greeting:
+//	'Hello' name=ID '!';
+
+RDS : (elements+=AbstractElement)*;
+
+AbstractElement: User | Order | UserRole | Restaurant;
+
+UserRole: Customer | DeliveryDriver;
+
+
+User:
+	'user' email=ID '{'
+		'username' ':' username=STRING
+		'password' ':' password=STRING
+		'name' ':' name=FULLNAME
+		'phone' ':' phone=PHONE
+		'email' ':' email=EMAIL
+		elements+=[UserRole]*
+	'}'
+;
+	
+	
+Customer:
+	'Customer' name=ID '{'
+		orders += [Order]*
+	'}'
+;
+
+DeliveryDriver:
+	'DeliveryDriver' name=ID '{'
+		'isAvailable' ':' isAvailable=INT
+		'carLicenceNumber' ':' carLicenceNumber=LICENCE 
+		orders += [Order]*
+	'}'
+;
+
+Order:
+	'Order' orderNumber=ID '{'
+		'status' ':' status=OrderStatus
+		'deliveryAddress' ':' deliveryAddress=ADDRESS
+		'orderedDatetime' ':' orderedDatetime=DATETIME
+		'deliveredDatetime' ':' deliveredDatetime=DATETIME
+		'requestedDeliveryDatetime' ':' requestedDeliveryDatetime=DATETIME
+		orderItems += [OrderItem]*
+		review = Review* // = is for 0..1 multiplicity
+		customer = Customer*
+		deliveryDriver = DeliveryDriver*
+	'}'
+;
+
+Restaurant:
+	'Restaurant' email=ID '{'
+		'name' ':' name=STRING
+		'address' ':' address=ADDRESS
+		'menu' ':' menu=[Menu]
+	'}'
+;
+
+Menu:
+	'Menu' email=ID '{'
+		'restaurant' ':' restaurant=[Restaurant]
+		menuItems += [MenuItem]*
+	'}'
+;
+
+MenuItem:
+	'MenuItem' email=ID '{'
+		'name' ':' name=STRING
+		'price' ':' price=DECIMAL
+		'description' ':' description=STRING
+		'category' ':' category=MenuItemCategory
+		orderItems += [OrderItem]*
+		menu = Menu*
+	'}'
+;
+
+OrderItem:
+	'OrderItem' email=ID '{'
+		'quantity' ':' quantity=INT
+		menuItem = MenuItem
+	'}'
+;
+
+Review:
+	
+;
+
+// Enumerations
+enum OrderStatus:
+	ACCEPTED = 'accepted' | PREPARATION = 'preparation' | READY_PICKUP = 'ready_pickup' | PICKED_UP = 'picked_up' | DELIVERED = 'delivered'
+;
+
+enum MenuItemCategory:
+	APPETIZER = 'appetizer' | SIDE_DISH = 'side_dish' | MAIN_DISH = 'main_dish' | DESSERT = 'dessert' | DRINK = 'drink'
+;
+
+// Format types
+DECIMAL: INT '.' INT;
+FULLNAME: STRING STRING;
+PHONE: INT '-' INT '-' INT;
+EMAIL: STRING '@' STRING '.com';
+DATETIME: INT '-' INT '-' INT INT ':' INT;
+ADDRESS: INT STRING ',' STRING;
+LICENCE: STRING INT INT STRING STRING STRING;

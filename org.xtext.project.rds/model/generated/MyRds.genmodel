@@ -6,11 +6,81 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="MyRds" basePackage="org.xtext.project.rds" disposableProviderFactory="true"
       fileExtensions="rds" ecorePackage="MyRds.ecore#/">
-    <genClasses ecoreClass="MyRds.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyRds.ecore#//Model/greetings"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MyRds.ecore#//OrderStatus">
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//OrderStatus/ACCEPTED"/>
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//OrderStatus/PREPARATION"/>
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//OrderStatus/READY_PICKUP"/>
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//OrderStatus/PICKED_UP"/>
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//OrderStatus/DELIVERED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MyRds.ecore#//MenuItemCategory">
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//MenuItemCategory/APPETIZER"/>
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//MenuItemCategory/SIDE_DISH"/>
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//MenuItemCategory/MAIN_DISH"/>
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//MenuItemCategory/DESSERT"/>
+      <genEnumLiterals ecoreEnumLiteral="MyRds.ecore#//MenuItemCategory/DRINK"/>
+    </genEnums>
+    <genClasses ecoreClass="MyRds.ecore#//RDS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyRds.ecore#//RDS/elements"/>
     </genClasses>
-    <genClasses ecoreClass="MyRds.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="MyRds.ecore#//AbstractElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//AbstractElement/id"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//UserRole">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//UserRole/orders"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/phone"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/email"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//User/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//Customer"/>
+    <genClasses ecoreClass="MyRds.ecore#//DeliveryDriver">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//DeliveryDriver/isAvailable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//DeliveryDriver/carLicenceNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//Order">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Order/orderNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Order/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Order/deliveryAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Order/orderedDatetime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Order/deliveredDatetime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Order/requestedDeliveryDatetime"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//Order/orderItems"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//Order/review"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//Order/customer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//Order/deliveryDriver"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//Restaurant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Restaurant/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Restaurant/address"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//Restaurant/menu"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//Menu">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//Menu/restaurant"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//Menu/menuItems"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//MenuItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//MenuItem/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//MenuItem/price"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//MenuItem/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//MenuItem/category"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//MenuItem/orderItems"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//MenuItem/menu"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//OrderItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//OrderItem/quantity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//OrderItem/forOrder"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//OrderItem/menuItem"/>
+    </genClasses>
+    <genClasses ecoreClass="MyRds.ecore#//Review">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Review/numStars"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Review/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//Review/reviewDatetime"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyRds.ecore#//Review/reviewedOrder"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

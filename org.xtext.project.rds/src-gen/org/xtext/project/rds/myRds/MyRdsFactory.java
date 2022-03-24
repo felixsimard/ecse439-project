@@ -24,22 +24,112 @@ public interface MyRdsFactory extends EFactory
   MyRdsFactory eINSTANCE = org.xtext.project.rds.myRds.impl.MyRdsFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>RDS</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>RDS</em>'.
    * @generated
    */
-  Model createModel();
+  RDS createRDS();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>Abstract Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>Abstract Element</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  AbstractElement createAbstractElement();
+
+  /**
+   * Returns a new object of class '<em>User Role</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>User Role</em>'.
+   * @generated
+   */
+  UserRole createUserRole();
+
+  /**
+   * Returns a new object of class '<em>User</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>User</em>'.
+   * @generated
+   */
+  User createUser();
+
+  /**
+   * Returns a new object of class '<em>Customer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Customer</em>'.
+   * @generated
+   */
+  Customer createCustomer();
+
+  /**
+   * Returns a new object of class '<em>Delivery Driver</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Delivery Driver</em>'.
+   * @generated
+   */
+  DeliveryDriver createDeliveryDriver();
+
+  /**
+   * Returns a new object of class '<em>Order</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Order</em>'.
+   * @generated
+   */
+  Order createOrder();
+
+  /**
+   * Returns a new object of class '<em>Restaurant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Restaurant</em>'.
+   * @generated
+   */
+  Restaurant createRestaurant();
+
+  /**
+   * Returns a new object of class '<em>Menu</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Menu</em>'.
+   * @generated
+   */
+  Menu createMenu();
+
+  /**
+   * Returns a new object of class '<em>Menu Item</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Menu Item</em>'.
+   * @generated
+   */
+  MenuItem createMenuItem();
+
+  /**
+   * Returns a new object of class '<em>Order Item</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Order Item</em>'.
+   * @generated
+   */
+  OrderItem createOrderItem();
+
+  /**
+   * Returns a new object of class '<em>Review</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Review</em>'.
+   * @generated
+   */
+  Review createReview();
 
   /**
    * Returns the package supported by this factory.

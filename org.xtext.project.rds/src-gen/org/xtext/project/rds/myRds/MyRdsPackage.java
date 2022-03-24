@@ -5,6 +5,7 @@ package org.xtext.project.rds.myRds;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -58,42 +59,134 @@ public interface MyRdsPackage extends EPackage
   MyRdsPackage eINSTANCE = org.xtext.project.rds.myRds.impl.MyRdsPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.RDSImpl <em>RDS</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.project.rds.myRds.impl.ModelImpl
-   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getModel()
+   * @see org.xtext.project.rds.myRds.impl.RDSImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getRDS()
    * @generated
    */
-  int MODEL = 0;
+  int RDS = 0;
 
   /**
-   * The feature id for the '<em><b>Greetings</b></em>' containment reference list.
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__GREETINGS = 0;
+  int RDS__ELEMENTS = 0;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The number of structural features of the '<em>RDS</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int RDS_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.GreetingImpl <em>Greeting</em>}' class.
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.project.rds.myRds.impl.GreetingImpl
-   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getGreeting()
+   * @see org.xtext.project.rds.myRds.impl.AbstractElementImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getAbstractElement()
    * @generated
    */
-  int GREETING = 1;
+  int ABSTRACT_ELEMENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_ELEMENT__ID = 0;
+
+  /**
+   * The number of structural features of the '<em>Abstract Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.UserRoleImpl <em>User Role</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.UserRoleImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getUserRole()
+   * @generated
+   */
+  int USER_ROLE = 2;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_ROLE__ID = ABSTRACT_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Orders</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_ROLE__ORDERS = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>User Role</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_ROLE_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.UserImpl <em>User</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.UserImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getUser()
+   * @generated
+   */
+  int USER = 3;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER__ID = ABSTRACT_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Username</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER__USERNAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Password</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER__PASSWORD = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -102,59 +195,1145 @@ public interface MyRdsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREETING__NAME = 0;
+  int USER__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Greeting</em>' class.
+   * The feature id for the '<em><b>Phone</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING_FEATURE_COUNT = 1;
-
+  int USER__PHONE = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.Model <em>Model</em>}'.
+   * The feature id for the '<em><b>Email</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see org.xtext.project.rds.myRds.Model
    * @generated
+   * @ordered
    */
-  EClass getModel();
+  int USER__EMAIL = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.project.rds.myRds.Model#getGreetings <em>Greetings</em>}'.
+   * The feature id for the '<em><b>Elements</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Greetings</em>'.
-   * @see org.xtext.project.rds.myRds.Model#getGreetings()
-   * @see #getModel()
    * @generated
+   * @ordered
    */
-  EReference getModel_Greetings();
+  int USER__ELEMENTS = ABSTRACT_ELEMENT_FEATURE_COUNT + 5;
 
   /**
-   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.Greeting <em>Greeting</em>}'.
+   * The number of structural features of the '<em>User</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Greeting</em>'.
-   * @see org.xtext.project.rds.myRds.Greeting
    * @generated
+   * @ordered
    */
-  EClass getGreeting();
+  int USER_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 6;
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Greeting#getName <em>Name</em>}'.
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.CustomerImpl <em>Customer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.CustomerImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getCustomer()
+   * @generated
+   */
+  int CUSTOMER = 4;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOMER__ID = USER_ROLE__ID;
+
+  /**
+   * The feature id for the '<em><b>Orders</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOMER__ORDERS = USER_ROLE__ORDERS;
+
+  /**
+   * The number of structural features of the '<em>Customer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CUSTOMER_FEATURE_COUNT = USER_ROLE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.DeliveryDriverImpl <em>Delivery Driver</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.DeliveryDriverImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getDeliveryDriver()
+   * @generated
+   */
+  int DELIVERY_DRIVER = 5;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIVERY_DRIVER__ID = USER_ROLE__ID;
+
+  /**
+   * The feature id for the '<em><b>Orders</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIVERY_DRIVER__ORDERS = USER_ROLE__ORDERS;
+
+  /**
+   * The feature id for the '<em><b>Is Available</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIVERY_DRIVER__IS_AVAILABLE = USER_ROLE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Car Licence Number</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIVERY_DRIVER__CAR_LICENCE_NUMBER = USER_ROLE_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Delivery Driver</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIVERY_DRIVER_FEATURE_COUNT = USER_ROLE_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.OrderImpl <em>Order</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.OrderImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getOrder()
+   * @generated
+   */
+  int ORDER = 6;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__ID = ABSTRACT_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Order Number</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__ORDER_NUMBER = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__STATUS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Delivery Address</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__DELIVERY_ADDRESS = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Ordered Datetime</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__ORDERED_DATETIME = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Delivered Datetime</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__DELIVERED_DATETIME = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Requested Delivery Datetime</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__REQUESTED_DELIVERY_DATETIME = ABSTRACT_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Order Items</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__ORDER_ITEMS = ABSTRACT_ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Review</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__REVIEW = ABSTRACT_ELEMENT_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Customer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__CUSTOMER = ABSTRACT_ELEMENT_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Delivery Driver</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER__DELIVERY_DRIVER = ABSTRACT_ELEMENT_FEATURE_COUNT + 9;
+
+  /**
+   * The number of structural features of the '<em>Order</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 10;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.RestaurantImpl <em>Restaurant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.RestaurantImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getRestaurant()
+   * @generated
+   */
+  int RESTAURANT = 7;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTAURANT__ID = ABSTRACT_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTAURANT__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Address</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTAURANT__ADDRESS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Menu</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTAURANT__MENU = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Restaurant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTAURANT_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.MenuImpl <em>Menu</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.MenuImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getMenu()
+   * @generated
+   */
+  int MENU = 8;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU__ID = ABSTRACT_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Restaurant</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU__RESTAURANT = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Menu Items</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU__MENU_ITEMS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Menu</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.MenuItemImpl <em>Menu Item</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.MenuItemImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getMenuItem()
+   * @generated
+   */
+  int MENU_ITEM = 9;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_ITEM__ID = ABSTRACT_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_ITEM__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Price</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_ITEM__PRICE = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_ITEM__DESCRIPTION = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Category</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_ITEM__CATEGORY = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Order Items</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_ITEM__ORDER_ITEMS = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Menu</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_ITEM__MENU = ABSTRACT_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>Menu Item</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MENU_ITEM_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.OrderItemImpl <em>Order Item</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.OrderItemImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getOrderItem()
+   * @generated
+   */
+  int ORDER_ITEM = 10;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_ITEM__ID = ABSTRACT_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Quantity</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_ITEM__QUANTITY = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>For Order</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_ITEM__FOR_ORDER = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Menu Item</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_ITEM__MENU_ITEM = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Order Item</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORDER_ITEM_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.impl.ReviewImpl <em>Review</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.impl.ReviewImpl
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getReview()
+   * @generated
+   */
+  int REVIEW = 11;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REVIEW__ID = ABSTRACT_ELEMENT__ID;
+
+  /**
+   * The feature id for the '<em><b>Num Stars</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REVIEW__NUM_STARS = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REVIEW__DESCRIPTION = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Review Datetime</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REVIEW__REVIEW_DATETIME = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Reviewed Order</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REVIEW__REVIEWED_ORDER = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Review</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REVIEW_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.OrderStatus <em>Order Status</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.OrderStatus
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getOrderStatus()
+   * @generated
+   */
+  int ORDER_STATUS = 12;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.rds.myRds.MenuItemCategory <em>Menu Item Category</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.rds.myRds.MenuItemCategory
+   * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getMenuItemCategory()
+   * @generated
+   */
+  int MENU_ITEM_CATEGORY = 13;
+
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.RDS <em>RDS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RDS</em>'.
+   * @see org.xtext.project.rds.myRds.RDS
+   * @generated
+   */
+  EClass getRDS();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.project.rds.myRds.RDS#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see org.xtext.project.rds.myRds.RDS#getElements()
+   * @see #getRDS()
+   * @generated
+   */
+  EReference getRDS_Elements();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.AbstractElement <em>Abstract Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Abstract Element</em>'.
+   * @see org.xtext.project.rds.myRds.AbstractElement
+   * @generated
+   */
+  EClass getAbstractElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.AbstractElement#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.project.rds.myRds.AbstractElement#getId()
+   * @see #getAbstractElement()
+   * @generated
+   */
+  EAttribute getAbstractElement_Id();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.UserRole <em>User Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>User Role</em>'.
+   * @see org.xtext.project.rds.myRds.UserRole
+   * @generated
+   */
+  EClass getUserRole();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.project.rds.myRds.UserRole#getOrders <em>Orders</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Orders</em>'.
+   * @see org.xtext.project.rds.myRds.UserRole#getOrders()
+   * @see #getUserRole()
+   * @generated
+   */
+  EReference getUserRole_Orders();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.User <em>User</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>User</em>'.
+   * @see org.xtext.project.rds.myRds.User
+   * @generated
+   */
+  EClass getUser();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.User#getUsername <em>Username</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Username</em>'.
+   * @see org.xtext.project.rds.myRds.User#getUsername()
+   * @see #getUser()
+   * @generated
+   */
+  EAttribute getUser_Username();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.User#getPassword <em>Password</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Password</em>'.
+   * @see org.xtext.project.rds.myRds.User#getPassword()
+   * @see #getUser()
+   * @generated
+   */
+  EAttribute getUser_Password();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.User#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.project.rds.myRds.Greeting#getName()
-   * @see #getGreeting()
+   * @see org.xtext.project.rds.myRds.User#getName()
+   * @see #getUser()
    * @generated
    */
-  EAttribute getGreeting_Name();
+  EAttribute getUser_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.User#getPhone <em>Phone</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Phone</em>'.
+   * @see org.xtext.project.rds.myRds.User#getPhone()
+   * @see #getUser()
+   * @generated
+   */
+  EAttribute getUser_Phone();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.User#getEmail <em>Email</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Email</em>'.
+   * @see org.xtext.project.rds.myRds.User#getEmail()
+   * @see #getUser()
+   * @generated
+   */
+  EAttribute getUser_Email();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.project.rds.myRds.User#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Elements</em>'.
+   * @see org.xtext.project.rds.myRds.User#getElements()
+   * @see #getUser()
+   * @generated
+   */
+  EReference getUser_Elements();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.Customer <em>Customer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Customer</em>'.
+   * @see org.xtext.project.rds.myRds.Customer
+   * @generated
+   */
+  EClass getCustomer();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.DeliveryDriver <em>Delivery Driver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Delivery Driver</em>'.
+   * @see org.xtext.project.rds.myRds.DeliveryDriver
+   * @generated
+   */
+  EClass getDeliveryDriver();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.DeliveryDriver#getIsAvailable <em>Is Available</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Available</em>'.
+   * @see org.xtext.project.rds.myRds.DeliveryDriver#getIsAvailable()
+   * @see #getDeliveryDriver()
+   * @generated
+   */
+  EAttribute getDeliveryDriver_IsAvailable();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.DeliveryDriver#getCarLicenceNumber <em>Car Licence Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Car Licence Number</em>'.
+   * @see org.xtext.project.rds.myRds.DeliveryDriver#getCarLicenceNumber()
+   * @see #getDeliveryDriver()
+   * @generated
+   */
+  EAttribute getDeliveryDriver_CarLicenceNumber();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.Order <em>Order</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Order</em>'.
+   * @see org.xtext.project.rds.myRds.Order
+   * @generated
+   */
+  EClass getOrder();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Order#getOrderNumber <em>Order Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Order Number</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getOrderNumber()
+   * @see #getOrder()
+   * @generated
+   */
+  EAttribute getOrder_OrderNumber();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Order#getStatus <em>Status</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Status</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getStatus()
+   * @see #getOrder()
+   * @generated
+   */
+  EAttribute getOrder_Status();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Order#getDeliveryAddress <em>Delivery Address</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Delivery Address</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getDeliveryAddress()
+   * @see #getOrder()
+   * @generated
+   */
+  EAttribute getOrder_DeliveryAddress();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Order#getOrderedDatetime <em>Ordered Datetime</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ordered Datetime</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getOrderedDatetime()
+   * @see #getOrder()
+   * @generated
+   */
+  EAttribute getOrder_OrderedDatetime();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Order#getDeliveredDatetime <em>Delivered Datetime</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Delivered Datetime</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getDeliveredDatetime()
+   * @see #getOrder()
+   * @generated
+   */
+  EAttribute getOrder_DeliveredDatetime();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Order#getRequestedDeliveryDatetime <em>Requested Delivery Datetime</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Requested Delivery Datetime</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getRequestedDeliveryDatetime()
+   * @see #getOrder()
+   * @generated
+   */
+  EAttribute getOrder_RequestedDeliveryDatetime();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.project.rds.myRds.Order#getOrderItems <em>Order Items</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Order Items</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getOrderItems()
+   * @see #getOrder()
+   * @generated
+   */
+  EReference getOrder_OrderItems();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.Order#getReview <em>Review</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Review</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getReview()
+   * @see #getOrder()
+   * @generated
+   */
+  EReference getOrder_Review();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.Order#getCustomer <em>Customer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Customer</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getCustomer()
+   * @see #getOrder()
+   * @generated
+   */
+  EReference getOrder_Customer();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.Order#getDeliveryDriver <em>Delivery Driver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Delivery Driver</em>'.
+   * @see org.xtext.project.rds.myRds.Order#getDeliveryDriver()
+   * @see #getOrder()
+   * @generated
+   */
+  EReference getOrder_DeliveryDriver();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.Restaurant <em>Restaurant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Restaurant</em>'.
+   * @see org.xtext.project.rds.myRds.Restaurant
+   * @generated
+   */
+  EClass getRestaurant();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Restaurant#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.project.rds.myRds.Restaurant#getName()
+   * @see #getRestaurant()
+   * @generated
+   */
+  EAttribute getRestaurant_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Restaurant#getAddress <em>Address</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Address</em>'.
+   * @see org.xtext.project.rds.myRds.Restaurant#getAddress()
+   * @see #getRestaurant()
+   * @generated
+   */
+  EAttribute getRestaurant_Address();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.Restaurant#getMenu <em>Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Menu</em>'.
+   * @see org.xtext.project.rds.myRds.Restaurant#getMenu()
+   * @see #getRestaurant()
+   * @generated
+   */
+  EReference getRestaurant_Menu();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.Menu <em>Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Menu</em>'.
+   * @see org.xtext.project.rds.myRds.Menu
+   * @generated
+   */
+  EClass getMenu();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.Menu#getRestaurant <em>Restaurant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Restaurant</em>'.
+   * @see org.xtext.project.rds.myRds.Menu#getRestaurant()
+   * @see #getMenu()
+   * @generated
+   */
+  EReference getMenu_Restaurant();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.project.rds.myRds.Menu#getMenuItems <em>Menu Items</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Menu Items</em>'.
+   * @see org.xtext.project.rds.myRds.Menu#getMenuItems()
+   * @see #getMenu()
+   * @generated
+   */
+  EReference getMenu_MenuItems();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.MenuItem <em>Menu Item</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Menu Item</em>'.
+   * @see org.xtext.project.rds.myRds.MenuItem
+   * @generated
+   */
+  EClass getMenuItem();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.MenuItem#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.project.rds.myRds.MenuItem#getName()
+   * @see #getMenuItem()
+   * @generated
+   */
+  EAttribute getMenuItem_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.MenuItem#getPrice <em>Price</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Price</em>'.
+   * @see org.xtext.project.rds.myRds.MenuItem#getPrice()
+   * @see #getMenuItem()
+   * @generated
+   */
+  EAttribute getMenuItem_Price();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.MenuItem#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.xtext.project.rds.myRds.MenuItem#getDescription()
+   * @see #getMenuItem()
+   * @generated
+   */
+  EAttribute getMenuItem_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.MenuItem#getCategory <em>Category</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Category</em>'.
+   * @see org.xtext.project.rds.myRds.MenuItem#getCategory()
+   * @see #getMenuItem()
+   * @generated
+   */
+  EAttribute getMenuItem_Category();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.xtext.project.rds.myRds.MenuItem#getOrderItems <em>Order Items</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Order Items</em>'.
+   * @see org.xtext.project.rds.myRds.MenuItem#getOrderItems()
+   * @see #getMenuItem()
+   * @generated
+   */
+  EReference getMenuItem_OrderItems();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.MenuItem#getMenu <em>Menu</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Menu</em>'.
+   * @see org.xtext.project.rds.myRds.MenuItem#getMenu()
+   * @see #getMenuItem()
+   * @generated
+   */
+  EReference getMenuItem_Menu();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.OrderItem <em>Order Item</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Order Item</em>'.
+   * @see org.xtext.project.rds.myRds.OrderItem
+   * @generated
+   */
+  EClass getOrderItem();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.OrderItem#getQuantity <em>Quantity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Quantity</em>'.
+   * @see org.xtext.project.rds.myRds.OrderItem#getQuantity()
+   * @see #getOrderItem()
+   * @generated
+   */
+  EAttribute getOrderItem_Quantity();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.OrderItem#getForOrder <em>For Order</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>For Order</em>'.
+   * @see org.xtext.project.rds.myRds.OrderItem#getForOrder()
+   * @see #getOrderItem()
+   * @generated
+   */
+  EReference getOrderItem_ForOrder();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.OrderItem#getMenuItem <em>Menu Item</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Menu Item</em>'.
+   * @see org.xtext.project.rds.myRds.OrderItem#getMenuItem()
+   * @see #getOrderItem()
+   * @generated
+   */
+  EReference getOrderItem_MenuItem();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.rds.myRds.Review <em>Review</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Review</em>'.
+   * @see org.xtext.project.rds.myRds.Review
+   * @generated
+   */
+  EClass getReview();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Review#getNumStars <em>Num Stars</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Num Stars</em>'.
+   * @see org.xtext.project.rds.myRds.Review#getNumStars()
+   * @see #getReview()
+   * @generated
+   */
+  EAttribute getReview_NumStars();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Review#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see org.xtext.project.rds.myRds.Review#getDescription()
+   * @see #getReview()
+   * @generated
+   */
+  EAttribute getReview_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.Review#getReviewDatetime <em>Review Datetime</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Review Datetime</em>'.
+   * @see org.xtext.project.rds.myRds.Review#getReviewDatetime()
+   * @see #getReview()
+   * @generated
+   */
+  EAttribute getReview_ReviewDatetime();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.project.rds.myRds.Review#getReviewedOrder <em>Reviewed Order</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Reviewed Order</em>'.
+   * @see org.xtext.project.rds.myRds.Review#getReviewedOrder()
+   * @see #getReview()
+   * @generated
+   */
+  EReference getReview_ReviewedOrder();
+
+  /**
+   * Returns the meta object for enum '{@link org.xtext.project.rds.myRds.OrderStatus <em>Order Status</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Order Status</em>'.
+   * @see org.xtext.project.rds.myRds.OrderStatus
+   * @generated
+   */
+  EEnum getOrderStatus();
+
+  /**
+   * Returns the meta object for enum '{@link org.xtext.project.rds.myRds.MenuItemCategory <em>Menu Item Category</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Menu Item Category</em>'.
+   * @see org.xtext.project.rds.myRds.MenuItemCategory
+   * @generated
+   */
+  EEnum getMenuItemCategory();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -180,32 +1359,84 @@ public interface MyRdsPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.RDSImpl <em>RDS</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.project.rds.myRds.impl.ModelImpl
-     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getModel()
+     * @see org.xtext.project.rds.myRds.impl.RDSImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getRDS()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass RDS = eINSTANCE.getRDS();
 
     /**
-     * The meta object literal for the '<em><b>Greetings</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__GREETINGS = eINSTANCE.getModel_Greetings();
+    EReference RDS__ELEMENTS = eINSTANCE.getRDS_Elements();
 
     /**
-     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.GreetingImpl <em>Greeting</em>}' class.
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.project.rds.myRds.impl.GreetingImpl
-     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getGreeting()
+     * @see org.xtext.project.rds.myRds.impl.AbstractElementImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getAbstractElement()
      * @generated
      */
-    EClass GREETING = eINSTANCE.getGreeting();
+    EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ABSTRACT_ELEMENT__ID = eINSTANCE.getAbstractElement_Id();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.UserRoleImpl <em>User Role</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.UserRoleImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getUserRole()
+     * @generated
+     */
+    EClass USER_ROLE = eINSTANCE.getUserRole();
+
+    /**
+     * The meta object literal for the '<em><b>Orders</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USER_ROLE__ORDERS = eINSTANCE.getUserRole_Orders();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.UserImpl <em>User</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.UserImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getUser()
+     * @generated
+     */
+    EClass USER = eINSTANCE.getUser();
+
+    /**
+     * The meta object literal for the '<em><b>Username</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USER__USERNAME = eINSTANCE.getUser_Username();
+
+    /**
+     * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USER__PASSWORD = eINSTANCE.getUser_Password();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -213,7 +1444,371 @@ public interface MyRdsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__NAME = eINSTANCE.getGreeting_Name();
+    EAttribute USER__NAME = eINSTANCE.getUser_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Phone</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USER__PHONE = eINSTANCE.getUser_Phone();
+
+    /**
+     * The meta object literal for the '<em><b>Email</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USER__EMAIL = eINSTANCE.getUser_Email();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USER__ELEMENTS = eINSTANCE.getUser_Elements();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.CustomerImpl <em>Customer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.CustomerImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getCustomer()
+     * @generated
+     */
+    EClass CUSTOMER = eINSTANCE.getCustomer();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.DeliveryDriverImpl <em>Delivery Driver</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.DeliveryDriverImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getDeliveryDriver()
+     * @generated
+     */
+    EClass DELIVERY_DRIVER = eINSTANCE.getDeliveryDriver();
+
+    /**
+     * The meta object literal for the '<em><b>Is Available</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DELIVERY_DRIVER__IS_AVAILABLE = eINSTANCE.getDeliveryDriver_IsAvailable();
+
+    /**
+     * The meta object literal for the '<em><b>Car Licence Number</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DELIVERY_DRIVER__CAR_LICENCE_NUMBER = eINSTANCE.getDeliveryDriver_CarLicenceNumber();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.OrderImpl <em>Order</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.OrderImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getOrder()
+     * @generated
+     */
+    EClass ORDER = eINSTANCE.getOrder();
+
+    /**
+     * The meta object literal for the '<em><b>Order Number</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER__ORDER_NUMBER = eINSTANCE.getOrder_OrderNumber();
+
+    /**
+     * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER__STATUS = eINSTANCE.getOrder_Status();
+
+    /**
+     * The meta object literal for the '<em><b>Delivery Address</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER__DELIVERY_ADDRESS = eINSTANCE.getOrder_DeliveryAddress();
+
+    /**
+     * The meta object literal for the '<em><b>Ordered Datetime</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER__ORDERED_DATETIME = eINSTANCE.getOrder_OrderedDatetime();
+
+    /**
+     * The meta object literal for the '<em><b>Delivered Datetime</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER__DELIVERED_DATETIME = eINSTANCE.getOrder_DeliveredDatetime();
+
+    /**
+     * The meta object literal for the '<em><b>Requested Delivery Datetime</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER__REQUESTED_DELIVERY_DATETIME = eINSTANCE.getOrder_RequestedDeliveryDatetime();
+
+    /**
+     * The meta object literal for the '<em><b>Order Items</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ORDER__ORDER_ITEMS = eINSTANCE.getOrder_OrderItems();
+
+    /**
+     * The meta object literal for the '<em><b>Review</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ORDER__REVIEW = eINSTANCE.getOrder_Review();
+
+    /**
+     * The meta object literal for the '<em><b>Customer</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ORDER__CUSTOMER = eINSTANCE.getOrder_Customer();
+
+    /**
+     * The meta object literal for the '<em><b>Delivery Driver</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ORDER__DELIVERY_DRIVER = eINSTANCE.getOrder_DeliveryDriver();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.RestaurantImpl <em>Restaurant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.RestaurantImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getRestaurant()
+     * @generated
+     */
+    EClass RESTAURANT = eINSTANCE.getRestaurant();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESTAURANT__NAME = eINSTANCE.getRestaurant_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Address</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESTAURANT__ADDRESS = eINSTANCE.getRestaurant_Address();
+
+    /**
+     * The meta object literal for the '<em><b>Menu</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESTAURANT__MENU = eINSTANCE.getRestaurant_Menu();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.MenuImpl <em>Menu</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.MenuImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getMenu()
+     * @generated
+     */
+    EClass MENU = eINSTANCE.getMenu();
+
+    /**
+     * The meta object literal for the '<em><b>Restaurant</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MENU__RESTAURANT = eINSTANCE.getMenu_Restaurant();
+
+    /**
+     * The meta object literal for the '<em><b>Menu Items</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MENU__MENU_ITEMS = eINSTANCE.getMenu_MenuItems();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.MenuItemImpl <em>Menu Item</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.MenuItemImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getMenuItem()
+     * @generated
+     */
+    EClass MENU_ITEM = eINSTANCE.getMenuItem();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MENU_ITEM__NAME = eINSTANCE.getMenuItem_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Price</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MENU_ITEM__PRICE = eINSTANCE.getMenuItem_Price();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MENU_ITEM__DESCRIPTION = eINSTANCE.getMenuItem_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MENU_ITEM__CATEGORY = eINSTANCE.getMenuItem_Category();
+
+    /**
+     * The meta object literal for the '<em><b>Order Items</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MENU_ITEM__ORDER_ITEMS = eINSTANCE.getMenuItem_OrderItems();
+
+    /**
+     * The meta object literal for the '<em><b>Menu</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MENU_ITEM__MENU = eINSTANCE.getMenuItem_Menu();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.OrderItemImpl <em>Order Item</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.OrderItemImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getOrderItem()
+     * @generated
+     */
+    EClass ORDER_ITEM = eINSTANCE.getOrderItem();
+
+    /**
+     * The meta object literal for the '<em><b>Quantity</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORDER_ITEM__QUANTITY = eINSTANCE.getOrderItem_Quantity();
+
+    /**
+     * The meta object literal for the '<em><b>For Order</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ORDER_ITEM__FOR_ORDER = eINSTANCE.getOrderItem_ForOrder();
+
+    /**
+     * The meta object literal for the '<em><b>Menu Item</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ORDER_ITEM__MENU_ITEM = eINSTANCE.getOrderItem_MenuItem();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.ReviewImpl <em>Review</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.impl.ReviewImpl
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getReview()
+     * @generated
+     */
+    EClass REVIEW = eINSTANCE.getReview();
+
+    /**
+     * The meta object literal for the '<em><b>Num Stars</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REVIEW__NUM_STARS = eINSTANCE.getReview_NumStars();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REVIEW__DESCRIPTION = eINSTANCE.getReview_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Review Datetime</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REVIEW__REVIEW_DATETIME = eINSTANCE.getReview_ReviewDatetime();
+
+    /**
+     * The meta object literal for the '<em><b>Reviewed Order</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REVIEW__REVIEWED_ORDER = eINSTANCE.getReview_ReviewedOrder();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.OrderStatus <em>Order Status</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.OrderStatus
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getOrderStatus()
+     * @generated
+     */
+    EEnum ORDER_STATUS = eINSTANCE.getOrderStatus();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.rds.myRds.MenuItemCategory <em>Menu Item Category</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.rds.myRds.MenuItemCategory
+     * @see org.xtext.project.rds.myRds.impl.MyRdsPackageImpl#getMenuItemCategory()
+     * @generated
+     */
+    EEnum MENU_ITEM_CATEGORY = eINSTANCE.getMenuItemCategory();
 
   }
 

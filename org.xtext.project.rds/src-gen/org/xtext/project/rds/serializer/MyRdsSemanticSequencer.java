@@ -14,9 +14,17 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.project.rds.myRds.Greeting;
-import org.xtext.project.rds.myRds.Model;
+import org.xtext.project.rds.myRds.Customer;
+import org.xtext.project.rds.myRds.DeliveryDriver;
+import org.xtext.project.rds.myRds.Menu;
+import org.xtext.project.rds.myRds.MenuItem;
 import org.xtext.project.rds.myRds.MyRdsPackage;
+import org.xtext.project.rds.myRds.Order;
+import org.xtext.project.rds.myRds.OrderItem;
+import org.xtext.project.rds.myRds.RDS;
+import org.xtext.project.rds.myRds.Restaurant;
+import org.xtext.project.rds.myRds.Review;
+import org.xtext.project.rds.myRds.User;
 import org.xtext.project.rds.services.MyRdsGrammarAccess;
 
 @SuppressWarnings("all")
@@ -33,11 +41,35 @@ public class MyRdsSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == MyRdsPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case MyRdsPackage.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case MyRdsPackage.CUSTOMER:
+				sequence_Customer(context, (Customer) semanticObject); 
 				return; 
-			case MyRdsPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case MyRdsPackage.DELIVERY_DRIVER:
+				sequence_DeliveryDriver(context, (DeliveryDriver) semanticObject); 
+				return; 
+			case MyRdsPackage.MENU:
+				sequence_Menu(context, (Menu) semanticObject); 
+				return; 
+			case MyRdsPackage.MENU_ITEM:
+				sequence_MenuItem(context, (MenuItem) semanticObject); 
+				return; 
+			case MyRdsPackage.ORDER:
+				sequence_Order(context, (Order) semanticObject); 
+				return; 
+			case MyRdsPackage.ORDER_ITEM:
+				sequence_OrderItem(context, (OrderItem) semanticObject); 
+				return; 
+			case MyRdsPackage.RDS:
+				sequence_RDS(context, (RDS) semanticObject); 
+				return; 
+			case MyRdsPackage.RESTAURANT:
+				sequence_Restaurant(context, (Restaurant) semanticObject); 
+				return; 
+			case MyRdsPackage.REVIEW:
+				sequence_Review(context, (Review) semanticObject); 
+				return; 
+			case MyRdsPackage.USER:
+				sequence_User(context, (User) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,30 +78,207 @@ public class MyRdsSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Greeting returns Greeting
+	 *     AbstractElement returns Customer
+	 *     UserRole returns Customer
+	 *     Customer returns Customer
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (id=ID orders+=[Order|ID]*)
 	 */
-	protected void sequence_Greeting(ISerializationContext context, Greeting semanticObject) {
+	protected void sequence_Customer(ISerializationContext context, Customer semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns DeliveryDriver
+	 *     UserRole returns DeliveryDriver
+	 *     DeliveryDriver returns DeliveryDriver
+	 *
+	 * Constraint:
+	 *     (id=ID isAvailable=INT carLicenceNumber=LICENCE orders+=[Order|ID]*)
+	 */
+	protected void sequence_DeliveryDriver(ISerializationContext context, DeliveryDriver semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns MenuItem
+	 *     MenuItem returns MenuItem
+	 *
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         name=STRING 
+	 *         price=DECIMAL 
+	 *         description=STRING 
+	 *         category=MenuItemCategory 
+	 *         orderItems+=[OrderItem|ID]* 
+	 *         menu=[Menu|ID]
+	 *     )
+	 */
+	protected void sequence_MenuItem(ISerializationContext context, MenuItem semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns Menu
+	 *     Menu returns Menu
+	 *
+	 * Constraint:
+	 *     (id=ID restaurant=[Restaurant|ID] menuItems+=[MenuItem|ID]*)
+	 */
+	protected void sequence_Menu(ISerializationContext context, Menu semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns OrderItem
+	 *     OrderItem returns OrderItem
+	 *
+	 * Constraint:
+	 *     (id=ID quantity=INT forOrder=[Order|ID] menuItem=[MenuItem|ID])
+	 */
+	protected void sequence_OrderItem(ISerializationContext context, OrderItem semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.GREETING__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.ABSTRACT_ELEMENT__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.ABSTRACT_ELEMENT__ID));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.ORDER_ITEM__QUANTITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.ORDER_ITEM__QUANTITY));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.ORDER_ITEM__FOR_ORDER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.ORDER_ITEM__FOR_ORDER));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.ORDER_ITEM__MENU_ITEM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.ORDER_ITEM__MENU_ITEM));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getOrderItemAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getOrderItemAccess().getQuantityINTTerminalRuleCall_5_0(), semanticObject.getQuantity());
+		feeder.accept(grammarAccess.getOrderItemAccess().getForOrderOrderIDTerminalRuleCall_8_0_1(), semanticObject.eGet(MyRdsPackage.Literals.ORDER_ITEM__FOR_ORDER, false));
+		feeder.accept(grammarAccess.getOrderItemAccess().getMenuItemMenuItemIDTerminalRuleCall_11_0_1(), semanticObject.eGet(MyRdsPackage.Literals.ORDER_ITEM__MENU_ITEM, false));
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     AbstractElement returns Order
+	 *     Order returns Order
 	 *
 	 * Constraint:
-	 *     greetings+=Greeting+
+	 *     (
+	 *         id=ID 
+	 *         orderNumber=INT 
+	 *         status=OrderStatus 
+	 *         deliveryAddress=ADDRESS 
+	 *         orderedDatetime=DATETIME 
+	 *         deliveredDatetime=DATETIME 
+	 *         requestedDeliveryDatetime=DATETIME 
+	 *         orderItems+=[OrderItem|ID]* 
+	 *         review=[Review|ID] 
+	 *         customer=[Customer|ID] 
+	 *         deliveryDriver=[DeliveryDriver|ID]
+	 *     )
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_Order(ISerializationContext context, Order semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RDS returns RDS
+	 *
+	 * Constraint:
+	 *     elements+=AbstractElement+
+	 */
+	protected void sequence_RDS(ISerializationContext context, RDS semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns Restaurant
+	 *     Restaurant returns Restaurant
+	 *
+	 * Constraint:
+	 *     (id=ID name=STRING address=ADDRESS menu=[Menu|ID])
+	 */
+	protected void sequence_Restaurant(ISerializationContext context, Restaurant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.ABSTRACT_ELEMENT__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.ABSTRACT_ELEMENT__ID));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.RESTAURANT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.RESTAURANT__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.RESTAURANT__ADDRESS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.RESTAURANT__ADDRESS));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.RESTAURANT__MENU) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.RESTAURANT__MENU));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRestaurantAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getRestaurantAccess().getNameSTRINGTerminalRuleCall_5_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRestaurantAccess().getAddressADDRESSParserRuleCall_8_0(), semanticObject.getAddress());
+		feeder.accept(grammarAccess.getRestaurantAccess().getMenuMenuIDTerminalRuleCall_11_0_1(), semanticObject.eGet(MyRdsPackage.Literals.RESTAURANT__MENU, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns Review
+	 *     Review returns Review
+	 *
+	 * Constraint:
+	 *     (id=ID numStars=INT description=STRING reviewDatetime=DATETIME reviewedOrder=[Order|ID])
+	 */
+	protected void sequence_Review(ISerializationContext context, Review semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.ABSTRACT_ELEMENT__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.ABSTRACT_ELEMENT__ID));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.REVIEW__NUM_STARS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.REVIEW__NUM_STARS));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.REVIEW__DESCRIPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.REVIEW__DESCRIPTION));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.REVIEW__REVIEW_DATETIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.REVIEW__REVIEW_DATETIME));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.REVIEW__REVIEWED_ORDER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.REVIEW__REVIEWED_ORDER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getReviewAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getReviewAccess().getNumStarsINTTerminalRuleCall_5_0(), semanticObject.getNumStars());
+		feeder.accept(grammarAccess.getReviewAccess().getDescriptionSTRINGTerminalRuleCall_8_0(), semanticObject.getDescription());
+		feeder.accept(grammarAccess.getReviewAccess().getReviewDatetimeDATETIMEParserRuleCall_11_0(), semanticObject.getReviewDatetime());
+		feeder.accept(grammarAccess.getReviewAccess().getReviewedOrderOrderIDTerminalRuleCall_14_0_1(), semanticObject.eGet(MyRdsPackage.Literals.REVIEW__REVIEWED_ORDER, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns User
+	 *     User returns User
+	 *
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         username=STRING 
+	 *         password=STRING 
+	 *         name=FULLNAME 
+	 *         phone=PHONE 
+	 *         email=EMAIL 
+	 *         elements+=[UserRole|ID]*
+	 *     )
+	 */
+	protected void sequence_User(ISerializationContext context, User semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

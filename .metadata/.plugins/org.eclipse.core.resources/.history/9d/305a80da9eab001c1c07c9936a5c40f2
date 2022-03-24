@@ -1,0 +1,19 @@
+grammar org.xtext.project.rds.MyRds with org.eclipse.xtext.common.Terminals
+
+generate myRds "http://www.xtext.org/project/rds/MyRds"
+
+//Model:
+//	greetings+=Greeting*;
+//	
+//Greeting:
+//	'Hello' name=ID '!';
+
+RDS : (elements+=AbstractElement)*;
+
+AbstractElement: User, Order, UserRole, Restaurant;
+
+
+User:
+	'user' email=ID '{'
+		elements+=[UserRole]*
+	'}';

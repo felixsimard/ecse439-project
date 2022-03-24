@@ -1,0 +1,52 @@
+grammar org.xtext.project.rds.MyRds with org.eclipse.xtext.common.Terminals
+
+generate myRds "http://www.xtext.org/project/rds/MyRds"
+
+//Model:
+//	greetings+=Greeting*;
+//	
+//Greeting:
+//	'Hello' name=ID '!';
+
+RDS : (elements+=AbstractElement)*;
+
+AbstractElement: User | Order | UserRole | Restaurant;
+
+UserRole: Customer | DeliveryDriver;
+
+
+User:
+	'user' email=ID '{'
+		elements+=[UserRole]*
+	'}'
+;
+	
+	
+Customer:
+	'Customer' name=ID '{'
+		''
+	'}'
+;
+
+DeliveryDriver:
+	'DeliveryDriver' name=ID '{'
+		'isAvailable' ':' isAvailable=INT
+		'carLicenceNumber' ':' carLicenceNumber=LICENCE  
+			 
+	'}'
+;
+
+// Enumerations
+enum OrderStatus:
+	ACCEPTED = 'accepted' | PREPARATION = 'preparation' | READY_PICKUP = 'ready_pickup' | PICKED_UP = 'picked_up' | DELIVERED = 'delivered'
+;
+
+enum MenuItemCategory:
+	APPETIZER = 'appetizer' | SIDE_DISH = 'side_dish' | MAIN_DISH = 'main_dish' | DESSERT = 'dessert' | DRINK = 'drink'
+;
+
+// Format types
+DECIMAL: INT '.' INT;
+DATETIME: INT '-' INT '-' INT ' ' INT ':' INT;
+ADDRESS: INT STRING ',' STRING;
+LICENCE: STRING INT INT ' ' STRING STRING STRING;
