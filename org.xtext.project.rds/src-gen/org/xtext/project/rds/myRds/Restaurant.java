@@ -3,6 +3,9 @@
  */
 package org.xtext.project.rds.myRds;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +25,7 @@ package org.xtext.project.rds.myRds;
  * @model
  * @generated
  */
-public interface Restaurant extends AbstractElement
+public interface Restaurant extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -69,25 +72,15 @@ public interface Restaurant extends AbstractElement
   void setAddress(String value);
 
   /**
-   * Returns the value of the '<em><b>Menu</b></em>' reference.
+   * Returns the value of the '<em><b>Menu</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.project.rds.myRds.Menu}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Menu</em>' reference.
-   * @see #setMenu(Menu)
+   * @return the value of the '<em>Menu</em>' containment reference list.
    * @see org.xtext.project.rds.myRds.MyRdsPackage#getRestaurant_Menu()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Menu getMenu();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.Restaurant#getMenu <em>Menu</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Menu</em>' reference.
-   * @see #getMenu()
-   * @generated
-   */
-  void setMenu(Menu value);
+  EList<Menu> getMenu();
 
 } // Restaurant

@@ -3,16 +3,14 @@
  */
 package org.xtext.project.rds.myRds.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.project.rds.myRds.MyRdsPackage;
-import org.xtext.project.rds.myRds.Order;
 import org.xtext.project.rds.myRds.UserRole;
 
 /**
@@ -23,22 +21,32 @@ import org.xtext.project.rds.myRds.UserRole;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.impl.UserRoleImpl#getOrders <em>Orders</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.UserRoleImpl#getUsername <em>Username</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class UserRoleImpl extends AbstractElementImpl implements UserRole
+public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRole
 {
   /**
-   * The cached value of the '{@link #getOrders() <em>Orders</em>}' reference list.
+   * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOrders()
+   * @see #getUsername()
    * @generated
    * @ordered
    */
-  protected EList<Order> orders;
+  protected static final String USERNAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getUsername() <em>Username</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUsername()
+   * @generated
+   * @ordered
+   */
+  protected String username = USERNAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,13 +75,23 @@ public class UserRoleImpl extends AbstractElementImpl implements UserRole
    * @generated
    */
   @Override
-  public EList<Order> getOrders()
+  public String getUsername()
   {
-    if (orders == null)
-    {
-      orders = new EObjectResolvingEList<Order>(Order.class, this, MyRdsPackage.USER_ROLE__ORDERS);
-    }
-    return orders;
+    return username;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setUsername(String newUsername)
+  {
+    String oldUsername = username;
+    username = newUsername;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER_ROLE__USERNAME, oldUsername, username));
   }
 
   /**
@@ -86,8 +104,8 @@ public class UserRoleImpl extends AbstractElementImpl implements UserRole
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER_ROLE__ORDERS:
-        return getOrders();
+      case MyRdsPackage.USER_ROLE__USERNAME:
+        return getUsername();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -97,15 +115,13 @@ public class UserRoleImpl extends AbstractElementImpl implements UserRole
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER_ROLE__ORDERS:
-        getOrders().clear();
-        getOrders().addAll((Collection<? extends Order>)newValue);
+      case MyRdsPackage.USER_ROLE__USERNAME:
+        setUsername((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -121,8 +137,8 @@ public class UserRoleImpl extends AbstractElementImpl implements UserRole
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER_ROLE__ORDERS:
-        getOrders().clear();
+      case MyRdsPackage.USER_ROLE__USERNAME:
+        setUsername(USERNAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -138,10 +154,27 @@ public class UserRoleImpl extends AbstractElementImpl implements UserRole
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER_ROLE__ORDERS:
-        return orders != null && !orders.isEmpty();
+      case MyRdsPackage.USER_ROLE__USERNAME:
+        return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (username: ");
+    result.append(username);
+    result.append(')');
+    return result.toString();
   }
 
 } //UserRoleImpl

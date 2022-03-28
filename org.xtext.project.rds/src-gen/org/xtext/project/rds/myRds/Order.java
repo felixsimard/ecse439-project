@@ -5,6 +5,8 @@ package org.xtext.project.rds.myRds;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Order</b></em>'.
@@ -17,32 +19,32 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xtext.project.rds.myRds.Order#getOrderNumber <em>Order Number</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Order#getStatus <em>Status</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Order#getDeliveryAddress <em>Delivery Address</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.Order#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.Order#getDeliveryDriver <em>Delivery Driver</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Order#getOrderedDatetime <em>Ordered Datetime</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Order#getDeliveredDatetime <em>Delivered Datetime</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Order#getRequestedDeliveryDatetime <em>Requested Delivery Datetime</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Order#getOrderItems <em>Order Items</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Order#getReview <em>Review</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.Order#getCustomer <em>Customer</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.Order#getDeliveryDriver <em>Delivery Driver</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrder()
  * @model
  * @generated
  */
-public interface Order extends AbstractElement
+public interface Order extends EObject
 {
   /**
    * Returns the value of the '<em><b>Order Number</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Order Number</em>' attribute.
-   * @see #setOrderNumber(int)
+   * @see #setOrderNumber(String)
    * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrder_OrderNumber()
    * @model
    * @generated
    */
-  int getOrderNumber();
+  String getOrderNumber();
 
   /**
    * Sets the value of the '{@link org.xtext.project.rds.myRds.Order#getOrderNumber <em>Order Number</em>}' attribute.
@@ -52,7 +54,7 @@ public interface Order extends AbstractElement
    * @see #getOrderNumber()
    * @generated
    */
-  void setOrderNumber(int value);
+  void setOrderNumber(String value);
 
   /**
    * Returns the value of the '<em><b>Status</b></em>' attribute.
@@ -100,6 +102,50 @@ public interface Order extends AbstractElement
    * @generated
    */
   void setDeliveryAddress(String value);
+
+  /**
+   * Returns the value of the '<em><b>Customer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Customer</em>' reference.
+   * @see #setCustomer(Customer)
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrder_Customer()
+   * @model
+   * @generated
+   */
+  Customer getCustomer();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.rds.myRds.Order#getCustomer <em>Customer</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Customer</em>' reference.
+   * @see #getCustomer()
+   * @generated
+   */
+  void setCustomer(Customer value);
+
+  /**
+   * Returns the value of the '<em><b>Delivery Driver</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Delivery Driver</em>' reference.
+   * @see #setDeliveryDriver(DeliveryDriver)
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrder_DeliveryDriver()
+   * @model
+   * @generated
+   */
+  DeliveryDriver getDeliveryDriver();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.rds.myRds.Order#getDeliveryDriver <em>Delivery Driver</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Delivery Driver</em>' reference.
+   * @see #getDeliveryDriver()
+   * @generated
+   */
+  void setDeliveryDriver(DeliveryDriver value);
 
   /**
    * Returns the value of the '<em><b>Ordered Datetime</b></em>' attribute.
@@ -168,81 +214,27 @@ public interface Order extends AbstractElement
   void setRequestedDeliveryDatetime(String value);
 
   /**
-   * Returns the value of the '<em><b>Order Items</b></em>' reference list.
+   * Returns the value of the '<em><b>Order Items</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.project.rds.myRds.OrderItem}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Order Items</em>' reference list.
+   * @return the value of the '<em>Order Items</em>' containment reference list.
    * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrder_OrderItems()
-   * @model
+   * @model containment="true"
    * @generated
    */
   EList<OrderItem> getOrderItems();
 
   /**
-   * Returns the value of the '<em><b>Review</b></em>' reference.
+   * Returns the value of the '<em><b>Review</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.project.rds.myRds.Review}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Review</em>' reference.
-   * @see #setReview(Review)
+   * @return the value of the '<em>Review</em>' containment reference list.
    * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrder_Review()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Review getReview();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.Order#getReview <em>Review</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Review</em>' reference.
-   * @see #getReview()
-   * @generated
-   */
-  void setReview(Review value);
-
-  /**
-   * Returns the value of the '<em><b>Customer</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Customer</em>' reference.
-   * @see #setCustomer(Customer)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrder_Customer()
-   * @model
-   * @generated
-   */
-  Customer getCustomer();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.Order#getCustomer <em>Customer</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Customer</em>' reference.
-   * @see #getCustomer()
-   * @generated
-   */
-  void setCustomer(Customer value);
-
-  /**
-   * Returns the value of the '<em><b>Delivery Driver</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Delivery Driver</em>' reference.
-   * @see #setDeliveryDriver(DeliveryDriver)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrder_DeliveryDriver()
-   * @model
-   * @generated
-   */
-  DeliveryDriver getDeliveryDriver();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.Order#getDeliveryDriver <em>Delivery Driver</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Delivery Driver</em>' reference.
-   * @see #getDeliveryDriver()
-   * @generated
-   */
-  void setDeliveryDriver(DeliveryDriver value);
+  EList<Review> getReview();
 
 } // Order

@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.RDS#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.RDS#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.RDS#getRestaurants <em>Restaurants</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.RDS#getOrders <em>Orders</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.rds.myRds.MyRdsPackage#getRDS()
@@ -26,15 +28,39 @@ import org.eclipse.emf.ecore.EObject;
 public interface RDS extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.project.rds.myRds.AbstractElement}.
+   * Returns the value of the '<em><b>Users</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.project.rds.myRds.User}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getRDS_Elements()
+   * @return the value of the '<em>Users</em>' containment reference list.
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getRDS_Users()
    * @model containment="true"
    * @generated
    */
-  EList<AbstractElement> getElements();
+  EList<User> getUsers();
+
+  /**
+   * Returns the value of the '<em><b>Restaurants</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.project.rds.myRds.Restaurant}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Restaurants</em>' containment reference list.
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getRDS_Restaurants()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Restaurant> getRestaurants();
+
+  /**
+   * Returns the value of the '<em><b>Orders</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.project.rds.myRds.Order}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Orders</em>' containment reference list.
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getRDS_Orders()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Order> getOrders();
 
 } // RDS

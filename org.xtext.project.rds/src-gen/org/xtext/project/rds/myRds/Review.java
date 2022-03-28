@@ -3,6 +3,7 @@
  */
 package org.xtext.project.rds.myRds;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,18 +14,40 @@ package org.xtext.project.rds.myRds;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.rds.myRds.Review#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Review#getNumStars <em>Num Stars</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Review#getDescription <em>Description</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Review#getReviewDatetime <em>Review Datetime</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.Review#getReviewedOrder <em>Reviewed Order</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.rds.myRds.MyRdsPackage#getReview()
  * @model
  * @generated
  */
-public interface Review extends AbstractElement
+public interface Review extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getReview_Id()
+   * @model
+   * @generated
+   */
+  String getId();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.rds.myRds.Review#getId <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
+   * @generated
+   */
+  void setId(String value);
+
   /**
    * Returns the value of the '<em><b>Num Stars</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -90,27 +113,5 @@ public interface Review extends AbstractElement
    * @generated
    */
   void setReviewDatetime(String value);
-
-  /**
-   * Returns the value of the '<em><b>Reviewed Order</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Reviewed Order</em>' reference.
-   * @see #setReviewedOrder(Order)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getReview_ReviewedOrder()
-   * @model
-   * @generated
-   */
-  Order getReviewedOrder();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.Review#getReviewedOrder <em>Reviewed Order</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Reviewed Order</em>' reference.
-   * @see #getReviewedOrder()
-   * @generated
-   */
-  void setReviewedOrder(Order value);
 
 } // Review

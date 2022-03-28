@@ -3,7 +3,7 @@
  */
 package org.xtext.project.rds.myRds;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,25 +14,35 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.UserRole#getOrders <em>Orders</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.UserRole#getUsername <em>Username</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.rds.myRds.MyRdsPackage#getUserRole()
  * @model
  * @generated
  */
-public interface UserRole extends AbstractElement
+public interface UserRole extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Orders</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.project.rds.myRds.Order}.
+   * Returns the value of the '<em><b>Username</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Orders</em>' reference list.
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUserRole_Orders()
+   * @return the value of the '<em>Username</em>' attribute.
+   * @see #setUsername(String)
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUserRole_Username()
    * @model
    * @generated
    */
-  EList<Order> getOrders();
+  String getUsername();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.rds.myRds.UserRole#getUsername <em>Username</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Username</em>' attribute.
+   * @see #getUsername()
+   * @generated
+   */
+  void setUsername(String value);
 
 } // UserRole

@@ -6,14 +6,18 @@ package org.xtext.project.rds.myRds.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.project.rds.myRds.MyRdsPackage;
 import org.xtext.project.rds.myRds.User;
@@ -27,37 +31,36 @@ import org.xtext.project.rds.myRds.UserRole;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getUsername <em>Username</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getPhone <em>Phone</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getEmail <em>Email</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getRoles <em>Roles</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class UserImpl extends AbstractElementImpl implements User
+public class UserImpl extends MinimalEObjectImpl.Container implements User
 {
   /**
-   * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUsername()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String USERNAME_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUsername() <em>Username</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUsername()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String username = USERNAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
@@ -78,26 +81,6 @@ public class UserImpl extends AbstractElementImpl implements User
    * @ordered
    */
   protected String password = PASSWORD_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getPhone() <em>Phone</em>}' attribute.
@@ -140,14 +123,14 @@ public class UserImpl extends AbstractElementImpl implements User
   protected String email = EMAIL_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
+   * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getRoles()
    * @generated
    * @ordered
    */
-  protected EList<UserRole> elements;
+  protected EList<UserRole> roles;
 
   /**
    * <!-- begin-user-doc -->
@@ -176,9 +159,9 @@ public class UserImpl extends AbstractElementImpl implements User
    * @generated
    */
   @Override
-  public String getUsername()
+  public String getName()
   {
-    return username;
+    return name;
   }
 
   /**
@@ -187,12 +170,12 @@ public class UserImpl extends AbstractElementImpl implements User
    * @generated
    */
   @Override
-  public void setUsername(String newUsername)
+  public void setName(String newName)
   {
-    String oldUsername = username;
-    username = newUsername;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER__USERNAME, oldUsername, username));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER__NAME, oldName, name));
   }
 
   /**
@@ -218,31 +201,6 @@ public class UserImpl extends AbstractElementImpl implements User
     password = newPassword;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER__PASSWORD, oldPassword, password));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER__NAME, oldName, name));
   }
 
   /**
@@ -301,13 +259,29 @@ public class UserImpl extends AbstractElementImpl implements User
    * @generated
    */
   @Override
-  public EList<UserRole> getElements()
+  public EList<UserRole> getRoles()
   {
-    if (elements == null)
+    if (roles == null)
     {
-      elements = new EObjectResolvingEList<UserRole>(UserRole.class, this, MyRdsPackage.USER__ELEMENTS);
+      roles = new EObjectContainmentEList<UserRole>(UserRole.class, this, MyRdsPackage.USER__ROLES);
     }
-    return elements;
+    return roles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyRdsPackage.USER__ROLES:
+        return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -320,18 +294,16 @@ public class UserImpl extends AbstractElementImpl implements User
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER__USERNAME:
-        return getUsername();
-      case MyRdsPackage.USER__PASSWORD:
-        return getPassword();
       case MyRdsPackage.USER__NAME:
         return getName();
+      case MyRdsPackage.USER__PASSWORD:
+        return getPassword();
       case MyRdsPackage.USER__PHONE:
         return getPhone();
       case MyRdsPackage.USER__EMAIL:
         return getEmail();
-      case MyRdsPackage.USER__ELEMENTS:
-        return getElements();
+      case MyRdsPackage.USER__ROLES:
+        return getRoles();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -347,14 +319,11 @@ public class UserImpl extends AbstractElementImpl implements User
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER__USERNAME:
-        setUsername((String)newValue);
+      case MyRdsPackage.USER__NAME:
+        setName((String)newValue);
         return;
       case MyRdsPackage.USER__PASSWORD:
         setPassword((String)newValue);
-        return;
-      case MyRdsPackage.USER__NAME:
-        setName((String)newValue);
         return;
       case MyRdsPackage.USER__PHONE:
         setPhone((String)newValue);
@@ -362,9 +331,9 @@ public class UserImpl extends AbstractElementImpl implements User
       case MyRdsPackage.USER__EMAIL:
         setEmail((String)newValue);
         return;
-      case MyRdsPackage.USER__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends UserRole>)newValue);
+      case MyRdsPackage.USER__ROLES:
+        getRoles().clear();
+        getRoles().addAll((Collection<? extends UserRole>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -380,14 +349,11 @@ public class UserImpl extends AbstractElementImpl implements User
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER__USERNAME:
-        setUsername(USERNAME_EDEFAULT);
+      case MyRdsPackage.USER__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case MyRdsPackage.USER__PASSWORD:
         setPassword(PASSWORD_EDEFAULT);
-        return;
-      case MyRdsPackage.USER__NAME:
-        setName(NAME_EDEFAULT);
         return;
       case MyRdsPackage.USER__PHONE:
         setPhone(PHONE_EDEFAULT);
@@ -395,8 +361,8 @@ public class UserImpl extends AbstractElementImpl implements User
       case MyRdsPackage.USER__EMAIL:
         setEmail(EMAIL_EDEFAULT);
         return;
-      case MyRdsPackage.USER__ELEMENTS:
-        getElements().clear();
+      case MyRdsPackage.USER__ROLES:
+        getRoles().clear();
         return;
     }
     super.eUnset(featureID);
@@ -412,18 +378,16 @@ public class UserImpl extends AbstractElementImpl implements User
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER__USERNAME:
-        return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
-      case MyRdsPackage.USER__PASSWORD:
-        return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
       case MyRdsPackage.USER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyRdsPackage.USER__PASSWORD:
+        return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
       case MyRdsPackage.USER__PHONE:
         return PHONE_EDEFAULT == null ? phone != null : !PHONE_EDEFAULT.equals(phone);
       case MyRdsPackage.USER__EMAIL:
         return EMAIL_EDEFAULT == null ? email != null : !EMAIL_EDEFAULT.equals(email);
-      case MyRdsPackage.USER__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case MyRdsPackage.USER__ROLES:
+        return roles != null && !roles.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -439,12 +403,10 @@ public class UserImpl extends AbstractElementImpl implements User
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (username: ");
-    result.append(username);
+    result.append(" (name: ");
+    result.append(name);
     result.append(", password: ");
     result.append(password);
-    result.append(", name: ");
-    result.append(name);
     result.append(", phone: ");
     result.append(phone);
     result.append(", email: ");

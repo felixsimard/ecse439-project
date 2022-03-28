@@ -3,6 +3,10 @@
  */
 package org.xtext.project.rds.validation;
 
+//import org.eclipse.xtext.validation.Check;
+//import org.xtext.project.rds.myRds.MyRdsPackage;
+//import org.xtext.project.rds.myRds.Order;
+//import org.xtext.project.rds.myRds.OrderStatus;
 
 /**
  * This class contains custom validation rules. 
@@ -19,6 +23,20 @@ public class MyRdsValidator extends AbstractMyRdsValidator {
 //			warning("Name should start with a capital",
 //					MyRdsPackage.Literals.GREETING__NAME,
 //					INVALID_NAME);
+//		}
+//	}
+	
+//	@Check
+//	public void checkOrderWithNoDelieveredDateNotHaveDeliveredStatus(Order order) {
+//		if(order.getStatus() != OrderStatus.DELIVERED && order.getDeliveredDatetime() != null) {
+//			warning("An order which has not been delivered yet cannot have a delivered date", MyRdsPackage.Literals.ORDER__STATUS);
+//		}
+//	}
+	
+//	@Check
+//	public void checkOrderWithDelieveredDateHasDeliveredStatus(Order order) {
+//		if(order.getStatus() == OrderStatus.DELIVERED && order.getDeliveredDatetime() == null) {
+//			warning("A delivered ordered must have a delivered date", MyRdsPackage.Literals.ORDER__STATUS);
 //		}
 //	}
 	

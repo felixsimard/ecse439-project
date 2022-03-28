@@ -6,12 +6,11 @@ package org.xtext.project.rds.myRds.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.project.rds.myRds.MyRdsPackage;
-import org.xtext.project.rds.myRds.Order;
 import org.xtext.project.rds.myRds.Review;
 
 /**
@@ -22,16 +21,36 @@ import org.xtext.project.rds.myRds.Review;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.ReviewImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.ReviewImpl#getNumStars <em>Num Stars</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.ReviewImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.ReviewImpl#getReviewDatetime <em>Review Datetime</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.impl.ReviewImpl#getReviewedOrder <em>Reviewed Order</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ReviewImpl extends AbstractElementImpl implements Review
+public class ReviewImpl extends MinimalEObjectImpl.Container implements Review
 {
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
+
   /**
    * The default value of the '{@link #getNumStars() <em>Num Stars</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -93,16 +112,6 @@ public class ReviewImpl extends AbstractElementImpl implements Review
   protected String reviewDatetime = REVIEW_DATETIME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getReviewedOrder() <em>Reviewed Order</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReviewedOrder()
-   * @generated
-   * @ordered
-   */
-  protected Order reviewedOrder;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -121,6 +130,31 @@ public class ReviewImpl extends AbstractElementImpl implements Review
   protected EClass eStaticClass()
   {
     return MyRdsPackage.Literals.REVIEW;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setId(String newId)
+  {
+    String oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.REVIEW__ID, oldId, id));
   }
 
   /**
@@ -204,64 +238,18 @@ public class ReviewImpl extends AbstractElementImpl implements Review
    * @generated
    */
   @Override
-  public Order getReviewedOrder()
-  {
-    if (reviewedOrder != null && reviewedOrder.eIsProxy())
-    {
-      InternalEObject oldReviewedOrder = (InternalEObject)reviewedOrder;
-      reviewedOrder = (Order)eResolveProxy(oldReviewedOrder);
-      if (reviewedOrder != oldReviewedOrder)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyRdsPackage.REVIEW__REVIEWED_ORDER, oldReviewedOrder, reviewedOrder));
-      }
-    }
-    return reviewedOrder;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Order basicGetReviewedOrder()
-  {
-    return reviewedOrder;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setReviewedOrder(Order newReviewedOrder)
-  {
-    Order oldReviewedOrder = reviewedOrder;
-    reviewedOrder = newReviewedOrder;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.REVIEW__REVIEWED_ORDER, oldReviewedOrder, reviewedOrder));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case MyRdsPackage.REVIEW__ID:
+        return getId();
       case MyRdsPackage.REVIEW__NUM_STARS:
         return getNumStars();
       case MyRdsPackage.REVIEW__DESCRIPTION:
         return getDescription();
       case MyRdsPackage.REVIEW__REVIEW_DATETIME:
         return getReviewDatetime();
-      case MyRdsPackage.REVIEW__REVIEWED_ORDER:
-        if (resolve) return getReviewedOrder();
-        return basicGetReviewedOrder();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -276,6 +264,9 @@ public class ReviewImpl extends AbstractElementImpl implements Review
   {
     switch (featureID)
     {
+      case MyRdsPackage.REVIEW__ID:
+        setId((String)newValue);
+        return;
       case MyRdsPackage.REVIEW__NUM_STARS:
         setNumStars((Integer)newValue);
         return;
@@ -284,9 +275,6 @@ public class ReviewImpl extends AbstractElementImpl implements Review
         return;
       case MyRdsPackage.REVIEW__REVIEW_DATETIME:
         setReviewDatetime((String)newValue);
-        return;
-      case MyRdsPackage.REVIEW__REVIEWED_ORDER:
-        setReviewedOrder((Order)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -302,6 +290,9 @@ public class ReviewImpl extends AbstractElementImpl implements Review
   {
     switch (featureID)
     {
+      case MyRdsPackage.REVIEW__ID:
+        setId(ID_EDEFAULT);
+        return;
       case MyRdsPackage.REVIEW__NUM_STARS:
         setNumStars(NUM_STARS_EDEFAULT);
         return;
@@ -310,9 +301,6 @@ public class ReviewImpl extends AbstractElementImpl implements Review
         return;
       case MyRdsPackage.REVIEW__REVIEW_DATETIME:
         setReviewDatetime(REVIEW_DATETIME_EDEFAULT);
-        return;
-      case MyRdsPackage.REVIEW__REVIEWED_ORDER:
-        setReviewedOrder((Order)null);
         return;
     }
     super.eUnset(featureID);
@@ -328,14 +316,14 @@ public class ReviewImpl extends AbstractElementImpl implements Review
   {
     switch (featureID)
     {
+      case MyRdsPackage.REVIEW__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case MyRdsPackage.REVIEW__NUM_STARS:
         return numStars != NUM_STARS_EDEFAULT;
       case MyRdsPackage.REVIEW__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case MyRdsPackage.REVIEW__REVIEW_DATETIME:
         return REVIEW_DATETIME_EDEFAULT == null ? reviewDatetime != null : !REVIEW_DATETIME_EDEFAULT.equals(reviewDatetime);
-      case MyRdsPackage.REVIEW__REVIEWED_ORDER:
-        return reviewedOrder != null;
     }
     return super.eIsSet(featureID);
   }
@@ -351,7 +339,9 @@ public class ReviewImpl extends AbstractElementImpl implements Review
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (numStars: ");
+    result.append(" (id: ");
+    result.append(id);
+    result.append(", numStars: ");
     result.append(numStars);
     result.append(", description: ");
     result.append(description);

@@ -17,9 +17,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.project.rds.myRds.AbstractElement;
 import org.xtext.project.rds.myRds.MyRdsPackage;
+import org.xtext.project.rds.myRds.Order;
 import org.xtext.project.rds.myRds.RDS;
+import org.xtext.project.rds.myRds.Restaurant;
+import org.xtext.project.rds.myRds.User;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +31,9 @@ import org.xtext.project.rds.myRds.RDS;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.impl.RDSImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.RDSImpl#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.RDSImpl#getRestaurants <em>Restaurants</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.RDSImpl#getOrders <em>Orders</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +41,34 @@ import org.xtext.project.rds.myRds.RDS;
 public class RDSImpl extends MinimalEObjectImpl.Container implements RDS
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getUsers() <em>Users</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getUsers()
    * @generated
    * @ordered
    */
-  protected EList<AbstractElement> elements;
+  protected EList<User> users;
+
+  /**
+   * The cached value of the '{@link #getRestaurants() <em>Restaurants</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRestaurants()
+   * @generated
+   * @ordered
+   */
+  protected EList<Restaurant> restaurants;
+
+  /**
+   * The cached value of the '{@link #getOrders() <em>Orders</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrders()
+   * @generated
+   * @ordered
+   */
+  protected EList<Order> orders;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +97,43 @@ public class RDSImpl extends MinimalEObjectImpl.Container implements RDS
    * @generated
    */
   @Override
-  public EList<AbstractElement> getElements()
+  public EList<User> getUsers()
   {
-    if (elements == null)
+    if (users == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, MyRdsPackage.RDS__ELEMENTS);
+      users = new EObjectContainmentEList<User>(User.class, this, MyRdsPackage.RDS__USERS);
     }
-    return elements;
+    return users;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Restaurant> getRestaurants()
+  {
+    if (restaurants == null)
+    {
+      restaurants = new EObjectContainmentEList<Restaurant>(Restaurant.class, this, MyRdsPackage.RDS__RESTAURANTS);
+    }
+    return restaurants;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Order> getOrders()
+  {
+    if (orders == null)
+    {
+      orders = new EObjectContainmentEList<Order>(Order.class, this, MyRdsPackage.RDS__ORDERS);
+    }
+    return orders;
   }
 
   /**
@@ -92,8 +146,12 @@ public class RDSImpl extends MinimalEObjectImpl.Container implements RDS
   {
     switch (featureID)
     {
-      case MyRdsPackage.RDS__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+      case MyRdsPackage.RDS__USERS:
+        return ((InternalEList<?>)getUsers()).basicRemove(otherEnd, msgs);
+      case MyRdsPackage.RDS__RESTAURANTS:
+        return ((InternalEList<?>)getRestaurants()).basicRemove(otherEnd, msgs);
+      case MyRdsPackage.RDS__ORDERS:
+        return ((InternalEList<?>)getOrders()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +166,12 @@ public class RDSImpl extends MinimalEObjectImpl.Container implements RDS
   {
     switch (featureID)
     {
-      case MyRdsPackage.RDS__ELEMENTS:
-        return getElements();
+      case MyRdsPackage.RDS__USERS:
+        return getUsers();
+      case MyRdsPackage.RDS__RESTAURANTS:
+        return getRestaurants();
+      case MyRdsPackage.RDS__ORDERS:
+        return getOrders();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +187,17 @@ public class RDSImpl extends MinimalEObjectImpl.Container implements RDS
   {
     switch (featureID)
     {
-      case MyRdsPackage.RDS__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+      case MyRdsPackage.RDS__USERS:
+        getUsers().clear();
+        getUsers().addAll((Collection<? extends User>)newValue);
+        return;
+      case MyRdsPackage.RDS__RESTAURANTS:
+        getRestaurants().clear();
+        getRestaurants().addAll((Collection<? extends Restaurant>)newValue);
+        return;
+      case MyRdsPackage.RDS__ORDERS:
+        getOrders().clear();
+        getOrders().addAll((Collection<? extends Order>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +213,14 @@ public class RDSImpl extends MinimalEObjectImpl.Container implements RDS
   {
     switch (featureID)
     {
-      case MyRdsPackage.RDS__ELEMENTS:
-        getElements().clear();
+      case MyRdsPackage.RDS__USERS:
+        getUsers().clear();
+        return;
+      case MyRdsPackage.RDS__RESTAURANTS:
+        getRestaurants().clear();
+        return;
+      case MyRdsPackage.RDS__ORDERS:
+        getOrders().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +236,12 @@ public class RDSImpl extends MinimalEObjectImpl.Container implements RDS
   {
     switch (featureID)
     {
-      case MyRdsPackage.RDS__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case MyRdsPackage.RDS__USERS:
+        return users != null && !users.isEmpty();
+      case MyRdsPackage.RDS__RESTAURANTS:
+        return restaurants != null && !restaurants.isEmpty();
+      case MyRdsPackage.RDS__ORDERS:
+        return orders != null && !orders.isEmpty();
     }
     return super.eIsSet(featureID);
   }

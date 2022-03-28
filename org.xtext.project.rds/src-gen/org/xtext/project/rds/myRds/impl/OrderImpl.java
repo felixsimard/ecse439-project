@@ -6,6 +6,7 @@ package org.xtext.project.rds.myRds.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -13,8 +14,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.project.rds.myRds.Customer;
 import org.xtext.project.rds.myRds.DeliveryDriver;
@@ -35,18 +38,18 @@ import org.xtext.project.rds.myRds.Review;
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getOrderNumber <em>Order Number</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getDeliveryAddress <em>Delivery Address</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getCustomer <em>Customer</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getDeliveryDriver <em>Delivery Driver</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getOrderedDatetime <em>Ordered Datetime</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getDeliveredDatetime <em>Delivered Datetime</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getRequestedDeliveryDatetime <em>Requested Delivery Datetime</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getOrderItems <em>Order Items</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getReview <em>Review</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getCustomer <em>Customer</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.impl.OrderImpl#getDeliveryDriver <em>Delivery Driver</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OrderImpl extends AbstractElementImpl implements Order
+public class OrderImpl extends MinimalEObjectImpl.Container implements Order
 {
   /**
    * The default value of the '{@link #getOrderNumber() <em>Order Number</em>}' attribute.
@@ -56,7 +59,7 @@ public class OrderImpl extends AbstractElementImpl implements Order
    * @generated
    * @ordered
    */
-  protected static final int ORDER_NUMBER_EDEFAULT = 0;
+  protected static final String ORDER_NUMBER_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getOrderNumber() <em>Order Number</em>}' attribute.
@@ -66,7 +69,7 @@ public class OrderImpl extends AbstractElementImpl implements Order
    * @generated
    * @ordered
    */
-  protected int orderNumber = ORDER_NUMBER_EDEFAULT;
+  protected String orderNumber = ORDER_NUMBER_EDEFAULT;
 
   /**
    * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
@@ -107,6 +110,26 @@ public class OrderImpl extends AbstractElementImpl implements Order
    * @ordered
    */
   protected String deliveryAddress = DELIVERY_ADDRESS_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCustomer()
+   * @generated
+   * @ordered
+   */
+  protected Customer customer;
+
+  /**
+   * The cached value of the '{@link #getDeliveryDriver() <em>Delivery Driver</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeliveryDriver()
+   * @generated
+   * @ordered
+   */
+  protected DeliveryDriver deliveryDriver;
 
   /**
    * The default value of the '{@link #getOrderedDatetime() <em>Ordered Datetime</em>}' attribute.
@@ -169,7 +192,7 @@ public class OrderImpl extends AbstractElementImpl implements Order
   protected String requestedDeliveryDatetime = REQUESTED_DELIVERY_DATETIME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getOrderItems() <em>Order Items</em>}' reference list.
+   * The cached value of the '{@link #getOrderItems() <em>Order Items</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOrderItems()
@@ -179,34 +202,14 @@ public class OrderImpl extends AbstractElementImpl implements Order
   protected EList<OrderItem> orderItems;
 
   /**
-   * The cached value of the '{@link #getReview() <em>Review</em>}' reference.
+   * The cached value of the '{@link #getReview() <em>Review</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getReview()
    * @generated
    * @ordered
    */
-  protected Review review;
-
-  /**
-   * The cached value of the '{@link #getCustomer() <em>Customer</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCustomer()
-   * @generated
-   * @ordered
-   */
-  protected Customer customer;
-
-  /**
-   * The cached value of the '{@link #getDeliveryDriver() <em>Delivery Driver</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDeliveryDriver()
-   * @generated
-   * @ordered
-   */
-  protected DeliveryDriver deliveryDriver;
+  protected EList<Review> review;
 
   /**
    * <!-- begin-user-doc -->
@@ -235,7 +238,7 @@ public class OrderImpl extends AbstractElementImpl implements Order
    * @generated
    */
   @Override
-  public int getOrderNumber()
+  public String getOrderNumber()
   {
     return orderNumber;
   }
@@ -246,9 +249,9 @@ public class OrderImpl extends AbstractElementImpl implements Order
    * @generated
    */
   @Override
-  public void setOrderNumber(int newOrderNumber)
+  public void setOrderNumber(String newOrderNumber)
   {
-    int oldOrderNumber = orderNumber;
+    String oldOrderNumber = orderNumber;
     orderNumber = newOrderNumber;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__ORDER_NUMBER, oldOrderNumber, orderNumber));
@@ -302,141 +305,6 @@ public class OrderImpl extends AbstractElementImpl implements Order
     deliveryAddress = newDeliveryAddress;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__DELIVERY_ADDRESS, oldDeliveryAddress, deliveryAddress));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getOrderedDatetime()
-  {
-    return orderedDatetime;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setOrderedDatetime(String newOrderedDatetime)
-  {
-    String oldOrderedDatetime = orderedDatetime;
-    orderedDatetime = newOrderedDatetime;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__ORDERED_DATETIME, oldOrderedDatetime, orderedDatetime));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getDeliveredDatetime()
-  {
-    return deliveredDatetime;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setDeliveredDatetime(String newDeliveredDatetime)
-  {
-    String oldDeliveredDatetime = deliveredDatetime;
-    deliveredDatetime = newDeliveredDatetime;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__DELIVERED_DATETIME, oldDeliveredDatetime, deliveredDatetime));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getRequestedDeliveryDatetime()
-  {
-    return requestedDeliveryDatetime;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setRequestedDeliveryDatetime(String newRequestedDeliveryDatetime)
-  {
-    String oldRequestedDeliveryDatetime = requestedDeliveryDatetime;
-    requestedDeliveryDatetime = newRequestedDeliveryDatetime;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__REQUESTED_DELIVERY_DATETIME, oldRequestedDeliveryDatetime, requestedDeliveryDatetime));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<OrderItem> getOrderItems()
-  {
-    if (orderItems == null)
-    {
-      orderItems = new EObjectResolvingEList<OrderItem>(OrderItem.class, this, MyRdsPackage.ORDER__ORDER_ITEMS);
-    }
-    return orderItems;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Review getReview()
-  {
-    if (review != null && review.eIsProxy())
-    {
-      InternalEObject oldReview = (InternalEObject)review;
-      review = (Review)eResolveProxy(oldReview);
-      if (review != oldReview)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyRdsPackage.ORDER__REVIEW, oldReview, review));
-      }
-    }
-    return review;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Review basicGetReview()
-  {
-    return review;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setReview(Review newReview)
-  {
-    Review oldReview = review;
-    review = newReview;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__REVIEW, oldReview, review));
   }
 
   /**
@@ -535,6 +403,129 @@ public class OrderImpl extends AbstractElementImpl implements Order
    * @generated
    */
   @Override
+  public String getOrderedDatetime()
+  {
+    return orderedDatetime;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOrderedDatetime(String newOrderedDatetime)
+  {
+    String oldOrderedDatetime = orderedDatetime;
+    orderedDatetime = newOrderedDatetime;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__ORDERED_DATETIME, oldOrderedDatetime, orderedDatetime));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getDeliveredDatetime()
+  {
+    return deliveredDatetime;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDeliveredDatetime(String newDeliveredDatetime)
+  {
+    String oldDeliveredDatetime = deliveredDatetime;
+    deliveredDatetime = newDeliveredDatetime;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__DELIVERED_DATETIME, oldDeliveredDatetime, deliveredDatetime));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getRequestedDeliveryDatetime()
+  {
+    return requestedDeliveryDatetime;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setRequestedDeliveryDatetime(String newRequestedDeliveryDatetime)
+  {
+    String oldRequestedDeliveryDatetime = requestedDeliveryDatetime;
+    requestedDeliveryDatetime = newRequestedDeliveryDatetime;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER__REQUESTED_DELIVERY_DATETIME, oldRequestedDeliveryDatetime, requestedDeliveryDatetime));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<OrderItem> getOrderItems()
+  {
+    if (orderItems == null)
+    {
+      orderItems = new EObjectContainmentEList<OrderItem>(OrderItem.class, this, MyRdsPackage.ORDER__ORDER_ITEMS);
+    }
+    return orderItems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Review> getReview()
+  {
+    if (review == null)
+    {
+      review = new EObjectContainmentEList<Review>(Review.class, this, MyRdsPackage.ORDER__REVIEW);
+    }
+    return review;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyRdsPackage.ORDER__ORDER_ITEMS:
+        return ((InternalEList<?>)getOrderItems()).basicRemove(otherEnd, msgs);
+      case MyRdsPackage.ORDER__REVIEW:
+        return ((InternalEList<?>)getReview()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -545,6 +536,12 @@ public class OrderImpl extends AbstractElementImpl implements Order
         return getStatus();
       case MyRdsPackage.ORDER__DELIVERY_ADDRESS:
         return getDeliveryAddress();
+      case MyRdsPackage.ORDER__CUSTOMER:
+        if (resolve) return getCustomer();
+        return basicGetCustomer();
+      case MyRdsPackage.ORDER__DELIVERY_DRIVER:
+        if (resolve) return getDeliveryDriver();
+        return basicGetDeliveryDriver();
       case MyRdsPackage.ORDER__ORDERED_DATETIME:
         return getOrderedDatetime();
       case MyRdsPackage.ORDER__DELIVERED_DATETIME:
@@ -554,14 +551,7 @@ public class OrderImpl extends AbstractElementImpl implements Order
       case MyRdsPackage.ORDER__ORDER_ITEMS:
         return getOrderItems();
       case MyRdsPackage.ORDER__REVIEW:
-        if (resolve) return getReview();
-        return basicGetReview();
-      case MyRdsPackage.ORDER__CUSTOMER:
-        if (resolve) return getCustomer();
-        return basicGetCustomer();
-      case MyRdsPackage.ORDER__DELIVERY_DRIVER:
-        if (resolve) return getDeliveryDriver();
-        return basicGetDeliveryDriver();
+        return getReview();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -578,13 +568,19 @@ public class OrderImpl extends AbstractElementImpl implements Order
     switch (featureID)
     {
       case MyRdsPackage.ORDER__ORDER_NUMBER:
-        setOrderNumber((Integer)newValue);
+        setOrderNumber((String)newValue);
         return;
       case MyRdsPackage.ORDER__STATUS:
         setStatus((OrderStatus)newValue);
         return;
       case MyRdsPackage.ORDER__DELIVERY_ADDRESS:
         setDeliveryAddress((String)newValue);
+        return;
+      case MyRdsPackage.ORDER__CUSTOMER:
+        setCustomer((Customer)newValue);
+        return;
+      case MyRdsPackage.ORDER__DELIVERY_DRIVER:
+        setDeliveryDriver((DeliveryDriver)newValue);
         return;
       case MyRdsPackage.ORDER__ORDERED_DATETIME:
         setOrderedDatetime((String)newValue);
@@ -600,13 +596,8 @@ public class OrderImpl extends AbstractElementImpl implements Order
         getOrderItems().addAll((Collection<? extends OrderItem>)newValue);
         return;
       case MyRdsPackage.ORDER__REVIEW:
-        setReview((Review)newValue);
-        return;
-      case MyRdsPackage.ORDER__CUSTOMER:
-        setCustomer((Customer)newValue);
-        return;
-      case MyRdsPackage.ORDER__DELIVERY_DRIVER:
-        setDeliveryDriver((DeliveryDriver)newValue);
+        getReview().clear();
+        getReview().addAll((Collection<? extends Review>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -631,6 +622,12 @@ public class OrderImpl extends AbstractElementImpl implements Order
       case MyRdsPackage.ORDER__DELIVERY_ADDRESS:
         setDeliveryAddress(DELIVERY_ADDRESS_EDEFAULT);
         return;
+      case MyRdsPackage.ORDER__CUSTOMER:
+        setCustomer((Customer)null);
+        return;
+      case MyRdsPackage.ORDER__DELIVERY_DRIVER:
+        setDeliveryDriver((DeliveryDriver)null);
+        return;
       case MyRdsPackage.ORDER__ORDERED_DATETIME:
         setOrderedDatetime(ORDERED_DATETIME_EDEFAULT);
         return;
@@ -644,13 +641,7 @@ public class OrderImpl extends AbstractElementImpl implements Order
         getOrderItems().clear();
         return;
       case MyRdsPackage.ORDER__REVIEW:
-        setReview((Review)null);
-        return;
-      case MyRdsPackage.ORDER__CUSTOMER:
-        setCustomer((Customer)null);
-        return;
-      case MyRdsPackage.ORDER__DELIVERY_DRIVER:
-        setDeliveryDriver((DeliveryDriver)null);
+        getReview().clear();
         return;
     }
     super.eUnset(featureID);
@@ -667,11 +658,15 @@ public class OrderImpl extends AbstractElementImpl implements Order
     switch (featureID)
     {
       case MyRdsPackage.ORDER__ORDER_NUMBER:
-        return orderNumber != ORDER_NUMBER_EDEFAULT;
+        return ORDER_NUMBER_EDEFAULT == null ? orderNumber != null : !ORDER_NUMBER_EDEFAULT.equals(orderNumber);
       case MyRdsPackage.ORDER__STATUS:
         return status != STATUS_EDEFAULT;
       case MyRdsPackage.ORDER__DELIVERY_ADDRESS:
         return DELIVERY_ADDRESS_EDEFAULT == null ? deliveryAddress != null : !DELIVERY_ADDRESS_EDEFAULT.equals(deliveryAddress);
+      case MyRdsPackage.ORDER__CUSTOMER:
+        return customer != null;
+      case MyRdsPackage.ORDER__DELIVERY_DRIVER:
+        return deliveryDriver != null;
       case MyRdsPackage.ORDER__ORDERED_DATETIME:
         return ORDERED_DATETIME_EDEFAULT == null ? orderedDatetime != null : !ORDERED_DATETIME_EDEFAULT.equals(orderedDatetime);
       case MyRdsPackage.ORDER__DELIVERED_DATETIME:
@@ -681,11 +676,7 @@ public class OrderImpl extends AbstractElementImpl implements Order
       case MyRdsPackage.ORDER__ORDER_ITEMS:
         return orderItems != null && !orderItems.isEmpty();
       case MyRdsPackage.ORDER__REVIEW:
-        return review != null;
-      case MyRdsPackage.ORDER__CUSTOMER:
-        return customer != null;
-      case MyRdsPackage.ORDER__DELIVERY_DRIVER:
-        return deliveryDriver != null;
+        return review != null && !review.isEmpty();
     }
     return super.eIsSet(featureID);
   }

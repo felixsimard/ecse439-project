@@ -3,6 +3,7 @@
  */
 package org.xtext.project.rds.myRds;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,6 @@ package org.xtext.project.rds.myRds;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.project.rds.myRds.OrderItem#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.OrderItem#getForOrder <em>For Order</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.OrderItem#getMenuItem <em>Menu Item</em>}</li>
  * </ul>
  *
@@ -22,7 +22,7 @@ package org.xtext.project.rds.myRds;
  * @model
  * @generated
  */
-public interface OrderItem extends AbstractElement
+public interface OrderItem extends EObject
 {
   /**
    * Returns the value of the '<em><b>Quantity</b></em>' attribute.
@@ -45,28 +45,6 @@ public interface OrderItem extends AbstractElement
    * @generated
    */
   void setQuantity(int value);
-
-  /**
-   * Returns the value of the '<em><b>For Order</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>For Order</em>' reference.
-   * @see #setForOrder(Order)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getOrderItem_ForOrder()
-   * @model
-   * @generated
-   */
-  Order getForOrder();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.OrderItem#getForOrder <em>For Order</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>For Order</em>' reference.
-   * @see #getForOrder()
-   * @generated
-   */
-  void setForOrder(Order value);
 
   /**
    * Returns the value of the '<em><b>Menu Item</b></em>' reference.

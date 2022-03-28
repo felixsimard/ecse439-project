@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.project.rds.myRds.AbstractElement;
 import org.xtext.project.rds.myRds.Customer;
 import org.xtext.project.rds.myRds.DeliveryDriver;
 import org.xtext.project.rds.myRds.Menu;
@@ -47,7 +46,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass abstractElementEClass = null;
+  private EClass userEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -55,13 +54,6 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   private EClass userRoleEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass userEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -213,7 +205,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EReference getRDS_Elements()
+  public EReference getRDS_Users()
   {
     return (EReference)rdsEClass.getEStructuralFeatures().get(0);
   }
@@ -224,9 +216,9 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EClass getAbstractElement()
+  public EReference getRDS_Restaurants()
   {
-    return abstractElementEClass;
+    return (EReference)rdsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -235,31 +227,9 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getAbstractElement_Id()
+  public EReference getRDS_Orders()
   {
-    return (EAttribute)abstractElementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getUserRole()
-  {
-    return userRoleEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getUserRole_Orders()
-  {
-    return (EReference)userRoleEClass.getEStructuralFeatures().get(0);
+    return (EReference)rdsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -279,7 +249,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getUser_Username()
+  public EAttribute getUser_Name()
   {
     return (EAttribute)userEClass.getEStructuralFeatures().get(0);
   }
@@ -301,7 +271,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getUser_Name()
+  public EAttribute getUser_Phone()
   {
     return (EAttribute)userEClass.getEStructuralFeatures().get(2);
   }
@@ -312,7 +282,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getUser_Phone()
+  public EAttribute getUser_Email()
   {
     return (EAttribute)userEClass.getEStructuralFeatures().get(3);
   }
@@ -323,9 +293,9 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getUser_Email()
+  public EReference getUser_Roles()
   {
-    return (EAttribute)userEClass.getEStructuralFeatures().get(4);
+    return (EReference)userEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -334,9 +304,20 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EReference getUser_Elements()
+  public EClass getUserRole()
   {
-    return (EReference)userEClass.getEStructuralFeatures().get(5);
+    return userRoleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUserRole_Username()
+  {
+    return (EAttribute)userRoleEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -433,29 +414,29 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
+  public EReference getOrder_Customer()
+  {
+    return (EReference)orderEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOrder_DeliveryDriver()
+  {
+    return (EReference)orderEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getOrder_OrderedDatetime()
-  {
-    return (EAttribute)orderEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getOrder_DeliveredDatetime()
-  {
-    return (EAttribute)orderEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getOrder_RequestedDeliveryDatetime()
   {
     return (EAttribute)orderEClass.getEStructuralFeatures().get(5);
   }
@@ -466,29 +447,29 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
+  public EAttribute getOrder_DeliveredDatetime()
+  {
+    return (EAttribute)orderEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOrder_RequestedDeliveryDatetime()
+  {
+    return (EAttribute)orderEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getOrder_OrderItems()
-  {
-    return (EReference)orderEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getOrder_Review()
-  {
-    return (EReference)orderEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getOrder_Customer()
   {
     return (EReference)orderEClass.getEStructuralFeatures().get(8);
   }
@@ -499,7 +480,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EReference getOrder_DeliveryDriver()
+  public EReference getOrder_Review()
   {
     return (EReference)orderEClass.getEStructuralFeatures().get(9);
   }
@@ -565,9 +546,9 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EReference getMenu_Restaurant()
+  public EAttribute getMenu_Id()
   {
-    return (EReference)menuEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)menuEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -642,28 +623,6 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EReference getMenuItem_OrderItems()
-  {
-    return (EReference)menuItemEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getMenuItem_Menu()
-  {
-    return (EReference)menuItemEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getOrderItem()
   {
     return orderItemEClass;
@@ -686,20 +645,9 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EReference getOrderItem_ForOrder()
-  {
-    return (EReference)orderItemEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getOrderItem_MenuItem()
   {
-    return (EReference)orderItemEClass.getEStructuralFeatures().get(2);
+    return (EReference)orderItemEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -719,7 +667,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getReview_NumStars()
+  public EAttribute getReview_Id()
   {
     return (EAttribute)reviewEClass.getEStructuralFeatures().get(0);
   }
@@ -730,7 +678,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getReview_Description()
+  public EAttribute getReview_NumStars()
   {
     return (EAttribute)reviewEClass.getEStructuralFeatures().get(1);
   }
@@ -741,7 +689,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getReview_ReviewDatetime()
+  public EAttribute getReview_Description()
   {
     return (EAttribute)reviewEClass.getEStructuralFeatures().get(2);
   }
@@ -752,9 +700,9 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EReference getReview_ReviewedOrder()
+  public EAttribute getReview_ReviewDatetime()
   {
-    return (EReference)reviewEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)reviewEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -811,21 +759,19 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
 
     // Create classes and their features
     rdsEClass = createEClass(RDS);
-    createEReference(rdsEClass, RDS__ELEMENTS);
-
-    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
-    createEAttribute(abstractElementEClass, ABSTRACT_ELEMENT__ID);
-
-    userRoleEClass = createEClass(USER_ROLE);
-    createEReference(userRoleEClass, USER_ROLE__ORDERS);
+    createEReference(rdsEClass, RDS__USERS);
+    createEReference(rdsEClass, RDS__RESTAURANTS);
+    createEReference(rdsEClass, RDS__ORDERS);
 
     userEClass = createEClass(USER);
-    createEAttribute(userEClass, USER__USERNAME);
-    createEAttribute(userEClass, USER__PASSWORD);
     createEAttribute(userEClass, USER__NAME);
+    createEAttribute(userEClass, USER__PASSWORD);
     createEAttribute(userEClass, USER__PHONE);
     createEAttribute(userEClass, USER__EMAIL);
-    createEReference(userEClass, USER__ELEMENTS);
+    createEReference(userEClass, USER__ROLES);
+
+    userRoleEClass = createEClass(USER_ROLE);
+    createEAttribute(userRoleEClass, USER_ROLE__USERNAME);
 
     customerEClass = createEClass(CUSTOMER);
 
@@ -837,13 +783,13 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
     createEAttribute(orderEClass, ORDER__ORDER_NUMBER);
     createEAttribute(orderEClass, ORDER__STATUS);
     createEAttribute(orderEClass, ORDER__DELIVERY_ADDRESS);
+    createEReference(orderEClass, ORDER__CUSTOMER);
+    createEReference(orderEClass, ORDER__DELIVERY_DRIVER);
     createEAttribute(orderEClass, ORDER__ORDERED_DATETIME);
     createEAttribute(orderEClass, ORDER__DELIVERED_DATETIME);
     createEAttribute(orderEClass, ORDER__REQUESTED_DELIVERY_DATETIME);
     createEReference(orderEClass, ORDER__ORDER_ITEMS);
     createEReference(orderEClass, ORDER__REVIEW);
-    createEReference(orderEClass, ORDER__CUSTOMER);
-    createEReference(orderEClass, ORDER__DELIVERY_DRIVER);
 
     restaurantEClass = createEClass(RESTAURANT);
     createEAttribute(restaurantEClass, RESTAURANT__NAME);
@@ -851,7 +797,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
     createEReference(restaurantEClass, RESTAURANT__MENU);
 
     menuEClass = createEClass(MENU);
-    createEReference(menuEClass, MENU__RESTAURANT);
+    createEAttribute(menuEClass, MENU__ID);
     createEReference(menuEClass, MENU__MENU_ITEMS);
 
     menuItemEClass = createEClass(MENU_ITEM);
@@ -859,19 +805,16 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
     createEAttribute(menuItemEClass, MENU_ITEM__PRICE);
     createEAttribute(menuItemEClass, MENU_ITEM__DESCRIPTION);
     createEAttribute(menuItemEClass, MENU_ITEM__CATEGORY);
-    createEReference(menuItemEClass, MENU_ITEM__ORDER_ITEMS);
-    createEReference(menuItemEClass, MENU_ITEM__MENU);
 
     orderItemEClass = createEClass(ORDER_ITEM);
     createEAttribute(orderItemEClass, ORDER_ITEM__QUANTITY);
-    createEReference(orderItemEClass, ORDER_ITEM__FOR_ORDER);
     createEReference(orderItemEClass, ORDER_ITEM__MENU_ITEM);
 
     reviewEClass = createEClass(REVIEW);
+    createEAttribute(reviewEClass, REVIEW__ID);
     createEAttribute(reviewEClass, REVIEW__NUM_STARS);
     createEAttribute(reviewEClass, REVIEW__DESCRIPTION);
     createEAttribute(reviewEClass, REVIEW__REVIEW_DATETIME);
-    createEReference(reviewEClass, REVIEW__REVIEWED_ORDER);
 
     // Create enums
     orderStatusEEnum = createEEnum(ORDER_STATUS);
@@ -907,80 +850,67 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    userRoleEClass.getESuperTypes().add(this.getAbstractElement());
-    userEClass.getESuperTypes().add(this.getAbstractElement());
     customerEClass.getESuperTypes().add(this.getUserRole());
     deliveryDriverEClass.getESuperTypes().add(this.getUserRole());
-    orderEClass.getESuperTypes().add(this.getAbstractElement());
-    restaurantEClass.getESuperTypes().add(this.getAbstractElement());
-    menuEClass.getESuperTypes().add(this.getAbstractElement());
-    menuItemEClass.getESuperTypes().add(this.getAbstractElement());
-    orderItemEClass.getESuperTypes().add(this.getAbstractElement());
-    reviewEClass.getESuperTypes().add(this.getAbstractElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(rdsEClass, org.xtext.project.rds.myRds.RDS.class, "RDS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRDS_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, org.xtext.project.rds.myRds.RDS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAbstractElement_Id(), ecorePackage.getEString(), "id", null, 0, 1, AbstractElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(userRoleEClass, UserRole.class, "UserRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUserRole_Orders(), this.getOrder(), null, "orders", null, 0, -1, UserRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRDS_Users(), this.getUser(), null, "users", null, 0, -1, org.xtext.project.rds.myRds.RDS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRDS_Restaurants(), this.getRestaurant(), null, "restaurants", null, 0, -1, org.xtext.project.rds.myRds.RDS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRDS_Orders(), this.getOrder(), null, "orders", null, 0, -1, org.xtext.project.rds.myRds.RDS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUser_Username(), ecorePackage.getEString(), "username", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUser_Password(), ecorePackage.getEString(), "password", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUser_Name(), ecorePackage.getEString(), "name", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUser_Password(), ecorePackage.getEString(), "password", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUser_Phone(), ecorePackage.getEString(), "phone", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUser_Email(), ecorePackage.getEString(), "email", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUser_Elements(), this.getUserRole(), null, "elements", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUser_Roles(), this.getUserRole(), null, "roles", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(userRoleEClass, UserRole.class, "UserRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUserRole_Username(), ecorePackage.getEString(), "username", null, 0, 1, UserRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(deliveryDriverEClass, DeliveryDriver.class, "DeliveryDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDeliveryDriver_IsAvailable(), ecorePackage.getEInt(), "isAvailable", null, 0, 1, DeliveryDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeliveryDriver_IsAvailable(), ecorePackage.getEBoolean(), "isAvailable", null, 0, 1, DeliveryDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDeliveryDriver_CarLicenceNumber(), ecorePackage.getEString(), "carLicenceNumber", null, 0, 1, DeliveryDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orderEClass, Order.class, "Order", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getOrder_OrderNumber(), ecorePackage.getEInt(), "orderNumber", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOrder_OrderNumber(), ecorePackage.getEString(), "orderNumber", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOrder_Status(), this.getOrderStatus(), "status", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOrder_DeliveryAddress(), ecorePackage.getEString(), "deliveryAddress", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrder_Customer(), this.getCustomer(), null, "customer", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrder_DeliveryDriver(), this.getDeliveryDriver(), null, "deliveryDriver", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOrder_OrderedDatetime(), ecorePackage.getEString(), "orderedDatetime", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOrder_DeliveredDatetime(), ecorePackage.getEString(), "deliveredDatetime", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOrder_RequestedDeliveryDatetime(), ecorePackage.getEString(), "requestedDeliveryDatetime", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOrder_OrderItems(), this.getOrderItem(), null, "orderItems", null, 0, -1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOrder_Review(), this.getReview(), null, "review", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOrder_Customer(), this.getCustomer(), null, "customer", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOrder_DeliveryDriver(), this.getDeliveryDriver(), null, "deliveryDriver", null, 0, 1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrder_OrderItems(), this.getOrderItem(), null, "orderItems", null, 0, -1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrder_Review(), this.getReview(), null, "review", null, 0, -1, Order.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(restaurantEClass, Restaurant.class, "Restaurant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRestaurant_Name(), ecorePackage.getEString(), "name", null, 0, 1, Restaurant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestaurant_Address(), ecorePackage.getEString(), "address", null, 0, 1, Restaurant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRestaurant_Menu(), this.getMenu(), null, "menu", null, 0, 1, Restaurant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRestaurant_Menu(), this.getMenu(), null, "menu", null, 0, -1, Restaurant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMenu_Restaurant(), this.getRestaurant(), null, "restaurant", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMenu_MenuItems(), this.getMenuItem(), null, "menuItems", null, 0, -1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMenu_Id(), ecorePackage.getEString(), "id", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMenu_MenuItems(), this.getMenuItem(), null, "menuItems", null, 0, -1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(menuItemEClass, MenuItem.class, "MenuItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMenuItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, MenuItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMenuItem_Price(), ecorePackage.getEString(), "price", null, 0, 1, MenuItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMenuItem_Description(), ecorePackage.getEString(), "description", null, 0, 1, MenuItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMenuItem_Category(), this.getMenuItemCategory(), "category", null, 0, 1, MenuItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMenuItem_OrderItems(), this.getOrderItem(), null, "orderItems", null, 0, -1, MenuItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMenuItem_Menu(), this.getMenu(), null, "menu", null, 0, 1, MenuItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orderItemEClass, OrderItem.class, "OrderItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOrderItem_Quantity(), ecorePackage.getEInt(), "quantity", null, 0, 1, OrderItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOrderItem_ForOrder(), this.getOrder(), null, "forOrder", null, 0, 1, OrderItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOrderItem_MenuItem(), this.getMenuItem(), null, "menuItem", null, 0, 1, OrderItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(reviewEClass, Review.class, "Review", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReview_Id(), ecorePackage.getEString(), "id", null, 0, 1, Review.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReview_NumStars(), ecorePackage.getEInt(), "numStars", null, 0, 1, Review.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReview_Description(), ecorePackage.getEString(), "description", null, 0, 1, Review.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReview_ReviewDatetime(), ecorePackage.getEString(), "reviewDatetime", null, 0, 1, Review.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getReview_ReviewedOrder(), this.getOrder(), null, "reviewedOrder", null, 0, 1, Review.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(orderStatusEEnum, OrderStatus.class, "OrderStatus");

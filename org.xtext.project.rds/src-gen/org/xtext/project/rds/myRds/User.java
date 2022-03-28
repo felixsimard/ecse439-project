@@ -5,6 +5,8 @@ package org.xtext.project.rds.myRds;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>User</b></em>'.
@@ -14,41 +16,40 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.User#getUsername <em>Username</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.User#getPassword <em>Password</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.User#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.User#getPassword <em>Password</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.User#getPhone <em>Phone</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.User#getEmail <em>Email</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.User#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.User#getRoles <em>Roles</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.rds.myRds.MyRdsPackage#getUser()
  * @model
  * @generated
  */
-public interface User extends AbstractElement
+public interface User extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Username</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Username</em>' attribute.
-   * @see #setUsername(String)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUser_Username()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUser_Name()
    * @model
    * @generated
    */
-  String getUsername();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.User#getUsername <em>Username</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.project.rds.myRds.User#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Username</em>' attribute.
-   * @see #getUsername()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setUsername(String value);
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Password</b></em>' attribute.
@@ -71,28 +72,6 @@ public interface User extends AbstractElement
    * @generated
    */
   void setPassword(String value);
-
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUser_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.User#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Phone</b></em>' attribute.
@@ -139,15 +118,15 @@ public interface User extends AbstractElement
   void setEmail(String value);
 
   /**
-   * Returns the value of the '<em><b>Elements</b></em>' reference list.
+   * Returns the value of the '<em><b>Roles</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.project.rds.myRds.UserRole}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Elements</em>' reference list.
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUser_Elements()
-   * @model
+   * @return the value of the '<em>Roles</em>' containment reference list.
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUser_Roles()
+   * @model containment="true"
    * @generated
    */
-  EList<UserRole> getElements();
+  EList<UserRole> getRoles();
 
 } // User

@@ -9,10 +9,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.project.rds.myRds.MenuItem;
 import org.xtext.project.rds.myRds.MyRdsPackage;
-import org.xtext.project.rds.myRds.Order;
 import org.xtext.project.rds.myRds.OrderItem;
 
 /**
@@ -24,13 +24,12 @@ import org.xtext.project.rds.myRds.OrderItem;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderItemImpl#getQuantity <em>Quantity</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.impl.OrderItemImpl#getForOrder <em>For Order</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.OrderItemImpl#getMenuItem <em>Menu Item</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OrderItemImpl extends AbstractElementImpl implements OrderItem
+public class OrderItemImpl extends MinimalEObjectImpl.Container implements OrderItem
 {
   /**
    * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
@@ -51,16 +50,6 @@ public class OrderItemImpl extends AbstractElementImpl implements OrderItem
    * @ordered
    */
   protected int quantity = QUANTITY_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getForOrder() <em>For Order</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getForOrder()
-   * @generated
-   * @ordered
-   */
-  protected Order forOrder;
 
   /**
    * The cached value of the '{@link #getMenuItem() <em>Menu Item</em>}' reference.
@@ -124,51 +113,6 @@ public class OrderItemImpl extends AbstractElementImpl implements OrderItem
    * @generated
    */
   @Override
-  public Order getForOrder()
-  {
-    if (forOrder != null && forOrder.eIsProxy())
-    {
-      InternalEObject oldForOrder = (InternalEObject)forOrder;
-      forOrder = (Order)eResolveProxy(oldForOrder);
-      if (forOrder != oldForOrder)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyRdsPackage.ORDER_ITEM__FOR_ORDER, oldForOrder, forOrder));
-      }
-    }
-    return forOrder;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Order basicGetForOrder()
-  {
-    return forOrder;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setForOrder(Order newForOrder)
-  {
-    Order oldForOrder = forOrder;
-    forOrder = newForOrder;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.ORDER_ITEM__FOR_ORDER, oldForOrder, forOrder));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public MenuItem getMenuItem()
   {
     if (menuItem != null && menuItem.eIsProxy())
@@ -220,9 +164,6 @@ public class OrderItemImpl extends AbstractElementImpl implements OrderItem
     {
       case MyRdsPackage.ORDER_ITEM__QUANTITY:
         return getQuantity();
-      case MyRdsPackage.ORDER_ITEM__FOR_ORDER:
-        if (resolve) return getForOrder();
-        return basicGetForOrder();
       case MyRdsPackage.ORDER_ITEM__MENU_ITEM:
         if (resolve) return getMenuItem();
         return basicGetMenuItem();
@@ -242,9 +183,6 @@ public class OrderItemImpl extends AbstractElementImpl implements OrderItem
     {
       case MyRdsPackage.ORDER_ITEM__QUANTITY:
         setQuantity((Integer)newValue);
-        return;
-      case MyRdsPackage.ORDER_ITEM__FOR_ORDER:
-        setForOrder((Order)newValue);
         return;
       case MyRdsPackage.ORDER_ITEM__MENU_ITEM:
         setMenuItem((MenuItem)newValue);
@@ -266,9 +204,6 @@ public class OrderItemImpl extends AbstractElementImpl implements OrderItem
       case MyRdsPackage.ORDER_ITEM__QUANTITY:
         setQuantity(QUANTITY_EDEFAULT);
         return;
-      case MyRdsPackage.ORDER_ITEM__FOR_ORDER:
-        setForOrder((Order)null);
-        return;
       case MyRdsPackage.ORDER_ITEM__MENU_ITEM:
         setMenuItem((MenuItem)null);
         return;
@@ -288,8 +223,6 @@ public class OrderItemImpl extends AbstractElementImpl implements OrderItem
     {
       case MyRdsPackage.ORDER_ITEM__QUANTITY:
         return quantity != QUANTITY_EDEFAULT;
-      case MyRdsPackage.ORDER_ITEM__FOR_ORDER:
-        return forOrder != null;
       case MyRdsPackage.ORDER_ITEM__MENU_ITEM:
         return menuItem != null;
     }

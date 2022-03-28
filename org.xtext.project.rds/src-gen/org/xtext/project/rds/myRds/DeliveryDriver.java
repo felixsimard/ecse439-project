@@ -13,7 +13,7 @@ package org.xtext.project.rds.myRds;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.DeliveryDriver#getIsAvailable <em>Is Available</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.DeliveryDriver#isIsAvailable <em>Is Available</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.DeliveryDriver#getCarLicenceNumber <em>Car Licence Number</em>}</li>
  * </ul>
  *
@@ -28,22 +28,22 @@ public interface DeliveryDriver extends UserRole
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Is Available</em>' attribute.
-   * @see #setIsAvailable(int)
+   * @see #setIsAvailable(boolean)
    * @see org.xtext.project.rds.myRds.MyRdsPackage#getDeliveryDriver_IsAvailable()
    * @model
    * @generated
    */
-  int getIsAvailable();
+  boolean isIsAvailable();
 
   /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.DeliveryDriver#getIsAvailable <em>Is Available</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.project.rds.myRds.DeliveryDriver#isIsAvailable <em>Is Available</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Is Available</em>' attribute.
-   * @see #getIsAvailable()
+   * @see #isIsAvailable()
    * @generated
    */
-  void setIsAvailable(int value);
+  void setIsAvailable(boolean value);
 
   /**
    * Returns the value of the '<em><b>Car Licence Number</b></em>' attribute.

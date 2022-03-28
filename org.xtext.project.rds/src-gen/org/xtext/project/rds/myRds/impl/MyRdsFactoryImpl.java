@@ -67,9 +67,8 @@ public class MyRdsFactoryImpl extends EFactoryImpl implements MyRdsFactory
     switch (eClass.getClassifierID())
     {
       case MyRdsPackage.RDS: return createRDS();
-      case MyRdsPackage.ABSTRACT_ELEMENT: return createAbstractElement();
-      case MyRdsPackage.USER_ROLE: return createUserRole();
       case MyRdsPackage.USER: return createUser();
+      case MyRdsPackage.USER_ROLE: return createUserRole();
       case MyRdsPackage.CUSTOMER: return createCustomer();
       case MyRdsPackage.DELIVERY_DRIVER: return createDeliveryDriver();
       case MyRdsPackage.ORDER: return createOrder();
@@ -139,10 +138,10 @@ public class MyRdsFactoryImpl extends EFactoryImpl implements MyRdsFactory
    * @generated
    */
   @Override
-  public AbstractElement createAbstractElement()
+  public User createUser()
   {
-    AbstractElementImpl abstractElement = new AbstractElementImpl();
-    return abstractElement;
+    UserImpl user = new UserImpl();
+    return user;
   }
 
   /**
@@ -155,18 +154,6 @@ public class MyRdsFactoryImpl extends EFactoryImpl implements MyRdsFactory
   {
     UserRoleImpl userRole = new UserRoleImpl();
     return userRole;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public User createUser()
-  {
-    UserImpl user = new UserImpl();
-    return user;
   }
 
   /**

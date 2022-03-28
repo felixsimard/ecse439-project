@@ -27,8 +27,28 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public class RDSElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.RDS");
-		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementsAbstractElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cUsersAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cUsersUserParserRuleCall_0_0_0 = (RuleCall)cUsersAssignment_0_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Keyword cCommaKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Assignment cUsersAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cUsersUserParserRuleCall_0_1_1_0 = (RuleCall)cUsersAssignment_0_1_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cRestaurantsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cRestaurantsRestaurantParserRuleCall_1_0_0 = (RuleCall)cRestaurantsAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cRestaurantsAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cRestaurantsRestaurantParserRuleCall_1_1_1_0 = (RuleCall)cRestaurantsAssignment_1_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cOrdersAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cOrdersOrderParserRuleCall_2_0_0 = (RuleCall)cOrdersAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cOrdersAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cOrdersOrderParserRuleCall_2_1_1_0 = (RuleCall)cOrdersAssignment_2_1_1.eContents().get(0);
 		
 		///*
 		// * ECSE 439: Software Language Engineering
@@ -37,152 +57,155 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		// * Group 05
 		// *
 		// */
-		//RDS : (elements+=AbstractElement)*;
+		//RDS :
+		//    (users+=User (',' users+=User)*)?
+		//    (restaurants+=Restaurant (',' restaurants+=Restaurant)*)?
+		//    (orders+=Order (',' orders+=Order)*)?
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(elements+=AbstractElement)*
-		public Assignment getElementsAssignment() { return cElementsAssignment; }
+		//(users+=User (',' users+=User)*)?
+		//(restaurants+=Restaurant (',' restaurants+=Restaurant)*)?
+		//(orders+=Order (',' orders+=Order)*)?
+		public Group getGroup() { return cGroup; }
 		
-		//AbstractElement
-		public RuleCall getElementsAbstractElementParserRuleCall_0() { return cElementsAbstractElementParserRuleCall_0; }
-	}
-	public class AbstractElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.AbstractElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cUserParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cOrderParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cUserRoleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cRestaurantParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cOrderItemParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cMenuItemParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cReviewParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cMenuParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		//(users+=User (',' users+=User)*)?
+		public Group getGroup_0() { return cGroup_0; }
 		
-		//AbstractElement: User | Order | UserRole | Restaurant | OrderItem | MenuItem | Review | Menu;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//User | Order | UserRole | Restaurant | OrderItem | MenuItem | Review | Menu
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//users+=User
+		public Assignment getUsersAssignment_0_0() { return cUsersAssignment_0_0; }
 		
 		//User
-		public RuleCall getUserParserRuleCall_0() { return cUserParserRuleCall_0; }
+		public RuleCall getUsersUserParserRuleCall_0_0_0() { return cUsersUserParserRuleCall_0_0_0; }
 		
-		//Order
-		public RuleCall getOrderParserRuleCall_1() { return cOrderParserRuleCall_1; }
+		//(',' users+=User)*
+		public Group getGroup_0_1() { return cGroup_0_1; }
 		
-		//UserRole
-		public RuleCall getUserRoleParserRuleCall_2() { return cUserRoleParserRuleCall_2; }
+		//','
+		public Keyword getCommaKeyword_0_1_0() { return cCommaKeyword_0_1_0; }
+		
+		//users+=User
+		public Assignment getUsersAssignment_0_1_1() { return cUsersAssignment_0_1_1; }
+		
+		//User
+		public RuleCall getUsersUserParserRuleCall_0_1_1_0() { return cUsersUserParserRuleCall_0_1_1_0; }
+		
+		//(restaurants+=Restaurant (',' restaurants+=Restaurant)*)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//restaurants+=Restaurant
+		public Assignment getRestaurantsAssignment_1_0() { return cRestaurantsAssignment_1_0; }
 		
 		//Restaurant
-		public RuleCall getRestaurantParserRuleCall_3() { return cRestaurantParserRuleCall_3; }
+		public RuleCall getRestaurantsRestaurantParserRuleCall_1_0_0() { return cRestaurantsRestaurantParserRuleCall_1_0_0; }
 		
-		//OrderItem
-		public RuleCall getOrderItemParserRuleCall_4() { return cOrderItemParserRuleCall_4; }
+		//(',' restaurants+=Restaurant)*
+		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//MenuItem
-		public RuleCall getMenuItemParserRuleCall_5() { return cMenuItemParserRuleCall_5; }
+		//','
+		public Keyword getCommaKeyword_1_1_0() { return cCommaKeyword_1_1_0; }
 		
-		//Review
-		public RuleCall getReviewParserRuleCall_6() { return cReviewParserRuleCall_6; }
+		//restaurants+=Restaurant
+		public Assignment getRestaurantsAssignment_1_1_1() { return cRestaurantsAssignment_1_1_1; }
 		
-		//Menu
-		public RuleCall getMenuParserRuleCall_7() { return cMenuParserRuleCall_7; }
-	}
-	public class UserRoleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.UserRole");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cCustomerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDeliveryDriverParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		//Restaurant
+		public RuleCall getRestaurantsRestaurantParserRuleCall_1_1_1_0() { return cRestaurantsRestaurantParserRuleCall_1_1_1_0; }
 		
-		//UserRole: Customer | DeliveryDriver;
-		@Override public ParserRule getRule() { return rule; }
+		//(orders+=Order (',' orders+=Order)*)?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//Customer | DeliveryDriver
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//orders+=Order
+		public Assignment getOrdersAssignment_2_0() { return cOrdersAssignment_2_0; }
 		
-		//Customer
-		public RuleCall getCustomerParserRuleCall_0() { return cCustomerParserRuleCall_0; }
+		//Order
+		public RuleCall getOrdersOrderParserRuleCall_2_0_0() { return cOrdersOrderParserRuleCall_2_0_0; }
 		
-		//DeliveryDriver
-		public RuleCall getDeliveryDriverParserRuleCall_1() { return cDeliveryDriverParserRuleCall_1; }
+		//(',' orders+=Order)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//','
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
+		
+		//orders+=Order
+		public Assignment getOrdersAssignment_2_1_1() { return cOrdersAssignment_2_1_1; }
+		
+		//Order
+		public RuleCall getOrdersOrderParserRuleCall_2_1_1_0() { return cOrdersOrderParserRuleCall_2_1_1_0; }
 	}
 	public class UserElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.User");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cUserKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cUsernameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cUsernameAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cUsernameSTRINGTerminalRuleCall_5_0 = (RuleCall)cUsernameAssignment_5.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cPasswordKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cPasswordAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cPasswordSTRINGTerminalRuleCall_8_0 = (RuleCall)cPasswordAssignment_8.eContents().get(0);
-		private final Keyword cNameKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cColonKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cNameAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cNameFULLNAMEParserRuleCall_11_0 = (RuleCall)cNameAssignment_11.eContents().get(0);
-		private final Keyword cPhoneKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cColonKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Assignment cPhoneAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final RuleCall cPhonePHONEParserRuleCall_14_0 = (RuleCall)cPhoneAssignment_14.eContents().get(0);
-		private final Keyword cEmailKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Keyword cColonKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Assignment cEmailAssignment_17 = (Assignment)cGroup.eContents().get(17);
-		private final RuleCall cEmailEMAILParserRuleCall_17_0 = (RuleCall)cEmailAssignment_17.eContents().get(0);
-		private final Assignment cElementsAssignment_18 = (Assignment)cGroup.eContents().get(18);
-		private final CrossReference cElementsUserRoleCrossReference_18_0 = (CrossReference)cElementsAssignment_18.eContents().get(0);
-		private final RuleCall cElementsUserRoleIDTerminalRuleCall_18_0_1 = (RuleCall)cElementsUserRoleCrossReference_18_0.eContents().get(1);
+		private final Keyword cCommaKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cPhoneKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cColonKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cPhoneAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cPhonePHONEParserRuleCall_12_0 = (RuleCall)cPhoneAssignment_12.eContents().get(0);
+		private final Keyword cCommaKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cEmailKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cColonKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Assignment cEmailAssignment_16 = (Assignment)cGroup.eContents().get(16);
+		private final RuleCall cEmailEMAILParserRuleCall_16_0 = (RuleCall)cEmailAssignment_16.eContents().get(0);
+		private final Keyword cCommaKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
+		private final Assignment cRolesAssignment_18_0 = (Assignment)cGroup_18.eContents().get(0);
+		private final RuleCall cRolesUserRoleParserRuleCall_18_0_0 = (RuleCall)cRolesAssignment_18_0.eContents().get(0);
+		private final Group cGroup_18_1 = (Group)cGroup_18.eContents().get(1);
+		private final Keyword cCommaKeyword_18_1_0 = (Keyword)cGroup_18_1.eContents().get(0);
+		private final Assignment cRolesAssignment_18_1_1 = (Assignment)cGroup_18_1.eContents().get(1);
+		private final RuleCall cRolesUserRoleParserRuleCall_18_1_1_0 = (RuleCall)cRolesAssignment_18_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_19 = (Keyword)cGroup.eContents().get(19);
 		
 		//User:
-		//    'user' id=ID '{'
-		//        'username' ':' username=STRING
-		//        'password' ':' password=STRING
-		//        'name' ':' name=FULLNAME
-		//        'phone' ':' phone=PHONE
-		//        'email' ':' email=EMAIL
-		//        elements+=[UserRole]*
+		//    'User' '{'
+		//        'name' ':' name=STRING ','
+		//        'password' ':' password=STRING ','
+		//        'phone' ':' phone=PHONE ','
+		//        'email' ':' email=EMAIL ','
+		//        (roles+=UserRole (',' roles+=UserRole)*)+
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'user' id=ID '{'
-		//    'username' ':' username=STRING
-		//    'password' ':' password=STRING
-		//    'name' ':' name=FULLNAME
-		//    'phone' ':' phone=PHONE
-		//    'email' ':' email=EMAIL
-		//    elements+=[UserRole]*
+		//'User' '{'
+		//    'name' ':' name=STRING ','
+		//    'password' ':' password=STRING ','
+		//    'phone' ':' phone=PHONE ','
+		//    'email' ':' email=EMAIL ','
+		//    (roles+=UserRole (',' roles+=UserRole)*)+
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'user'
+		//'User'
 		public Keyword getUserKeyword_0() { return cUserKeyword_0; }
 		
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
-		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
-		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//'username'
-		public Keyword getUsernameKeyword_3() { return cUsernameKeyword_3; }
+		//'name'
+		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
 		
 		//':'
-		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
-		//username=STRING
-		public Assignment getUsernameAssignment_5() { return cUsernameAssignment_5; }
+		//name=STRING
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 		
 		//STRING
-		public RuleCall getUsernameSTRINGTerminalRuleCall_5_0() { return cUsernameSTRINGTerminalRuleCall_5_0; }
+		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		
+		//','
+		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
 		
 		//'password'
 		public Keyword getPasswordKeyword_6() { return cPasswordKeyword_6; }
@@ -196,499 +219,480 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//STRING
 		public RuleCall getPasswordSTRINGTerminalRuleCall_8_0() { return cPasswordSTRINGTerminalRuleCall_8_0; }
 		
-		//'name'
-		public Keyword getNameKeyword_9() { return cNameKeyword_9; }
-		
-		//':'
-		public Keyword getColonKeyword_10() { return cColonKeyword_10; }
-		
-		//name=FULLNAME
-		public Assignment getNameAssignment_11() { return cNameAssignment_11; }
-		
-		//FULLNAME
-		public RuleCall getNameFULLNAMEParserRuleCall_11_0() { return cNameFULLNAMEParserRuleCall_11_0; }
+		//','
+		public Keyword getCommaKeyword_9() { return cCommaKeyword_9; }
 		
 		//'phone'
-		public Keyword getPhoneKeyword_12() { return cPhoneKeyword_12; }
+		public Keyword getPhoneKeyword_10() { return cPhoneKeyword_10; }
 		
 		//':'
-		public Keyword getColonKeyword_13() { return cColonKeyword_13; }
+		public Keyword getColonKeyword_11() { return cColonKeyword_11; }
 		
 		//phone=PHONE
-		public Assignment getPhoneAssignment_14() { return cPhoneAssignment_14; }
+		public Assignment getPhoneAssignment_12() { return cPhoneAssignment_12; }
 		
 		//PHONE
-		public RuleCall getPhonePHONEParserRuleCall_14_0() { return cPhonePHONEParserRuleCall_14_0; }
+		public RuleCall getPhonePHONEParserRuleCall_12_0() { return cPhonePHONEParserRuleCall_12_0; }
+		
+		//','
+		public Keyword getCommaKeyword_13() { return cCommaKeyword_13; }
 		
 		//'email'
-		public Keyword getEmailKeyword_15() { return cEmailKeyword_15; }
+		public Keyword getEmailKeyword_14() { return cEmailKeyword_14; }
 		
 		//':'
-		public Keyword getColonKeyword_16() { return cColonKeyword_16; }
+		public Keyword getColonKeyword_15() { return cColonKeyword_15; }
 		
 		//email=EMAIL
-		public Assignment getEmailAssignment_17() { return cEmailAssignment_17; }
+		public Assignment getEmailAssignment_16() { return cEmailAssignment_16; }
 		
 		//EMAIL
-		public RuleCall getEmailEMAILParserRuleCall_17_0() { return cEmailEMAILParserRuleCall_17_0; }
+		public RuleCall getEmailEMAILParserRuleCall_16_0() { return cEmailEMAILParserRuleCall_16_0; }
 		
-		//elements+=[UserRole]*
-		public Assignment getElementsAssignment_18() { return cElementsAssignment_18; }
+		//','
+		public Keyword getCommaKeyword_17() { return cCommaKeyword_17; }
 		
-		//[UserRole]
-		public CrossReference getElementsUserRoleCrossReference_18_0() { return cElementsUserRoleCrossReference_18_0; }
+		//(roles+=UserRole (',' roles+=UserRole)*)+
+		public Group getGroup_18() { return cGroup_18; }
 		
-		//ID
-		public RuleCall getElementsUserRoleIDTerminalRuleCall_18_0_1() { return cElementsUserRoleIDTerminalRuleCall_18_0_1; }
+		//roles+=UserRole
+		public Assignment getRolesAssignment_18_0() { return cRolesAssignment_18_0; }
+		
+		//UserRole
+		public RuleCall getRolesUserRoleParserRuleCall_18_0_0() { return cRolesUserRoleParserRuleCall_18_0_0; }
+		
+		//(',' roles+=UserRole)*
+		public Group getGroup_18_1() { return cGroup_18_1; }
+		
+		//','
+		public Keyword getCommaKeyword_18_1_0() { return cCommaKeyword_18_1_0; }
+		
+		//roles+=UserRole
+		public Assignment getRolesAssignment_18_1_1() { return cRolesAssignment_18_1_1; }
+		
+		//UserRole
+		public RuleCall getRolesUserRoleParserRuleCall_18_1_1_0() { return cRolesUserRoleParserRuleCall_18_1_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_19() { return cRightCurlyBracketKeyword_19; }
+	}
+	public class UserRoleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.UserRole");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCustomerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDeliveryDriverParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//UserRole : Customer | DeliveryDriver;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Customer | DeliveryDriver
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Customer
+		public RuleCall getCustomerParserRuleCall_0() { return cCustomerParserRuleCall_0; }
+		
+		//DeliveryDriver
+		public RuleCall getDeliveryDriverParserRuleCall_1() { return cDeliveryDriverParserRuleCall_1; }
 	}
 	public class CustomerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.Customer");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCustomerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cOrdersAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cOrdersOrderCrossReference_3_0 = (CrossReference)cOrdersAssignment_3.eContents().get(0);
-		private final RuleCall cOrdersOrderIDTerminalRuleCall_3_0_1 = (RuleCall)cOrdersOrderCrossReference_3_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cUsernameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cUsernameIDTerminalRuleCall_1_0 = (RuleCall)cUsernameAssignment_1.eContents().get(0);
 		
 		//Customer:
-		//    'Customer' id=ID '{'
-		//        orders += [Order]*
-		//    '}'
+		//    'Customer'  username=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Customer' id=ID '{'
-		//    orders += [Order]*
-		//'}'
+		//'Customer'  username=ID
 		public Group getGroup() { return cGroup; }
 		
 		//'Customer'
 		public Keyword getCustomerKeyword_0() { return cCustomerKeyword_0; }
 		
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//username=ID
+		public Assignment getUsernameAssignment_1() { return cUsernameAssignment_1; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//orders += [Order]*
-		public Assignment getOrdersAssignment_3() { return cOrdersAssignment_3; }
-		
-		//[Order]
-		public CrossReference getOrdersOrderCrossReference_3_0() { return cOrdersOrderCrossReference_3_0; }
-		
-		//ID
-		public RuleCall getOrdersOrderIDTerminalRuleCall_3_0_1() { return cOrdersOrderIDTerminalRuleCall_3_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public RuleCall getUsernameIDTerminalRuleCall_1_0() { return cUsernameIDTerminalRuleCall_1_0; }
 	}
 	public class DeliveryDriverElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.DeliveryDriver");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDeliveryDriverKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cUsernameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cUsernameIDTerminalRuleCall_1_0 = (RuleCall)cUsernameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cIsAvailableKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cIsAvailableAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cIsAvailableINTTerminalRuleCall_5_0 = (RuleCall)cIsAvailableAssignment_5.eContents().get(0);
-		private final Keyword cCarLicenceNumberKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cCarLicenceNumberAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cCarLicenceNumberLICENCEParserRuleCall_8_0 = (RuleCall)cCarLicenceNumberAssignment_8.eContents().get(0);
-		private final Assignment cOrdersAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cOrdersOrderCrossReference_9_0 = (CrossReference)cOrdersAssignment_9.eContents().get(0);
-		private final RuleCall cOrdersOrderIDTerminalRuleCall_9_0_1 = (RuleCall)cOrdersOrderCrossReference_9_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cIsAvailableAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cIsAvailableIsAvailableKeyword_3_0 = (Keyword)cIsAvailableAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cCarLicenceNumberKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cCarLicenceNumberAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cCarLicenceNumberLICENCEParserRuleCall_7_0 = (RuleCall)cCarLicenceNumberAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DeliveryDriver:
-		//    'DeliveryDriver' id=ID '{'
-		//        'isAvailable' ':' isAvailable=INT
+		//    'DeliveryDriver' username=ID '{'
+		//        (isAvailable?='isAvailable')? ','
 		//        'carLicenceNumber' ':' carLicenceNumber=LICENCE
-		//        orders += [Order]*
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'DeliveryDriver' id=ID '{'
-		//    'isAvailable' ':' isAvailable=INT
+		//'DeliveryDriver' username=ID '{'
+		//    (isAvailable?='isAvailable')? ','
 		//    'carLicenceNumber' ':' carLicenceNumber=LICENCE
-		//    orders += [Order]*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//'DeliveryDriver'
 		public Keyword getDeliveryDriverKeyword_0() { return cDeliveryDriverKeyword_0; }
 		
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//username=ID
+		public Assignment getUsernameAssignment_1() { return cUsernameAssignment_1; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getUsernameIDTerminalRuleCall_1_0() { return cUsernameIDTerminalRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
+		//(isAvailable?='isAvailable')?
+		public Assignment getIsAvailableAssignment_3() { return cIsAvailableAssignment_3; }
+		
 		//'isAvailable'
-		public Keyword getIsAvailableKeyword_3() { return cIsAvailableKeyword_3; }
+		public Keyword getIsAvailableIsAvailableKeyword_3_0() { return cIsAvailableIsAvailableKeyword_3_0; }
 		
-		//':'
-		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
-		
-		//isAvailable=INT
-		public Assignment getIsAvailableAssignment_5() { return cIsAvailableAssignment_5; }
-		
-		//INT
-		public RuleCall getIsAvailableINTTerminalRuleCall_5_0() { return cIsAvailableINTTerminalRuleCall_5_0; }
+		//','
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
 		
 		//'carLicenceNumber'
-		public Keyword getCarLicenceNumberKeyword_6() { return cCarLicenceNumberKeyword_6; }
+		public Keyword getCarLicenceNumberKeyword_5() { return cCarLicenceNumberKeyword_5; }
 		
 		//':'
-		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
+		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
 		
 		//carLicenceNumber=LICENCE
-		public Assignment getCarLicenceNumberAssignment_8() { return cCarLicenceNumberAssignment_8; }
+		public Assignment getCarLicenceNumberAssignment_7() { return cCarLicenceNumberAssignment_7; }
 		
 		//LICENCE
-		public RuleCall getCarLicenceNumberLICENCEParserRuleCall_8_0() { return cCarLicenceNumberLICENCEParserRuleCall_8_0; }
-		
-		//orders += [Order]*
-		public Assignment getOrdersAssignment_9() { return cOrdersAssignment_9; }
-		
-		//[Order]
-		public CrossReference getOrdersOrderCrossReference_9_0() { return cOrdersOrderCrossReference_9_0; }
-		
-		//ID
-		public RuleCall getOrdersOrderIDTerminalRuleCall_9_0_1() { return cOrdersOrderIDTerminalRuleCall_9_0_1; }
+		public RuleCall getCarLicenceNumberLICENCEParserRuleCall_7_0() { return cCarLicenceNumberLICENCEParserRuleCall_7_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class OrderElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.Order");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOrderKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cOrderNumberAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cOrderNumberIDTerminalRuleCall_1_0 = (RuleCall)cOrderNumberAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cOrderNumberKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSTATUSKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cOrderNumberAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cOrderNumberINTTerminalRuleCall_5_0 = (RuleCall)cOrderNumberAssignment_5.eContents().get(0);
-		private final Keyword cStatusKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cStatusAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cStatusOrderStatusEnumRuleCall_8_0 = (RuleCall)cStatusAssignment_8.eContents().get(0);
-		private final Keyword cDeliveryAddressKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cColonKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cDeliveryAddressAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cDeliveryAddressADDRESSParserRuleCall_11_0 = (RuleCall)cDeliveryAddressAssignment_11.eContents().get(0);
-		private final Keyword cOrderedDatetimeKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cColonKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Assignment cOrderedDatetimeAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final RuleCall cOrderedDatetimeDATETIMEParserRuleCall_14_0 = (RuleCall)cOrderedDatetimeAssignment_14.eContents().get(0);
-		private final Keyword cDeliveredDatetimeKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Assignment cStatusAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cStatusOrderStatusEnumRuleCall_5_0 = (RuleCall)cStatusAssignment_5.eContents().get(0);
+		private final Keyword cCommaKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cDELIVER_TOKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cColonKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cDeliveryAddressAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDeliveryAddressADDRESSParserRuleCall_9_0 = (RuleCall)cDeliveryAddressAssignment_9.eContents().get(0);
+		private final Keyword cCommaKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cCUSTOMERKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cColonKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cCustomerAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final CrossReference cCustomerCustomerCrossReference_13_0 = (CrossReference)cCustomerAssignment_13.eContents().get(0);
+		private final RuleCall cCustomerCustomerIDTerminalRuleCall_13_0_1 = (RuleCall)cCustomerCustomerCrossReference_13_0.eContents().get(1);
+		private final Keyword cCommaKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cDRIVERKeyword_15 = (Keyword)cGroup.eContents().get(15);
 		private final Keyword cColonKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Assignment cDeliveredDatetimeAssignment_17 = (Assignment)cGroup.eContents().get(17);
-		private final RuleCall cDeliveredDatetimeDATETIMEParserRuleCall_17_0 = (RuleCall)cDeliveredDatetimeAssignment_17.eContents().get(0);
-		private final Keyword cRequestedDeliveryDatetimeKeyword_18 = (Keyword)cGroup.eContents().get(18);
-		private final Keyword cColonKeyword_19 = (Keyword)cGroup.eContents().get(19);
-		private final Assignment cRequestedDeliveryDatetimeAssignment_20 = (Assignment)cGroup.eContents().get(20);
-		private final RuleCall cRequestedDeliveryDatetimeDATETIMEParserRuleCall_20_0 = (RuleCall)cRequestedDeliveryDatetimeAssignment_20.eContents().get(0);
-		private final Assignment cOrderItemsAssignment_21 = (Assignment)cGroup.eContents().get(21);
-		private final CrossReference cOrderItemsOrderItemCrossReference_21_0 = (CrossReference)cOrderItemsAssignment_21.eContents().get(0);
-		private final RuleCall cOrderItemsOrderItemIDTerminalRuleCall_21_0_1 = (RuleCall)cOrderItemsOrderItemCrossReference_21_0.eContents().get(1);
-		private final Keyword cReviewKeyword_22 = (Keyword)cGroup.eContents().get(22);
-		private final Keyword cColonKeyword_23 = (Keyword)cGroup.eContents().get(23);
-		private final Assignment cReviewAssignment_24 = (Assignment)cGroup.eContents().get(24);
-		private final CrossReference cReviewReviewCrossReference_24_0 = (CrossReference)cReviewAssignment_24.eContents().get(0);
-		private final RuleCall cReviewReviewIDTerminalRuleCall_24_0_1 = (RuleCall)cReviewReviewCrossReference_24_0.eContents().get(1);
-		private final Keyword cCustomerKeyword_25 = (Keyword)cGroup.eContents().get(25);
-		private final Keyword cColonKeyword_26 = (Keyword)cGroup.eContents().get(26);
-		private final Assignment cCustomerAssignment_27 = (Assignment)cGroup.eContents().get(27);
-		private final CrossReference cCustomerCustomerCrossReference_27_0 = (CrossReference)cCustomerAssignment_27.eContents().get(0);
-		private final RuleCall cCustomerCustomerIDTerminalRuleCall_27_0_1 = (RuleCall)cCustomerCustomerCrossReference_27_0.eContents().get(1);
-		private final Keyword cDeliveryDriverKeyword_28 = (Keyword)cGroup.eContents().get(28);
-		private final Keyword cColonKeyword_29 = (Keyword)cGroup.eContents().get(29);
-		private final Assignment cDeliveryDriverAssignment_30 = (Assignment)cGroup.eContents().get(30);
-		private final CrossReference cDeliveryDriverDeliveryDriverCrossReference_30_0 = (CrossReference)cDeliveryDriverAssignment_30.eContents().get(0);
-		private final RuleCall cDeliveryDriverDeliveryDriverIDTerminalRuleCall_30_0_1 = (RuleCall)cDeliveryDriverDeliveryDriverCrossReference_30_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_31 = (Keyword)cGroup.eContents().get(31);
+		private final Assignment cDeliveryDriverAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final CrossReference cDeliveryDriverDeliveryDriverCrossReference_17_0 = (CrossReference)cDeliveryDriverAssignment_17.eContents().get(0);
+		private final RuleCall cDeliveryDriverDeliveryDriverIDTerminalRuleCall_17_0_1 = (RuleCall)cDeliveryDriverDeliveryDriverCrossReference_17_0.eContents().get(1);
+		private final Keyword cCommaKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Keyword cORDERED_ATKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final Keyword cColonKeyword_20 = (Keyword)cGroup.eContents().get(20);
+		private final Assignment cOrderedDatetimeAssignment_21 = (Assignment)cGroup.eContents().get(21);
+		private final RuleCall cOrderedDatetimeDATETIMEParserRuleCall_21_0 = (RuleCall)cOrderedDatetimeAssignment_21.eContents().get(0);
+		private final Keyword cCommaKeyword_22 = (Keyword)cGroup.eContents().get(22);
+		private final Keyword cDELIVERED_ATKeyword_23 = (Keyword)cGroup.eContents().get(23);
+		private final Keyword cColonKeyword_24 = (Keyword)cGroup.eContents().get(24);
+		private final Assignment cDeliveredDatetimeAssignment_25 = (Assignment)cGroup.eContents().get(25);
+		private final RuleCall cDeliveredDatetimeDATETIMEParserRuleCall_25_0 = (RuleCall)cDeliveredDatetimeAssignment_25.eContents().get(0);
+		private final Keyword cCommaKeyword_26 = (Keyword)cGroup.eContents().get(26);
+		private final Keyword cREQUESTEDDELIVERYDATETIMEKeyword_27 = (Keyword)cGroup.eContents().get(27);
+		private final Keyword cColonKeyword_28 = (Keyword)cGroup.eContents().get(28);
+		private final Assignment cRequestedDeliveryDatetimeAssignment_29 = (Assignment)cGroup.eContents().get(29);
+		private final RuleCall cRequestedDeliveryDatetimeDATETIMEParserRuleCall_29_0 = (RuleCall)cRequestedDeliveryDatetimeAssignment_29.eContents().get(0);
+		private final Keyword cCommaKeyword_30 = (Keyword)cGroup.eContents().get(30);
+		private final Keyword cITEMSKeyword_31 = (Keyword)cGroup.eContents().get(31);
+		private final Keyword cColonKeyword_32 = (Keyword)cGroup.eContents().get(32);
+		private final Group cGroup_33 = (Group)cGroup.eContents().get(33);
+		private final Assignment cOrderItemsAssignment_33_0 = (Assignment)cGroup_33.eContents().get(0);
+		private final RuleCall cOrderItemsOrderItemParserRuleCall_33_0_0 = (RuleCall)cOrderItemsAssignment_33_0.eContents().get(0);
+		private final Group cGroup_33_1 = (Group)cGroup_33.eContents().get(1);
+		private final Keyword cCommaKeyword_33_1_0 = (Keyword)cGroup_33_1.eContents().get(0);
+		private final Assignment cOrderItemsAssignment_33_1_1 = (Assignment)cGroup_33_1.eContents().get(1);
+		private final RuleCall cOrderItemsOrderItemParserRuleCall_33_1_1_0 = (RuleCall)cOrderItemsAssignment_33_1_1.eContents().get(0);
+		private final Assignment cReviewAssignment_34 = (Assignment)cGroup.eContents().get(34);
+		private final RuleCall cReviewReviewParserRuleCall_34_0 = (RuleCall)cReviewAssignment_34.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_35 = (Keyword)cGroup.eContents().get(35);
 		
 		//Order:
-		//    'Order' id=ID '{'
-		//        'orderNumber' ':' orderNumber=INT
-		//        'status' ':' status=OrderStatus
-		//        'deliveryAddress' ':' deliveryAddress=ADDRESS
-		//        'orderedDatetime' ':' orderedDatetime=DATETIME
-		//        'deliveredDatetime' ':' deliveredDatetime=DATETIME
-		//        'requestedDeliveryDatetime' ':' requestedDeliveryDatetime=DATETIME
-		//        orderItems += [OrderItem]*
-		//        'review' ':' review=[Review]
-		//        'customer' ':' customer=[Customer]
-		//        'deliveryDriver' ':' deliveryDriver=[DeliveryDriver]
+		//    'Order' orderNumber=ID '{'
+		//        'STATUS' ':' status=OrderStatus ','
+		//        'DELIVER_TO' ':' deliveryAddress=ADDRESS ','
+		//        'CUSTOMER' ':' customer=[Customer] ','
+		//        'DRIVER' ':' deliveryDriver=[DeliveryDriver] ','
+		//        'ORDERED_AT' ':' orderedDatetime=DATETIME ','
+		//        'DELIVERED_AT' ':' deliveredDatetime=DATETIME ','
+		//        'REQUESTEDDELIVERYDATETIME' ':' requestedDeliveryDatetime=DATETIME ','
+		//        'ITEMS' ':' (orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
+		//        (review+=Review)?
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Order' id=ID '{'
-		//    'orderNumber' ':' orderNumber=INT
-		//    'status' ':' status=OrderStatus
-		//    'deliveryAddress' ':' deliveryAddress=ADDRESS
-		//    'orderedDatetime' ':' orderedDatetime=DATETIME
-		//    'deliveredDatetime' ':' deliveredDatetime=DATETIME
-		//    'requestedDeliveryDatetime' ':' requestedDeliveryDatetime=DATETIME
-		//    orderItems += [OrderItem]*
-		//    'review' ':' review=[Review]
-		//    'customer' ':' customer=[Customer]
-		//    'deliveryDriver' ':' deliveryDriver=[DeliveryDriver]
+		//'Order' orderNumber=ID '{'
+		//    'STATUS' ':' status=OrderStatus ','
+		//    'DELIVER_TO' ':' deliveryAddress=ADDRESS ','
+		//    'CUSTOMER' ':' customer=[Customer] ','
+		//    'DRIVER' ':' deliveryDriver=[DeliveryDriver] ','
+		//    'ORDERED_AT' ':' orderedDatetime=DATETIME ','
+		//    'DELIVERED_AT' ':' deliveredDatetime=DATETIME ','
+		//    'REQUESTEDDELIVERYDATETIME' ':' requestedDeliveryDatetime=DATETIME ','
+		//    'ITEMS' ':' (orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
+		//    (review+=Review)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Order'
 		public Keyword getOrderKeyword_0() { return cOrderKeyword_0; }
 		
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//orderNumber=ID
+		public Assignment getOrderNumberAssignment_1() { return cOrderNumberAssignment_1; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getOrderNumberIDTerminalRuleCall_1_0() { return cOrderNumberIDTerminalRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//'orderNumber'
-		public Keyword getOrderNumberKeyword_3() { return cOrderNumberKeyword_3; }
+		//'STATUS'
+		public Keyword getSTATUSKeyword_3() { return cSTATUSKeyword_3; }
 		
 		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 		
-		//orderNumber=INT
-		public Assignment getOrderNumberAssignment_5() { return cOrderNumberAssignment_5; }
-		
-		//INT
-		public RuleCall getOrderNumberINTTerminalRuleCall_5_0() { return cOrderNumberINTTerminalRuleCall_5_0; }
-		
-		//'status'
-		public Keyword getStatusKeyword_6() { return cStatusKeyword_6; }
-		
-		//':'
-		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
-		
 		//status=OrderStatus
-		public Assignment getStatusAssignment_8() { return cStatusAssignment_8; }
+		public Assignment getStatusAssignment_5() { return cStatusAssignment_5; }
 		
 		//OrderStatus
-		public RuleCall getStatusOrderStatusEnumRuleCall_8_0() { return cStatusOrderStatusEnumRuleCall_8_0; }
+		public RuleCall getStatusOrderStatusEnumRuleCall_5_0() { return cStatusOrderStatusEnumRuleCall_5_0; }
 		
-		//'deliveryAddress'
-		public Keyword getDeliveryAddressKeyword_9() { return cDeliveryAddressKeyword_9; }
+		//','
+		public Keyword getCommaKeyword_6() { return cCommaKeyword_6; }
+		
+		//'DELIVER_TO'
+		public Keyword getDELIVER_TOKeyword_7() { return cDELIVER_TOKeyword_7; }
 		
 		//':'
-		public Keyword getColonKeyword_10() { return cColonKeyword_10; }
+		public Keyword getColonKeyword_8() { return cColonKeyword_8; }
 		
 		//deliveryAddress=ADDRESS
-		public Assignment getDeliveryAddressAssignment_11() { return cDeliveryAddressAssignment_11; }
+		public Assignment getDeliveryAddressAssignment_9() { return cDeliveryAddressAssignment_9; }
 		
 		//ADDRESS
-		public RuleCall getDeliveryAddressADDRESSParserRuleCall_11_0() { return cDeliveryAddressADDRESSParserRuleCall_11_0; }
+		public RuleCall getDeliveryAddressADDRESSParserRuleCall_9_0() { return cDeliveryAddressADDRESSParserRuleCall_9_0; }
 		
-		//'orderedDatetime'
-		public Keyword getOrderedDatetimeKeyword_12() { return cOrderedDatetimeKeyword_12; }
+		//','
+		public Keyword getCommaKeyword_10() { return cCommaKeyword_10; }
+		
+		//'CUSTOMER'
+		public Keyword getCUSTOMERKeyword_11() { return cCUSTOMERKeyword_11; }
 		
 		//':'
-		public Keyword getColonKeyword_13() { return cColonKeyword_13; }
+		public Keyword getColonKeyword_12() { return cColonKeyword_12; }
 		
-		//orderedDatetime=DATETIME
-		public Assignment getOrderedDatetimeAssignment_14() { return cOrderedDatetimeAssignment_14; }
+		//customer=[Customer]
+		public Assignment getCustomerAssignment_13() { return cCustomerAssignment_13; }
 		
-		//DATETIME
-		public RuleCall getOrderedDatetimeDATETIMEParserRuleCall_14_0() { return cOrderedDatetimeDATETIMEParserRuleCall_14_0; }
+		//[Customer]
+		public CrossReference getCustomerCustomerCrossReference_13_0() { return cCustomerCustomerCrossReference_13_0; }
 		
-		//'deliveredDatetime'
-		public Keyword getDeliveredDatetimeKeyword_15() { return cDeliveredDatetimeKeyword_15; }
+		//ID
+		public RuleCall getCustomerCustomerIDTerminalRuleCall_13_0_1() { return cCustomerCustomerIDTerminalRuleCall_13_0_1; }
+		
+		//','
+		public Keyword getCommaKeyword_14() { return cCommaKeyword_14; }
+		
+		//'DRIVER'
+		public Keyword getDRIVERKeyword_15() { return cDRIVERKeyword_15; }
 		
 		//':'
 		public Keyword getColonKeyword_16() { return cColonKeyword_16; }
 		
-		//deliveredDatetime=DATETIME
-		public Assignment getDeliveredDatetimeAssignment_17() { return cDeliveredDatetimeAssignment_17; }
-		
-		//DATETIME
-		public RuleCall getDeliveredDatetimeDATETIMEParserRuleCall_17_0() { return cDeliveredDatetimeDATETIMEParserRuleCall_17_0; }
-		
-		//'requestedDeliveryDatetime'
-		public Keyword getRequestedDeliveryDatetimeKeyword_18() { return cRequestedDeliveryDatetimeKeyword_18; }
-		
-		//':'
-		public Keyword getColonKeyword_19() { return cColonKeyword_19; }
-		
-		//requestedDeliveryDatetime=DATETIME
-		public Assignment getRequestedDeliveryDatetimeAssignment_20() { return cRequestedDeliveryDatetimeAssignment_20; }
-		
-		//DATETIME
-		public RuleCall getRequestedDeliveryDatetimeDATETIMEParserRuleCall_20_0() { return cRequestedDeliveryDatetimeDATETIMEParserRuleCall_20_0; }
-		
-		//orderItems += [OrderItem]*
-		public Assignment getOrderItemsAssignment_21() { return cOrderItemsAssignment_21; }
-		
-		//[OrderItem]
-		public CrossReference getOrderItemsOrderItemCrossReference_21_0() { return cOrderItemsOrderItemCrossReference_21_0; }
-		
-		//ID
-		public RuleCall getOrderItemsOrderItemIDTerminalRuleCall_21_0_1() { return cOrderItemsOrderItemIDTerminalRuleCall_21_0_1; }
-		
-		//'review'
-		public Keyword getReviewKeyword_22() { return cReviewKeyword_22; }
-		
-		//':'
-		public Keyword getColonKeyword_23() { return cColonKeyword_23; }
-		
-		//review=[Review]
-		public Assignment getReviewAssignment_24() { return cReviewAssignment_24; }
-		
-		//[Review]
-		public CrossReference getReviewReviewCrossReference_24_0() { return cReviewReviewCrossReference_24_0; }
-		
-		//ID
-		public RuleCall getReviewReviewIDTerminalRuleCall_24_0_1() { return cReviewReviewIDTerminalRuleCall_24_0_1; }
-		
-		//'customer'
-		public Keyword getCustomerKeyword_25() { return cCustomerKeyword_25; }
-		
-		//':'
-		public Keyword getColonKeyword_26() { return cColonKeyword_26; }
-		
-		//customer=[Customer]
-		public Assignment getCustomerAssignment_27() { return cCustomerAssignment_27; }
-		
-		//[Customer]
-		public CrossReference getCustomerCustomerCrossReference_27_0() { return cCustomerCustomerCrossReference_27_0; }
-		
-		//ID
-		public RuleCall getCustomerCustomerIDTerminalRuleCall_27_0_1() { return cCustomerCustomerIDTerminalRuleCall_27_0_1; }
-		
-		//'deliveryDriver'
-		public Keyword getDeliveryDriverKeyword_28() { return cDeliveryDriverKeyword_28; }
-		
-		//':'
-		public Keyword getColonKeyword_29() { return cColonKeyword_29; }
-		
 		//deliveryDriver=[DeliveryDriver]
-		public Assignment getDeliveryDriverAssignment_30() { return cDeliveryDriverAssignment_30; }
+		public Assignment getDeliveryDriverAssignment_17() { return cDeliveryDriverAssignment_17; }
 		
 		//[DeliveryDriver]
-		public CrossReference getDeliveryDriverDeliveryDriverCrossReference_30_0() { return cDeliveryDriverDeliveryDriverCrossReference_30_0; }
+		public CrossReference getDeliveryDriverDeliveryDriverCrossReference_17_0() { return cDeliveryDriverDeliveryDriverCrossReference_17_0; }
 		
 		//ID
-		public RuleCall getDeliveryDriverDeliveryDriverIDTerminalRuleCall_30_0_1() { return cDeliveryDriverDeliveryDriverIDTerminalRuleCall_30_0_1; }
+		public RuleCall getDeliveryDriverDeliveryDriverIDTerminalRuleCall_17_0_1() { return cDeliveryDriverDeliveryDriverIDTerminalRuleCall_17_0_1; }
+		
+		//','
+		public Keyword getCommaKeyword_18() { return cCommaKeyword_18; }
+		
+		//'ORDERED_AT'
+		public Keyword getORDERED_ATKeyword_19() { return cORDERED_ATKeyword_19; }
+		
+		//':'
+		public Keyword getColonKeyword_20() { return cColonKeyword_20; }
+		
+		//orderedDatetime=DATETIME
+		public Assignment getOrderedDatetimeAssignment_21() { return cOrderedDatetimeAssignment_21; }
+		
+		//DATETIME
+		public RuleCall getOrderedDatetimeDATETIMEParserRuleCall_21_0() { return cOrderedDatetimeDATETIMEParserRuleCall_21_0; }
+		
+		//','
+		public Keyword getCommaKeyword_22() { return cCommaKeyword_22; }
+		
+		//'DELIVERED_AT'
+		public Keyword getDELIVERED_ATKeyword_23() { return cDELIVERED_ATKeyword_23; }
+		
+		//':'
+		public Keyword getColonKeyword_24() { return cColonKeyword_24; }
+		
+		//deliveredDatetime=DATETIME
+		public Assignment getDeliveredDatetimeAssignment_25() { return cDeliveredDatetimeAssignment_25; }
+		
+		//DATETIME
+		public RuleCall getDeliveredDatetimeDATETIMEParserRuleCall_25_0() { return cDeliveredDatetimeDATETIMEParserRuleCall_25_0; }
+		
+		//','
+		public Keyword getCommaKeyword_26() { return cCommaKeyword_26; }
+		
+		//'REQUESTEDDELIVERYDATETIME'
+		public Keyword getREQUESTEDDELIVERYDATETIMEKeyword_27() { return cREQUESTEDDELIVERYDATETIMEKeyword_27; }
+		
+		//':'
+		public Keyword getColonKeyword_28() { return cColonKeyword_28; }
+		
+		//requestedDeliveryDatetime=DATETIME
+		public Assignment getRequestedDeliveryDatetimeAssignment_29() { return cRequestedDeliveryDatetimeAssignment_29; }
+		
+		//DATETIME
+		public RuleCall getRequestedDeliveryDatetimeDATETIMEParserRuleCall_29_0() { return cRequestedDeliveryDatetimeDATETIMEParserRuleCall_29_0; }
+		
+		//','
+		public Keyword getCommaKeyword_30() { return cCommaKeyword_30; }
+		
+		//'ITEMS'
+		public Keyword getITEMSKeyword_31() { return cITEMSKeyword_31; }
+		
+		//':'
+		public Keyword getColonKeyword_32() { return cColonKeyword_32; }
+		
+		//(orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
+		public Group getGroup_33() { return cGroup_33; }
+		
+		//orderItems+=OrderItem
+		public Assignment getOrderItemsAssignment_33_0() { return cOrderItemsAssignment_33_0; }
+		
+		//OrderItem
+		public RuleCall getOrderItemsOrderItemParserRuleCall_33_0_0() { return cOrderItemsOrderItemParserRuleCall_33_0_0; }
+		
+		//(',' orderItems+=OrderItem)*
+		public Group getGroup_33_1() { return cGroup_33_1; }
+		
+		//','
+		public Keyword getCommaKeyword_33_1_0() { return cCommaKeyword_33_1_0; }
+		
+		//orderItems+=OrderItem
+		public Assignment getOrderItemsAssignment_33_1_1() { return cOrderItemsAssignment_33_1_1; }
+		
+		//OrderItem
+		public RuleCall getOrderItemsOrderItemParserRuleCall_33_1_1_0() { return cOrderItemsOrderItemParserRuleCall_33_1_1_0; }
+		
+		//(review+=Review)?
+		public Assignment getReviewAssignment_34() { return cReviewAssignment_34; }
+		
+		//Review
+		public RuleCall getReviewReviewParserRuleCall_34_0() { return cReviewReviewParserRuleCall_34_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_31() { return cRightCurlyBracketKeyword_31; }
+		public Keyword getRightCurlyBracketKeyword_35() { return cRightCurlyBracketKeyword_35; }
 	}
 	public class RestaurantElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.Restaurant");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRestaurantKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cAddressKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cNameSTRINGTerminalRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
-		private final Keyword cAddressKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cAddressAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cAddressADDRESSParserRuleCall_8_0 = (RuleCall)cAddressAssignment_8.eContents().get(0);
-		private final Keyword cMenuKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cColonKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cMenuAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final CrossReference cMenuMenuCrossReference_11_0 = (CrossReference)cMenuAssignment_11.eContents().get(0);
-		private final RuleCall cMenuMenuIDTerminalRuleCall_11_0_1 = (RuleCall)cMenuMenuCrossReference_11_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cAddressAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cAddressADDRESSParserRuleCall_5_0 = (RuleCall)cAddressAssignment_5.eContents().get(0);
+		private final Keyword cCommaKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cMenuAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMenuMenuParserRuleCall_7_0 = (RuleCall)cMenuAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Restaurant:
-		//    'Restaurant' id=ID '{'
-		//        'name' ':' name=STRING
-		//        'address' ':' address=ADDRESS
-		//        'menu' ':' menu=[Menu]
+		//    'Restaurant' name=ID '{'
+		//        'address' ':' address=ADDRESS ','
+		//        (menu+=Menu)
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Restaurant' id=ID '{'
-		//    'name' ':' name=STRING
-		//    'address' ':' address=ADDRESS
-		//    'menu' ':' menu=[Menu]
+		//'Restaurant' name=ID '{'
+		//    'address' ':' address=ADDRESS ','
+		//    (menu+=Menu)
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Restaurant'
 		public Keyword getRestaurantKeyword_0() { return cRestaurantKeyword_0; }
 		
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//'name'
-		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		//'address'
+		public Keyword getAddressKeyword_3() { return cAddressKeyword_3; }
 		
 		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 		
-		//name=STRING
-		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
-		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_5_0() { return cNameSTRINGTerminalRuleCall_5_0; }
-		
-		//'address'
-		public Keyword getAddressKeyword_6() { return cAddressKeyword_6; }
-		
-		//':'
-		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
-		
 		//address=ADDRESS
-		public Assignment getAddressAssignment_8() { return cAddressAssignment_8; }
+		public Assignment getAddressAssignment_5() { return cAddressAssignment_5; }
 		
 		//ADDRESS
-		public RuleCall getAddressADDRESSParserRuleCall_8_0() { return cAddressADDRESSParserRuleCall_8_0; }
+		public RuleCall getAddressADDRESSParserRuleCall_5_0() { return cAddressADDRESSParserRuleCall_5_0; }
 		
-		//'menu'
-		public Keyword getMenuKeyword_9() { return cMenuKeyword_9; }
+		//','
+		public Keyword getCommaKeyword_6() { return cCommaKeyword_6; }
 		
-		//':'
-		public Keyword getColonKeyword_10() { return cColonKeyword_10; }
+		//(menu+=Menu)
+		public Assignment getMenuAssignment_7() { return cMenuAssignment_7; }
 		
-		//menu=[Menu]
-		public Assignment getMenuAssignment_11() { return cMenuAssignment_11; }
-		
-		//[Menu]
-		public CrossReference getMenuMenuCrossReference_11_0() { return cMenuMenuCrossReference_11_0; }
-		
-		//ID
-		public RuleCall getMenuMenuIDTerminalRuleCall_11_0_1() { return cMenuMenuIDTerminalRuleCall_11_0_1; }
+		//Menu
+		public RuleCall getMenuMenuParserRuleCall_7_0() { return cMenuMenuParserRuleCall_7_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class MenuElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.Menu");
@@ -697,27 +701,26 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cRestaurantKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cItemsKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cRestaurantAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cRestaurantRestaurantCrossReference_5_0 = (CrossReference)cRestaurantAssignment_5.eContents().get(0);
-		private final RuleCall cRestaurantRestaurantIDTerminalRuleCall_5_0_1 = (RuleCall)cRestaurantRestaurantCrossReference_5_0.eContents().get(1);
-		private final Assignment cMenuItemsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cMenuItemsMenuItemCrossReference_6_0 = (CrossReference)cMenuItemsAssignment_6.eContents().get(0);
-		private final RuleCall cMenuItemsMenuItemIDTerminalRuleCall_6_0_1 = (RuleCall)cMenuItemsMenuItemCrossReference_6_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Assignment cMenuItemsAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cMenuItemsMenuItemParserRuleCall_5_0_0 = (RuleCall)cMenuItemsAssignment_5_0.eContents().get(0);
+		private final Group cGroup_5_1 = (Group)cGroup_5.eContents().get(1);
+		private final Keyword cCommaKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
+		private final Assignment cMenuItemsAssignment_5_1_1 = (Assignment)cGroup_5_1.eContents().get(1);
+		private final RuleCall cMenuItemsMenuItemParserRuleCall_5_1_1_0 = (RuleCall)cMenuItemsAssignment_5_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Menu:
 		//    'Menu' id=ID '{'
-		//        'restaurant' ':' restaurant=[Restaurant]
-		//        menuItems += [MenuItem]*
+		//        'items' ':' (menuItems+=MenuItem (',' menuItems+=MenuItem)*)?
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Menu' id=ID '{'
-		//    'restaurant' ':' restaurant=[Restaurant]
-		//    menuItems += [MenuItem]*
+		//    'items' ':' (menuItems+=MenuItem (',' menuItems+=MenuItem)*)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -733,123 +736,111 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//'restaurant'
-		public Keyword getRestaurantKeyword_3() { return cRestaurantKeyword_3; }
+		//'items'
+		public Keyword getItemsKeyword_3() { return cItemsKeyword_3; }
 		
 		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 		
-		//restaurant=[Restaurant]
-		public Assignment getRestaurantAssignment_5() { return cRestaurantAssignment_5; }
+		//(menuItems+=MenuItem (',' menuItems+=MenuItem)*)?
+		public Group getGroup_5() { return cGroup_5; }
 		
-		//[Restaurant]
-		public CrossReference getRestaurantRestaurantCrossReference_5_0() { return cRestaurantRestaurantCrossReference_5_0; }
+		//menuItems+=MenuItem
+		public Assignment getMenuItemsAssignment_5_0() { return cMenuItemsAssignment_5_0; }
 		
-		//ID
-		public RuleCall getRestaurantRestaurantIDTerminalRuleCall_5_0_1() { return cRestaurantRestaurantIDTerminalRuleCall_5_0_1; }
+		//MenuItem
+		public RuleCall getMenuItemsMenuItemParserRuleCall_5_0_0() { return cMenuItemsMenuItemParserRuleCall_5_0_0; }
 		
-		//menuItems += [MenuItem]*
-		public Assignment getMenuItemsAssignment_6() { return cMenuItemsAssignment_6; }
+		//(',' menuItems+=MenuItem)*
+		public Group getGroup_5_1() { return cGroup_5_1; }
 		
-		//[MenuItem]
-		public CrossReference getMenuItemsMenuItemCrossReference_6_0() { return cMenuItemsMenuItemCrossReference_6_0; }
+		//','
+		public Keyword getCommaKeyword_5_1_0() { return cCommaKeyword_5_1_0; }
 		
-		//ID
-		public RuleCall getMenuItemsMenuItemIDTerminalRuleCall_6_0_1() { return cMenuItemsMenuItemIDTerminalRuleCall_6_0_1; }
+		//menuItems+=MenuItem
+		public Assignment getMenuItemsAssignment_5_1_1() { return cMenuItemsAssignment_5_1_1; }
+		
+		//MenuItem
+		public RuleCall getMenuItemsMenuItemParserRuleCall_5_1_1_0() { return cMenuItemsMenuItemParserRuleCall_5_1_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class MenuItemElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.MenuItem");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMenuItemKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cNameSTRINGTerminalRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
-		private final Keyword cPriceKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cPriceAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cPriceDECIMALParserRuleCall_8_0 = (RuleCall)cPriceAssignment_8.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cPriceKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cPriceAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cPriceDECIMALParserRuleCall_7_0 = (RuleCall)cPriceAssignment_7.eContents().get(0);
+		private final Keyword cCommaKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Keyword cDescriptionKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Keyword cColonKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		private final Assignment cDescriptionAssignment_11 = (Assignment)cGroup.eContents().get(11);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_11_0 = (RuleCall)cDescriptionAssignment_11.eContents().get(0);
-		private final Keyword cCategoryKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cColonKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Assignment cCategoryAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final RuleCall cCategoryMenuItemCategoryEnumRuleCall_14_0 = (RuleCall)cCategoryAssignment_14.eContents().get(0);
-		private final Assignment cOrderItemsAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final CrossReference cOrderItemsOrderItemCrossReference_15_0 = (CrossReference)cOrderItemsAssignment_15.eContents().get(0);
-		private final RuleCall cOrderItemsOrderItemIDTerminalRuleCall_15_0_1 = (RuleCall)cOrderItemsOrderItemCrossReference_15_0.eContents().get(1);
-		private final Keyword cMenuKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Keyword cColonKeyword_17 = (Keyword)cGroup.eContents().get(17);
-		private final Assignment cMenuAssignment_18 = (Assignment)cGroup.eContents().get(18);
-		private final CrossReference cMenuMenuCrossReference_18_0 = (CrossReference)cMenuAssignment_18.eContents().get(0);
-		private final RuleCall cMenuMenuIDTerminalRuleCall_18_0_1 = (RuleCall)cMenuMenuCrossReference_18_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final Keyword cCommaKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cCategoryKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cColonKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Assignment cCategoryAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cCategoryMenuItemCategoryEnumRuleCall_15_0 = (RuleCall)cCategoryAssignment_15.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_16 = (Keyword)cGroup.eContents().get(16);
 		
 		//MenuItem:
-		//    'MenuItem' id=ID '{'
-		//        'name' ':' name=STRING
-		//        'price' ':' price=DECIMAL
-		//        'description' ':' description=STRING
+		//     '{'
+		//         'name' ':' name=ID ','
+		//        'price' ':' price=DECIMAL ','
+		//        'description' ':' description=STRING ','
 		//        'category' ':' category=MenuItemCategory
-		//        orderItems += [OrderItem]*
-		//        'menu' ':' menu=[Menu]
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'MenuItem' id=ID '{'
-		//    'name' ':' name=STRING
-		//    'price' ':' price=DECIMAL
-		//    'description' ':' description=STRING
+		// '{'
+		//     'name' ':' name=ID ','
+		//    'price' ':' price=DECIMAL ','
+		//    'description' ':' description=STRING ','
 		//    'category' ':' category=MenuItemCategory
-		//    orderItems += [OrderItem]*
-		//    'menu' ':' menu=[Menu]
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'MenuItem'
-		public Keyword getMenuItemKeyword_0() { return cMenuItemKeyword_0; }
-		
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
-		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
-		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
 		
 		//'name'
-		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		public Keyword getNameKeyword_1() { return cNameKeyword_1; }
 		
 		//':'
-		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
-		//name=STRING
-		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_5_0() { return cNameSTRINGTerminalRuleCall_5_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		
+		//','
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
 		
 		//'price'
-		public Keyword getPriceKeyword_6() { return cPriceKeyword_6; }
+		public Keyword getPriceKeyword_5() { return cPriceKeyword_5; }
 		
 		//':'
-		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
+		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
 		
 		//price=DECIMAL
-		public Assignment getPriceAssignment_8() { return cPriceAssignment_8; }
+		public Assignment getPriceAssignment_7() { return cPriceAssignment_7; }
 		
 		//DECIMAL
-		public RuleCall getPriceDECIMALParserRuleCall_8_0() { return cPriceDECIMALParserRuleCall_8_0; }
+		public RuleCall getPriceDECIMALParserRuleCall_7_0() { return cPriceDECIMALParserRuleCall_7_0; }
+		
+		//','
+		public Keyword getCommaKeyword_8() { return cCommaKeyword_8; }
 		
 		//'description'
 		public Keyword getDescriptionKeyword_9() { return cDescriptionKeyword_9; }
@@ -863,140 +854,89 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_11_0() { return cDescriptionSTRINGTerminalRuleCall_11_0; }
 		
+		//','
+		public Keyword getCommaKeyword_12() { return cCommaKeyword_12; }
+		
 		//'category'
-		public Keyword getCategoryKeyword_12() { return cCategoryKeyword_12; }
+		public Keyword getCategoryKeyword_13() { return cCategoryKeyword_13; }
 		
 		//':'
-		public Keyword getColonKeyword_13() { return cColonKeyword_13; }
+		public Keyword getColonKeyword_14() { return cColonKeyword_14; }
 		
 		//category=MenuItemCategory
-		public Assignment getCategoryAssignment_14() { return cCategoryAssignment_14; }
+		public Assignment getCategoryAssignment_15() { return cCategoryAssignment_15; }
 		
 		//MenuItemCategory
-		public RuleCall getCategoryMenuItemCategoryEnumRuleCall_14_0() { return cCategoryMenuItemCategoryEnumRuleCall_14_0; }
-		
-		//orderItems += [OrderItem]*
-		public Assignment getOrderItemsAssignment_15() { return cOrderItemsAssignment_15; }
-		
-		//[OrderItem]
-		public CrossReference getOrderItemsOrderItemCrossReference_15_0() { return cOrderItemsOrderItemCrossReference_15_0; }
-		
-		//ID
-		public RuleCall getOrderItemsOrderItemIDTerminalRuleCall_15_0_1() { return cOrderItemsOrderItemIDTerminalRuleCall_15_0_1; }
-		
-		//'menu'
-		public Keyword getMenuKeyword_16() { return cMenuKeyword_16; }
-		
-		//':'
-		public Keyword getColonKeyword_17() { return cColonKeyword_17; }
-		
-		//menu=[Menu]
-		public Assignment getMenuAssignment_18() { return cMenuAssignment_18; }
-		
-		//[Menu]
-		public CrossReference getMenuMenuCrossReference_18_0() { return cMenuMenuCrossReference_18_0; }
-		
-		//ID
-		public RuleCall getMenuMenuIDTerminalRuleCall_18_0_1() { return cMenuMenuIDTerminalRuleCall_18_0_1; }
+		public RuleCall getCategoryMenuItemCategoryEnumRuleCall_15_0() { return cCategoryMenuItemCategoryEnumRuleCall_15_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_19() { return cRightCurlyBracketKeyword_19; }
+		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 	}
 	public class OrderItemElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.OrderItem");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOrderItemKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cQuantityKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cQuantityAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cQuantityINTTerminalRuleCall_5_0 = (RuleCall)cQuantityAssignment_5.eContents().get(0);
-		private final Keyword cOrderKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cForOrderAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cForOrderOrderCrossReference_8_0 = (CrossReference)cForOrderAssignment_8.eContents().get(0);
-		private final RuleCall cForOrderOrderIDTerminalRuleCall_8_0_1 = (RuleCall)cForOrderOrderCrossReference_8_0.eContents().get(1);
-		private final Keyword cMenuItemKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cColonKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cMenuItemAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final CrossReference cMenuItemMenuItemCrossReference_11_0 = (CrossReference)cMenuItemAssignment_11.eContents().get(0);
-		private final RuleCall cMenuItemMenuItemIDTerminalRuleCall_11_0_1 = (RuleCall)cMenuItemMenuItemCrossReference_11_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cQuantityKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cQuantityAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cQuantityINTTerminalRuleCall_3_0 = (RuleCall)cQuantityAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cMenuItemKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cMenuItemAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final CrossReference cMenuItemMenuItemCrossReference_7_0 = (CrossReference)cMenuItemAssignment_7.eContents().get(0);
+		private final RuleCall cMenuItemMenuItemIDTerminalRuleCall_7_0_1 = (RuleCall)cMenuItemMenuItemCrossReference_7_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//OrderItem:
-		//    'OrderItem' id=ID '{'
-		//        'quantity' ':' quantity=INT
-		//        'order' ':' forOrder=[Order]
+		//    '{'
+		//        'quantity' ':' quantity=INT ','
 		//        'menuItem' ':' menuItem=[MenuItem]
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'OrderItem' id=ID '{'
-		//    'quantity' ':' quantity=INT
-		//    'order' ':' forOrder=[Order]
+		//'{'
+		//    'quantity' ':' quantity=INT ','
 		//    'menuItem' ':' menuItem=[MenuItem]
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'OrderItem'
-		public Keyword getOrderItemKeyword_0() { return cOrderItemKeyword_0; }
-		
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
-		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
-		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
 		
 		//'quantity'
-		public Keyword getQuantityKeyword_3() { return cQuantityKeyword_3; }
+		public Keyword getQuantityKeyword_1() { return cQuantityKeyword_1; }
 		
 		//':'
-		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
 		//quantity=INT
-		public Assignment getQuantityAssignment_5() { return cQuantityAssignment_5; }
+		public Assignment getQuantityAssignment_3() { return cQuantityAssignment_3; }
 		
 		//INT
-		public RuleCall getQuantityINTTerminalRuleCall_5_0() { return cQuantityINTTerminalRuleCall_5_0; }
+		public RuleCall getQuantityINTTerminalRuleCall_3_0() { return cQuantityINTTerminalRuleCall_3_0; }
 		
-		//'order'
-		public Keyword getOrderKeyword_6() { return cOrderKeyword_6; }
-		
-		//':'
-		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
-		
-		//forOrder=[Order]
-		public Assignment getForOrderAssignment_8() { return cForOrderAssignment_8; }
-		
-		//[Order]
-		public CrossReference getForOrderOrderCrossReference_8_0() { return cForOrderOrderCrossReference_8_0; }
-		
-		//ID
-		public RuleCall getForOrderOrderIDTerminalRuleCall_8_0_1() { return cForOrderOrderIDTerminalRuleCall_8_0_1; }
+		//','
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
 		
 		//'menuItem'
-		public Keyword getMenuItemKeyword_9() { return cMenuItemKeyword_9; }
+		public Keyword getMenuItemKeyword_5() { return cMenuItemKeyword_5; }
 		
 		//':'
-		public Keyword getColonKeyword_10() { return cColonKeyword_10; }
+		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
 		
 		//menuItem=[MenuItem]
-		public Assignment getMenuItemAssignment_11() { return cMenuItemAssignment_11; }
+		public Assignment getMenuItemAssignment_7() { return cMenuItemAssignment_7; }
 		
 		//[MenuItem]
-		public CrossReference getMenuItemMenuItemCrossReference_11_0() { return cMenuItemMenuItemCrossReference_11_0; }
+		public CrossReference getMenuItemMenuItemCrossReference_7_0() { return cMenuItemMenuItemCrossReference_7_0; }
 		
 		//ID
-		public RuleCall getMenuItemMenuItemIDTerminalRuleCall_11_0_1() { return cMenuItemMenuItemIDTerminalRuleCall_11_0_1; }
+		public RuleCall getMenuItemMenuItemIDTerminalRuleCall_7_0_1() { return cMenuItemMenuItemIDTerminalRuleCall_7_0_1; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class ReviewElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.Review");
@@ -1009,36 +949,31 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cNumStarsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cNumStarsINTTerminalRuleCall_5_0 = (RuleCall)cNumStarsAssignment_5.eContents().get(0);
-		private final Keyword cDescriptionKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cDescriptionAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cDescriptionSTRINGTerminalRuleCall_8_0 = (RuleCall)cDescriptionAssignment_8.eContents().get(0);
-		private final Keyword cReviewDatetimeKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cColonKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cReviewDatetimeAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cReviewDatetimeDATETIMEParserRuleCall_11_0 = (RuleCall)cReviewDatetimeAssignment_11.eContents().get(0);
-		private final Keyword cOrderKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cColonKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Assignment cReviewedOrderAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final CrossReference cReviewedOrderOrderCrossReference_14_0 = (CrossReference)cReviewedOrderAssignment_14.eContents().get(0);
-		private final RuleCall cReviewedOrderOrderIDTerminalRuleCall_14_0_1 = (RuleCall)cReviewedOrderOrderCrossReference_14_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cCommaKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cDescriptionKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cColonKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cDescriptionAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_9_0 = (RuleCall)cDescriptionAssignment_9.eContents().get(0);
+		private final Keyword cCommaKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cReviewDatetimeKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cColonKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cReviewDatetimeAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cReviewDatetimeDATETIMEParserRuleCall_13_0 = (RuleCall)cReviewDatetimeAssignment_13.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//Review:
 		//    'Review' id=ID '{'
-		//        'numStars' ':' numStars=INT
-		//        'description' ':' description=STRING
+		//        'numStars' ':' numStars=INT ','
+		//        'description' ':' description=STRING ','
 		//        'reviewDatetime' ':' reviewDatetime=DATETIME
-		//        'order' ':' reviewedOrder=[Order]
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Review' id=ID '{'
-		//    'numStars' ':' numStars=INT
-		//    'description' ':' description=STRING
+		//    'numStars' ':' numStars=INT ','
+		//    'description' ':' description=STRING ','
 		//    'reviewDatetime' ':' reviewDatetime=DATETIME
-		//    'order' ':' reviewedOrder=[Order]
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -1066,47 +1001,38 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//INT
 		public RuleCall getNumStarsINTTerminalRuleCall_5_0() { return cNumStarsINTTerminalRuleCall_5_0; }
 		
+		//','
+		public Keyword getCommaKeyword_6() { return cCommaKeyword_6; }
+		
 		//'description'
-		public Keyword getDescriptionKeyword_6() { return cDescriptionKeyword_6; }
+		public Keyword getDescriptionKeyword_7() { return cDescriptionKeyword_7; }
 		
 		//':'
-		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
+		public Keyword getColonKeyword_8() { return cColonKeyword_8; }
 		
 		//description=STRING
-		public Assignment getDescriptionAssignment_8() { return cDescriptionAssignment_8; }
+		public Assignment getDescriptionAssignment_9() { return cDescriptionAssignment_9; }
 		
 		//STRING
-		public RuleCall getDescriptionSTRINGTerminalRuleCall_8_0() { return cDescriptionSTRINGTerminalRuleCall_8_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_9_0() { return cDescriptionSTRINGTerminalRuleCall_9_0; }
+		
+		//','
+		public Keyword getCommaKeyword_10() { return cCommaKeyword_10; }
 		
 		//'reviewDatetime'
-		public Keyword getReviewDatetimeKeyword_9() { return cReviewDatetimeKeyword_9; }
+		public Keyword getReviewDatetimeKeyword_11() { return cReviewDatetimeKeyword_11; }
 		
 		//':'
-		public Keyword getColonKeyword_10() { return cColonKeyword_10; }
+		public Keyword getColonKeyword_12() { return cColonKeyword_12; }
 		
 		//reviewDatetime=DATETIME
-		public Assignment getReviewDatetimeAssignment_11() { return cReviewDatetimeAssignment_11; }
+		public Assignment getReviewDatetimeAssignment_13() { return cReviewDatetimeAssignment_13; }
 		
 		//DATETIME
-		public RuleCall getReviewDatetimeDATETIMEParserRuleCall_11_0() { return cReviewDatetimeDATETIMEParserRuleCall_11_0; }
-		
-		//'order'
-		public Keyword getOrderKeyword_12() { return cOrderKeyword_12; }
-		
-		//':'
-		public Keyword getColonKeyword_13() { return cColonKeyword_13; }
-		
-		//reviewedOrder=[Order]
-		public Assignment getReviewedOrderAssignment_14() { return cReviewedOrderAssignment_14; }
-		
-		//[Order]
-		public CrossReference getReviewedOrderOrderCrossReference_14_0() { return cReviewedOrderOrderCrossReference_14_0; }
-		
-		//ID
-		public RuleCall getReviewedOrderOrderIDTerminalRuleCall_14_0_1() { return cReviewedOrderOrderIDTerminalRuleCall_14_0_1; }
+		public RuleCall getReviewDatetimeDATETIMEParserRuleCall_13_0() { return cReviewDatetimeDATETIMEParserRuleCall_13_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_15() { return cRightCurlyBracketKeyword_15; }
+		public Keyword getRightCurlyBracketKeyword_14() { return cRightCurlyBracketKeyword_14; }
 	}
 	public class DECIMALElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.DECIMAL");
@@ -1278,15 +1204,12 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final RuleCall cSTRINGTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
-		//LICENCE: STRING INT INT STRING STRING STRING;
+		////LICENCE: STRING INT INT STRING STRING STRING;
+		//LICENCE: STRING INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//STRING INT INT STRING STRING STRING
+		//STRING INT
 		public Group getGroup() { return cGroup; }
 		
 		//STRING
@@ -1294,18 +1217,6 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//INT
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_3() { return cSTRINGTerminalRuleCall_3; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_5() { return cSTRINGTerminalRuleCall_5; }
 	}
 	
 	public class OrderStatusElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
@@ -1415,9 +1326,8 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	private final RDSElements pRDS;
-	private final AbstractElementElements pAbstractElement;
-	private final UserRoleElements pUserRole;
 	private final UserElements pUser;
+	private final UserRoleElements pUserRole;
 	private final CustomerElements pCustomer;
 	private final DeliveryDriverElements pDeliveryDriver;
 	private final OrderElements pOrder;
@@ -1446,9 +1356,8 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pRDS = new RDSElements();
-		this.pAbstractElement = new AbstractElementElements();
-		this.pUserRole = new UserRoleElements();
 		this.pUser = new UserElements();
+		this.pUserRole = new UserRoleElements();
 		this.pCustomer = new CustomerElements();
 		this.pDeliveryDriver = new DeliveryDriverElements();
 		this.pOrder = new OrderElements();
@@ -1502,7 +1411,11 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	// * Group 05
 	// *
 	// */
-	//RDS : (elements+=AbstractElement)*;
+	//RDS :
+	//    (users+=User (',' users+=User)*)?
+	//    (restaurants+=Restaurant (',' restaurants+=Restaurant)*)?
+	//    (orders+=Order (',' orders+=Order)*)?
+	//;
 	public RDSElements getRDSAccess() {
 		return pRDS;
 	}
@@ -1511,32 +1424,13 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getRDSAccess().getRule();
 	}
 	
-	//AbstractElement: User | Order | UserRole | Restaurant | OrderItem | MenuItem | Review | Menu;
-	public AbstractElementElements getAbstractElementAccess() {
-		return pAbstractElement;
-	}
-	
-	public ParserRule getAbstractElementRule() {
-		return getAbstractElementAccess().getRule();
-	}
-	
-	//UserRole: Customer | DeliveryDriver;
-	public UserRoleElements getUserRoleAccess() {
-		return pUserRole;
-	}
-	
-	public ParserRule getUserRoleRule() {
-		return getUserRoleAccess().getRule();
-	}
-	
 	//User:
-	//    'user' id=ID '{'
-	//        'username' ':' username=STRING
-	//        'password' ':' password=STRING
-	//        'name' ':' name=FULLNAME
-	//        'phone' ':' phone=PHONE
-	//        'email' ':' email=EMAIL
-	//        elements+=[UserRole]*
+	//    'User' '{'
+	//        'name' ':' name=STRING ','
+	//        'password' ':' password=STRING ','
+	//        'phone' ':' phone=PHONE ','
+	//        'email' ':' email=EMAIL ','
+	//        (roles+=UserRole (',' roles+=UserRole)*)+
 	//    '}'
 	//;
 	public UserElements getUserAccess() {
@@ -1547,10 +1441,17 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getUserAccess().getRule();
 	}
 	
+	//UserRole : Customer | DeliveryDriver;
+	public UserRoleElements getUserRoleAccess() {
+		return pUserRole;
+	}
+	
+	public ParserRule getUserRoleRule() {
+		return getUserRoleAccess().getRule();
+	}
+	
 	//Customer:
-	//    'Customer' id=ID '{'
-	//        orders += [Order]*
-	//    '}'
+	//    'Customer'  username=ID
 	//;
 	public CustomerElements getCustomerAccess() {
 		return pCustomer;
@@ -1561,10 +1462,9 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//DeliveryDriver:
-	//    'DeliveryDriver' id=ID '{'
-	//        'isAvailable' ':' isAvailable=INT
+	//    'DeliveryDriver' username=ID '{'
+	//        (isAvailable?='isAvailable')? ','
 	//        'carLicenceNumber' ':' carLicenceNumber=LICENCE
-	//        orders += [Order]*
 	//    '}'
 	//;
 	public DeliveryDriverElements getDeliveryDriverAccess() {
@@ -1576,17 +1476,16 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Order:
-	//    'Order' id=ID '{'
-	//        'orderNumber' ':' orderNumber=INT
-	//        'status' ':' status=OrderStatus
-	//        'deliveryAddress' ':' deliveryAddress=ADDRESS
-	//        'orderedDatetime' ':' orderedDatetime=DATETIME
-	//        'deliveredDatetime' ':' deliveredDatetime=DATETIME
-	//        'requestedDeliveryDatetime' ':' requestedDeliveryDatetime=DATETIME
-	//        orderItems += [OrderItem]*
-	//        'review' ':' review=[Review]
-	//        'customer' ':' customer=[Customer]
-	//        'deliveryDriver' ':' deliveryDriver=[DeliveryDriver]
+	//    'Order' orderNumber=ID '{'
+	//        'STATUS' ':' status=OrderStatus ','
+	//        'DELIVER_TO' ':' deliveryAddress=ADDRESS ','
+	//        'CUSTOMER' ':' customer=[Customer] ','
+	//        'DRIVER' ':' deliveryDriver=[DeliveryDriver] ','
+	//        'ORDERED_AT' ':' orderedDatetime=DATETIME ','
+	//        'DELIVERED_AT' ':' deliveredDatetime=DATETIME ','
+	//        'REQUESTEDDELIVERYDATETIME' ':' requestedDeliveryDatetime=DATETIME ','
+	//        'ITEMS' ':' (orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
+	//        (review+=Review)?
 	//    '}'
 	//;
 	public OrderElements getOrderAccess() {
@@ -1598,10 +1497,9 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Restaurant:
-	//    'Restaurant' id=ID '{'
-	//        'name' ':' name=STRING
-	//        'address' ':' address=ADDRESS
-	//        'menu' ':' menu=[Menu]
+	//    'Restaurant' name=ID '{'
+	//        'address' ':' address=ADDRESS ','
+	//        (menu+=Menu)
 	//    '}'
 	//;
 	public RestaurantElements getRestaurantAccess() {
@@ -1614,8 +1512,7 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//Menu:
 	//    'Menu' id=ID '{'
-	//        'restaurant' ':' restaurant=[Restaurant]
-	//        menuItems += [MenuItem]*
+	//        'items' ':' (menuItems+=MenuItem (',' menuItems+=MenuItem)*)?
 	//    '}'
 	//;
 	public MenuElements getMenuAccess() {
@@ -1627,13 +1524,11 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//MenuItem:
-	//    'MenuItem' id=ID '{'
-	//        'name' ':' name=STRING
-	//        'price' ':' price=DECIMAL
-	//        'description' ':' description=STRING
+	//     '{'
+	//         'name' ':' name=ID ','
+	//        'price' ':' price=DECIMAL ','
+	//        'description' ':' description=STRING ','
 	//        'category' ':' category=MenuItemCategory
-	//        orderItems += [OrderItem]*
-	//        'menu' ':' menu=[Menu]
 	//    '}'
 	//;
 	public MenuItemElements getMenuItemAccess() {
@@ -1645,9 +1540,8 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//OrderItem:
-	//    'OrderItem' id=ID '{'
-	//        'quantity' ':' quantity=INT
-	//        'order' ':' forOrder=[Order]
+	//    '{'
+	//        'quantity' ':' quantity=INT ','
 	//        'menuItem' ':' menuItem=[MenuItem]
 	//    '}'
 	//;
@@ -1661,10 +1555,9 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//Review:
 	//    'Review' id=ID '{'
-	//        'numStars' ':' numStars=INT
-	//        'description' ':' description=STRING
+	//        'numStars' ':' numStars=INT ','
+	//        'description' ':' description=STRING ','
 	//        'reviewDatetime' ':' reviewDatetime=DATETIME
-	//        'order' ':' reviewedOrder=[Order]
 	//    '}'
 	//;
 	public ReviewElements getReviewAccess() {
@@ -1753,7 +1646,8 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getADDRESSAccess().getRule();
 	}
 	
-	//LICENCE: STRING INT INT STRING STRING STRING;
+	////LICENCE: STRING INT INT STRING STRING STRING;
+	//LICENCE: STRING INT;
 	public LICENCEElements getLICENCEAccess() {
 		return pLICENCE;
 	}

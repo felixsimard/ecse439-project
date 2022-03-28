@@ -20,7 +20,7 @@ import org.xtext.project.rds.myRds.MyRdsPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.impl.DeliveryDriverImpl#getIsAvailable <em>Is Available</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.DeliveryDriverImpl#isIsAvailable <em>Is Available</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.DeliveryDriverImpl#getCarLicenceNumber <em>Car Licence Number</em>}</li>
  * </ul>
  *
@@ -29,24 +29,24 @@ import org.xtext.project.rds.myRds.MyRdsPackage;
 public class DeliveryDriverImpl extends UserRoleImpl implements DeliveryDriver
 {
   /**
-   * The default value of the '{@link #getIsAvailable() <em>Is Available</em>}' attribute.
+   * The default value of the '{@link #isIsAvailable() <em>Is Available</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIsAvailable()
+   * @see #isIsAvailable()
    * @generated
    * @ordered
    */
-  protected static final int IS_AVAILABLE_EDEFAULT = 0;
+  protected static final boolean IS_AVAILABLE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getIsAvailable() <em>Is Available</em>}' attribute.
+   * The cached value of the '{@link #isIsAvailable() <em>Is Available</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIsAvailable()
+   * @see #isIsAvailable()
    * @generated
    * @ordered
    */
-  protected int isAvailable = IS_AVAILABLE_EDEFAULT;
+  protected boolean isAvailable = IS_AVAILABLE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getCarLicenceNumber() <em>Car Licence Number</em>}' attribute.
@@ -95,7 +95,7 @@ public class DeliveryDriverImpl extends UserRoleImpl implements DeliveryDriver
    * @generated
    */
   @Override
-  public int getIsAvailable()
+  public boolean isIsAvailable()
   {
     return isAvailable;
   }
@@ -106,9 +106,9 @@ public class DeliveryDriverImpl extends UserRoleImpl implements DeliveryDriver
    * @generated
    */
   @Override
-  public void setIsAvailable(int newIsAvailable)
+  public void setIsAvailable(boolean newIsAvailable)
   {
-    int oldIsAvailable = isAvailable;
+    boolean oldIsAvailable = isAvailable;
     isAvailable = newIsAvailable;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.DELIVERY_DRIVER__IS_AVAILABLE, oldIsAvailable, isAvailable));
@@ -150,7 +150,7 @@ public class DeliveryDriverImpl extends UserRoleImpl implements DeliveryDriver
     switch (featureID)
     {
       case MyRdsPackage.DELIVERY_DRIVER__IS_AVAILABLE:
-        return getIsAvailable();
+        return isIsAvailable();
       case MyRdsPackage.DELIVERY_DRIVER__CAR_LICENCE_NUMBER:
         return getCarLicenceNumber();
     }
@@ -168,7 +168,7 @@ public class DeliveryDriverImpl extends UserRoleImpl implements DeliveryDriver
     switch (featureID)
     {
       case MyRdsPackage.DELIVERY_DRIVER__IS_AVAILABLE:
-        setIsAvailable((Integer)newValue);
+        setIsAvailable((Boolean)newValue);
         return;
       case MyRdsPackage.DELIVERY_DRIVER__CAR_LICENCE_NUMBER:
         setCarLicenceNumber((String)newValue);

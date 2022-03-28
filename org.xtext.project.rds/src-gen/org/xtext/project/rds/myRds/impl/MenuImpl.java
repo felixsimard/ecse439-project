@@ -6,6 +6,7 @@ package org.xtext.project.rds.myRds.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -13,13 +14,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.project.rds.myRds.Menu;
 import org.xtext.project.rds.myRds.MenuItem;
 import org.xtext.project.rds.myRds.MyRdsPackage;
-import org.xtext.project.rds.myRds.Restaurant;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,26 +31,36 @@ import org.xtext.project.rds.myRds.Restaurant;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.impl.MenuImpl#getRestaurant <em>Restaurant</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.MenuImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.MenuImpl#getMenuItems <em>Menu Items</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MenuImpl extends AbstractElementImpl implements Menu
+public class MenuImpl extends MinimalEObjectImpl.Container implements Menu
 {
   /**
-   * The cached value of the '{@link #getRestaurant() <em>Restaurant</em>}' reference.
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRestaurant()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected Restaurant restaurant;
+  protected static final String ID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getMenuItems() <em>Menu Items</em>}' reference list.
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getMenuItems() <em>Menu Items</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMenuItems()
@@ -84,29 +96,9 @@ public class MenuImpl extends AbstractElementImpl implements Menu
    * @generated
    */
   @Override
-  public Restaurant getRestaurant()
+  public String getId()
   {
-    if (restaurant != null && restaurant.eIsProxy())
-    {
-      InternalEObject oldRestaurant = (InternalEObject)restaurant;
-      restaurant = (Restaurant)eResolveProxy(oldRestaurant);
-      if (restaurant != oldRestaurant)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyRdsPackage.MENU__RESTAURANT, oldRestaurant, restaurant));
-      }
-    }
-    return restaurant;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Restaurant basicGetRestaurant()
-  {
-    return restaurant;
+    return id;
   }
 
   /**
@@ -115,12 +107,12 @@ public class MenuImpl extends AbstractElementImpl implements Menu
    * @generated
    */
   @Override
-  public void setRestaurant(Restaurant newRestaurant)
+  public void setId(String newId)
   {
-    Restaurant oldRestaurant = restaurant;
-    restaurant = newRestaurant;
+    String oldId = id;
+    id = newId;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.MENU__RESTAURANT, oldRestaurant, restaurant));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.MENU__ID, oldId, id));
   }
 
   /**
@@ -133,9 +125,25 @@ public class MenuImpl extends AbstractElementImpl implements Menu
   {
     if (menuItems == null)
     {
-      menuItems = new EObjectResolvingEList<MenuItem>(MenuItem.class, this, MyRdsPackage.MENU__MENU_ITEMS);
+      menuItems = new EObjectContainmentEList<MenuItem>(MenuItem.class, this, MyRdsPackage.MENU__MENU_ITEMS);
     }
     return menuItems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyRdsPackage.MENU__MENU_ITEMS:
+        return ((InternalEList<?>)getMenuItems()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -148,9 +156,8 @@ public class MenuImpl extends AbstractElementImpl implements Menu
   {
     switch (featureID)
     {
-      case MyRdsPackage.MENU__RESTAURANT:
-        if (resolve) return getRestaurant();
-        return basicGetRestaurant();
+      case MyRdsPackage.MENU__ID:
+        return getId();
       case MyRdsPackage.MENU__MENU_ITEMS:
         return getMenuItems();
     }
@@ -168,8 +175,8 @@ public class MenuImpl extends AbstractElementImpl implements Menu
   {
     switch (featureID)
     {
-      case MyRdsPackage.MENU__RESTAURANT:
-        setRestaurant((Restaurant)newValue);
+      case MyRdsPackage.MENU__ID:
+        setId((String)newValue);
         return;
       case MyRdsPackage.MENU__MENU_ITEMS:
         getMenuItems().clear();
@@ -189,8 +196,8 @@ public class MenuImpl extends AbstractElementImpl implements Menu
   {
     switch (featureID)
     {
-      case MyRdsPackage.MENU__RESTAURANT:
-        setRestaurant((Restaurant)null);
+      case MyRdsPackage.MENU__ID:
+        setId(ID_EDEFAULT);
         return;
       case MyRdsPackage.MENU__MENU_ITEMS:
         getMenuItems().clear();
@@ -209,12 +216,29 @@ public class MenuImpl extends AbstractElementImpl implements Menu
   {
     switch (featureID)
     {
-      case MyRdsPackage.MENU__RESTAURANT:
-        return restaurant != null;
+      case MyRdsPackage.MENU__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case MyRdsPackage.MENU__MENU_ITEMS:
         return menuItems != null && !menuItems.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (id: ");
+    result.append(id);
+    result.append(')');
+    return result.toString();
   }
 
 } //MenuImpl

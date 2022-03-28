@@ -81,19 +81,14 @@ public class MyRdsAdapterFactory extends AdapterFactoryImpl
         return createRDSAdapter();
       }
       @Override
-      public Adapter caseAbstractElement(AbstractElement object)
+      public Adapter caseUser(User object)
       {
-        return createAbstractElementAdapter();
+        return createUserAdapter();
       }
       @Override
       public Adapter caseUserRole(UserRole object)
       {
         return createUserRoleAdapter();
-      }
-      @Override
-      public Adapter caseUser(User object)
-      {
-        return createUserAdapter();
       }
       @Override
       public Adapter caseCustomer(Customer object)
@@ -173,16 +168,16 @@ public class MyRdsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.AbstractElement <em>Abstract Element</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.User <em>User</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.project.rds.myRds.AbstractElement
+   * @see org.xtext.project.rds.myRds.User
    * @generated
    */
-  public Adapter createAbstractElementAdapter()
+  public Adapter createUserAdapter()
   {
     return null;
   }
@@ -198,21 +193,6 @@ public class MyRdsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUserRoleAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.project.rds.myRds.User <em>User</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.project.rds.myRds.User
-   * @generated
-   */
-  public Adapter createUserAdapter()
   {
     return null;
   }

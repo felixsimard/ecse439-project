@@ -11,94 +11,87 @@ generate myRds "http://www.xtext.org/project/rds/MyRds"
  */
  
 
-RDS : (elements+=AbstractElement)*;
+RDS : 
+	(users+=User (',' users+=User)*)?
+	(restaurants+=Restaurant (',' restaurants+=Restaurant)*)?	
+	(orders+=Order (',' orders+=Order)*)?
+	
+;
 
-AbstractElement: User | Order | UserRole | Restaurant | OrderItem | MenuItem | Review | Menu;
 
-UserRole: Customer | DeliveryDriver;
 
 
 User:
-	'user' id=ID '{'
-		'username' ':' username=STRING
-		'password' ':' password=STRING
-		'name' ':' name=FULLNAME
-		'phone' ':' phone=PHONE
-		'email' ':' email=EMAIL
-		elements+=[UserRole]*
+	'User' '{'
+		'name' ':' name=STRING ','
+		'password' ':' password=STRING ','
+		'phone' ':' phone=PHONE ','
+		'email' ':' email=EMAIL ','
+		(roles+=UserRole (',' roles+=UserRole)*)+
 	'}'
 ;
 	
+UserRole : Customer | DeliveryDriver;
 	
 Customer:
-	'Customer' id=ID '{'
-		orders += [Order]*
-	'}'
+	'Customer'  username=ID
 ;
 
 DeliveryDriver:
-	'DeliveryDriver' id=ID '{'
-		'isAvailable' ':' isAvailable=INT
-		'carLicenceNumber' ':' carLicenceNumber=LICENCE 
-		orders += [Order]*
+	'DeliveryDriver' username=ID '{'
+		(isAvailable?='isAvailable')? ','
+		'carLicenceNumber' ':' carLicenceNumber=LICENCE
 	'}'
 ;
 
 Order:
-	'Order' id=ID '{'
-		'orderNumber' ':' orderNumber=INT
-		'status' ':' status=OrderStatus
-		'deliveryAddress' ':' deliveryAddress=ADDRESS
-		'orderedDatetime' ':' orderedDatetime=DATETIME
-		'deliveredDatetime' ':' deliveredDatetime=DATETIME
-		'requestedDeliveryDatetime' ':' requestedDeliveryDatetime=DATETIME
-		orderItems += [OrderItem]*
-		'review' ':' review=[Review]
-		'customer' ':' customer=[Customer]
-		'deliveryDriver' ':' deliveryDriver=[DeliveryDriver]
+	'Order' orderNumber=ID '{'
+		'STATUS' ':' status=OrderStatus ','
+		'DELIVER_TO' ':' deliveryAddress=ADDRESS ','
+		'CUSTOMER' ':' customer=[Customer] ','
+		'DRIVER' ':' deliveryDriver=[DeliveryDriver] ','
+		'ORDERED_AT' ':' orderedDatetime=DATETIME ','
+		'DELIVERED_AT' ':' deliveredDatetime=DATETIME ','
+		'REQUESTEDDELIVERYDATETIME' ':' requestedDeliveryDatetime=DATETIME ','
+		'ITEMS' ':' (orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
+		(review+=Review)?
 	'}'
 ;
 
 Restaurant:
-	'Restaurant' id=ID '{'
-		'name' ':' name=STRING
-		'address' ':' address=ADDRESS
-		'menu' ':' menu=[Menu]
+	'Restaurant' name=ID '{'
+		'address' ':' address=ADDRESS ','
+		(menu+=Menu)
 	'}'
 ;
 
 Menu:
 	'Menu' id=ID '{'
-		'restaurant' ':' restaurant=[Restaurant]
-		menuItems += [MenuItem]*
+		'items' ':' (menuItems+=MenuItem (',' menuItems+=MenuItem)*)?
 	'}'
 ;
 
 MenuItem:
-	'MenuItem' id=ID '{'
-		'name' ':' name=STRING
-		'price' ':' price=DECIMAL
-		'description' ':' description=STRING
+	 '{'
+	 	'name' ':' name=ID ','
+		'price' ':' price=DECIMAL ','
+		'description' ':' description=STRING ','
 		'category' ':' category=MenuItemCategory
-		orderItems += [OrderItem]*
-		'menu' ':' menu=[Menu]
 	'}'
 ;
 
 OrderItem:
-	'OrderItem' id=ID '{'
-		'quantity' ':' quantity=INT
-		'order' ':' forOrder=[Order]
+	'{'
+		'quantity' ':' quantity=INT ','
 		'menuItem' ':' menuItem=[MenuItem]
 	'}'
 ;
 
 Review:
 	'Review' id=ID '{'
-		'numStars' ':' numStars=INT
-		'description' ':' description=STRING
+		'numStars' ':' numStars=INT ','
+		'description' ':' description=STRING ','
 		'reviewDatetime' ':' reviewDatetime=DATETIME
-		'order' ':' reviewedOrder=[Order]
 	'}'
 ;
 
@@ -118,5 +111,6 @@ PHONE: INT '-' INT '-' INT;
 EMAIL: STRING '@' STRING '.com';
 DATETIME: INT '-' INT '-' INT INT ':' INT;
 ADDRESS: INT STRING ',' STRING;
-LICENCE: STRING INT INT STRING STRING STRING;
+//LICENCE: STRING INT INT STRING STRING STRING;
+LICENCE: STRING INT;
 

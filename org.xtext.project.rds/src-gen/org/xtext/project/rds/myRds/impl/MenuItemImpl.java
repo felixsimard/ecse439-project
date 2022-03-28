@@ -3,24 +3,16 @@
  */
 package org.xtext.project.rds.myRds.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import org.xtext.project.rds.myRds.Menu;
 import org.xtext.project.rds.myRds.MenuItem;
 import org.xtext.project.rds.myRds.MenuItemCategory;
 import org.xtext.project.rds.myRds.MyRdsPackage;
-import org.xtext.project.rds.myRds.OrderItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,13 +26,11 @@ import org.xtext.project.rds.myRds.OrderItem;
  *   <li>{@link org.xtext.project.rds.myRds.impl.MenuItemImpl#getPrice <em>Price</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.MenuItemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.MenuItemImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.impl.MenuItemImpl#getOrderItems <em>Order Items</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.impl.MenuItemImpl#getMenu <em>Menu</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MenuItemImpl extends AbstractElementImpl implements MenuItem
+public class MenuItemImpl extends MinimalEObjectImpl.Container implements MenuItem
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -121,26 +111,6 @@ public class MenuItemImpl extends AbstractElementImpl implements MenuItem
    * @ordered
    */
   protected MenuItemCategory category = CATEGORY_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getOrderItems() <em>Order Items</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOrderItems()
-   * @generated
-   * @ordered
-   */
-  protected EList<OrderItem> orderItems;
-
-  /**
-   * The cached value of the '{@link #getMenu() <em>Menu</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMenu()
-   * @generated
-   * @ordered
-   */
-  protected Menu menu;
 
   /**
    * <!-- begin-user-doc -->
@@ -269,66 +239,6 @@ public class MenuItemImpl extends AbstractElementImpl implements MenuItem
    * @generated
    */
   @Override
-  public EList<OrderItem> getOrderItems()
-  {
-    if (orderItems == null)
-    {
-      orderItems = new EObjectResolvingEList<OrderItem>(OrderItem.class, this, MyRdsPackage.MENU_ITEM__ORDER_ITEMS);
-    }
-    return orderItems;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Menu getMenu()
-  {
-    if (menu != null && menu.eIsProxy())
-    {
-      InternalEObject oldMenu = (InternalEObject)menu;
-      menu = (Menu)eResolveProxy(oldMenu);
-      if (menu != oldMenu)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyRdsPackage.MENU_ITEM__MENU, oldMenu, menu));
-      }
-    }
-    return menu;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Menu basicGetMenu()
-  {
-    return menu;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setMenu(Menu newMenu)
-  {
-    Menu oldMenu = menu;
-    menu = newMenu;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.MENU_ITEM__MENU, oldMenu, menu));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -341,11 +251,6 @@ public class MenuItemImpl extends AbstractElementImpl implements MenuItem
         return getDescription();
       case MyRdsPackage.MENU_ITEM__CATEGORY:
         return getCategory();
-      case MyRdsPackage.MENU_ITEM__ORDER_ITEMS:
-        return getOrderItems();
-      case MyRdsPackage.MENU_ITEM__MENU:
-        if (resolve) return getMenu();
-        return basicGetMenu();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -355,7 +260,6 @@ public class MenuItemImpl extends AbstractElementImpl implements MenuItem
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -372,13 +276,6 @@ public class MenuItemImpl extends AbstractElementImpl implements MenuItem
         return;
       case MyRdsPackage.MENU_ITEM__CATEGORY:
         setCategory((MenuItemCategory)newValue);
-        return;
-      case MyRdsPackage.MENU_ITEM__ORDER_ITEMS:
-        getOrderItems().clear();
-        getOrderItems().addAll((Collection<? extends OrderItem>)newValue);
-        return;
-      case MyRdsPackage.MENU_ITEM__MENU:
-        setMenu((Menu)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -406,12 +303,6 @@ public class MenuItemImpl extends AbstractElementImpl implements MenuItem
       case MyRdsPackage.MENU_ITEM__CATEGORY:
         setCategory(CATEGORY_EDEFAULT);
         return;
-      case MyRdsPackage.MENU_ITEM__ORDER_ITEMS:
-        getOrderItems().clear();
-        return;
-      case MyRdsPackage.MENU_ITEM__MENU:
-        setMenu((Menu)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -434,10 +325,6 @@ public class MenuItemImpl extends AbstractElementImpl implements MenuItem
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case MyRdsPackage.MENU_ITEM__CATEGORY:
         return category != CATEGORY_EDEFAULT;
-      case MyRdsPackage.MENU_ITEM__ORDER_ITEMS:
-        return orderItems != null && !orderItems.isEmpty();
-      case MyRdsPackage.MENU_ITEM__MENU:
-        return menu != null;
     }
     return super.eIsSet(featureID);
   }

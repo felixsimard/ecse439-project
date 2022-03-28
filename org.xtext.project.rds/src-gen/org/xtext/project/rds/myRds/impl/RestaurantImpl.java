@@ -3,12 +3,21 @@
  */
 package org.xtext.project.rds.myRds.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.project.rds.myRds.Menu;
 import org.xtext.project.rds.myRds.MyRdsPackage;
@@ -29,7 +38,7 @@ import org.xtext.project.rds.myRds.Restaurant;
  *
  * @generated
  */
-public class RestaurantImpl extends AbstractElementImpl implements Restaurant
+public class RestaurantImpl extends MinimalEObjectImpl.Container implements Restaurant
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -72,14 +81,14 @@ public class RestaurantImpl extends AbstractElementImpl implements Restaurant
   protected String address = ADDRESS_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMenu() <em>Menu</em>}' reference.
+   * The cached value of the '{@link #getMenu() <em>Menu</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMenu()
    * @generated
    * @ordered
    */
-  protected Menu menu;
+  protected EList<Menu> menu;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,17 +167,11 @@ public class RestaurantImpl extends AbstractElementImpl implements Restaurant
    * @generated
    */
   @Override
-  public Menu getMenu()
+  public EList<Menu> getMenu()
   {
-    if (menu != null && menu.eIsProxy())
+    if (menu == null)
     {
-      InternalEObject oldMenu = (InternalEObject)menu;
-      menu = (Menu)eResolveProxy(oldMenu);
-      if (menu != oldMenu)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyRdsPackage.RESTAURANT__MENU, oldMenu, menu));
-      }
+      menu = new EObjectContainmentEList<Menu>(Menu.class, this, MyRdsPackage.RESTAURANT__MENU);
     }
     return menu;
   }
@@ -178,23 +181,15 @@ public class RestaurantImpl extends AbstractElementImpl implements Restaurant
    * <!-- end-user-doc -->
    * @generated
    */
-  public Menu basicGetMenu()
-  {
-    return menu;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
-  public void setMenu(Menu newMenu)
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    Menu oldMenu = menu;
-    menu = newMenu;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.RESTAURANT__MENU, oldMenu, menu));
+    switch (featureID)
+    {
+      case MyRdsPackage.RESTAURANT__MENU:
+        return ((InternalEList<?>)getMenu()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -212,8 +207,7 @@ public class RestaurantImpl extends AbstractElementImpl implements Restaurant
       case MyRdsPackage.RESTAURANT__ADDRESS:
         return getAddress();
       case MyRdsPackage.RESTAURANT__MENU:
-        if (resolve) return getMenu();
-        return basicGetMenu();
+        return getMenu();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -223,6 +217,7 @@ public class RestaurantImpl extends AbstractElementImpl implements Restaurant
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -235,7 +230,8 @@ public class RestaurantImpl extends AbstractElementImpl implements Restaurant
         setAddress((String)newValue);
         return;
       case MyRdsPackage.RESTAURANT__MENU:
-        setMenu((Menu)newValue);
+        getMenu().clear();
+        getMenu().addAll((Collection<? extends Menu>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -258,7 +254,7 @@ public class RestaurantImpl extends AbstractElementImpl implements Restaurant
         setAddress(ADDRESS_EDEFAULT);
         return;
       case MyRdsPackage.RESTAURANT__MENU:
-        setMenu((Menu)null);
+        getMenu().clear();
         return;
     }
     super.eUnset(featureID);
@@ -279,7 +275,7 @@ public class RestaurantImpl extends AbstractElementImpl implements Restaurant
       case MyRdsPackage.RESTAURANT__ADDRESS:
         return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
       case MyRdsPackage.RESTAURANT__MENU:
-        return menu != null;
+        return menu != null && !menu.isEmpty();
     }
     return super.eIsSet(featureID);
   }

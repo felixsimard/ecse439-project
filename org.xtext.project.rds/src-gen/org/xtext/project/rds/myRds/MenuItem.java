@@ -3,7 +3,7 @@
  */
 package org.xtext.project.rds.myRds;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,15 +18,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xtext.project.rds.myRds.MenuItem#getPrice <em>Price</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.MenuItem#getDescription <em>Description</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.MenuItem#getCategory <em>Category</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.MenuItem#getOrderItems <em>Order Items</em>}</li>
- *   <li>{@link org.xtext.project.rds.myRds.MenuItem#getMenu <em>Menu</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.rds.myRds.MyRdsPackage#getMenuItem()
  * @model
  * @generated
  */
-public interface MenuItem extends AbstractElement
+public interface MenuItem extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -118,39 +116,5 @@ public interface MenuItem extends AbstractElement
    * @generated
    */
   void setCategory(MenuItemCategory value);
-
-  /**
-   * Returns the value of the '<em><b>Order Items</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.project.rds.myRds.OrderItem}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Order Items</em>' reference list.
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getMenuItem_OrderItems()
-   * @model
-   * @generated
-   */
-  EList<OrderItem> getOrderItems();
-
-  /**
-   * Returns the value of the '<em><b>Menu</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Menu</em>' reference.
-   * @see #setMenu(Menu)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getMenuItem_Menu()
-   * @model
-   * @generated
-   */
-  Menu getMenu();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.MenuItem#getMenu <em>Menu</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Menu</em>' reference.
-   * @see #getMenu()
-   * @generated
-   */
-  void setMenu(Menu value);
 
 } // MenuItem

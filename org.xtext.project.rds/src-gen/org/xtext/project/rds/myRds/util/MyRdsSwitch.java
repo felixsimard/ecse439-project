@@ -80,10 +80,10 @@ public class MyRdsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyRdsPackage.ABSTRACT_ELEMENT:
+      case MyRdsPackage.USER:
       {
-        AbstractElement abstractElement = (AbstractElement)theEObject;
-        T result = caseAbstractElement(abstractElement);
+        User user = (User)theEObject;
+        T result = caseUser(user);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -91,15 +91,6 @@ public class MyRdsSwitch<T> extends Switch<T>
       {
         UserRole userRole = (UserRole)theEObject;
         T result = caseUserRole(userRole);
-        if (result == null) result = caseAbstractElement(userRole);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyRdsPackage.USER:
-      {
-        User user = (User)theEObject;
-        T result = caseUser(user);
-        if (result == null) result = caseAbstractElement(user);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -108,7 +99,6 @@ public class MyRdsSwitch<T> extends Switch<T>
         Customer customer = (Customer)theEObject;
         T result = caseCustomer(customer);
         if (result == null) result = caseUserRole(customer);
-        if (result == null) result = caseAbstractElement(customer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -117,7 +107,6 @@ public class MyRdsSwitch<T> extends Switch<T>
         DeliveryDriver deliveryDriver = (DeliveryDriver)theEObject;
         T result = caseDeliveryDriver(deliveryDriver);
         if (result == null) result = caseUserRole(deliveryDriver);
-        if (result == null) result = caseAbstractElement(deliveryDriver);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -125,7 +114,6 @@ public class MyRdsSwitch<T> extends Switch<T>
       {
         Order order = (Order)theEObject;
         T result = caseOrder(order);
-        if (result == null) result = caseAbstractElement(order);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -133,7 +121,6 @@ public class MyRdsSwitch<T> extends Switch<T>
       {
         Restaurant restaurant = (Restaurant)theEObject;
         T result = caseRestaurant(restaurant);
-        if (result == null) result = caseAbstractElement(restaurant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -141,7 +128,6 @@ public class MyRdsSwitch<T> extends Switch<T>
       {
         Menu menu = (Menu)theEObject;
         T result = caseMenu(menu);
-        if (result == null) result = caseAbstractElement(menu);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -149,7 +135,6 @@ public class MyRdsSwitch<T> extends Switch<T>
       {
         MenuItem menuItem = (MenuItem)theEObject;
         T result = caseMenuItem(menuItem);
-        if (result == null) result = caseAbstractElement(menuItem);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -157,7 +142,6 @@ public class MyRdsSwitch<T> extends Switch<T>
       {
         OrderItem orderItem = (OrderItem)theEObject;
         T result = caseOrderItem(orderItem);
-        if (result == null) result = caseAbstractElement(orderItem);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -165,7 +149,6 @@ public class MyRdsSwitch<T> extends Switch<T>
       {
         Review review = (Review)theEObject;
         T result = caseReview(review);
-        if (result == null) result = caseAbstractElement(review);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -190,17 +173,17 @@ public class MyRdsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>User</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * @return the result of interpreting the object as an instance of '<em>User</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAbstractElement(AbstractElement object)
+  public T caseUser(User object)
   {
     return null;
   }
@@ -217,22 +200,6 @@ public class MyRdsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUserRole(UserRole object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>User</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>User</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUser(User object)
   {
     return null;
   }

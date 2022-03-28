@@ -33,13 +33,13 @@ public interface MyRdsFactory extends EFactory
   RDS createRDS();
 
   /**
-   * Returns a new object of class '<em>Abstract Element</em>'.
+   * Returns a new object of class '<em>User</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Element</em>'.
+   * @return a new object of class '<em>User</em>'.
    * @generated
    */
-  AbstractElement createAbstractElement();
+  User createUser();
 
   /**
    * Returns a new object of class '<em>User Role</em>'.
@@ -49,15 +49,6 @@ public interface MyRdsFactory extends EFactory
    * @generated
    */
   UserRole createUserRole();
-
-  /**
-   * Returns a new object of class '<em>User</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>User</em>'.
-   * @generated
-   */
-  User createUser();
 
   /**
    * Returns a new object of class '<em>Customer</em>'.

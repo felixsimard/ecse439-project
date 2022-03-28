@@ -5,6 +5,8 @@ package org.xtext.project.rds.myRds;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Menu</b></em>'.
@@ -14,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.Menu#getRestaurant <em>Restaurant</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.Menu#getId <em>Id</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.Menu#getMenuItems <em>Menu Items</em>}</li>
  * </ul>
  *
@@ -22,38 +24,38 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Menu extends AbstractElement
+public interface Menu extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Restaurant</b></em>' reference.
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Restaurant</em>' reference.
-   * @see #setRestaurant(Restaurant)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getMenu_Restaurant()
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getMenu_Id()
    * @model
    * @generated
    */
-  Restaurant getRestaurant();
+  String getId();
 
   /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.Menu#getRestaurant <em>Restaurant</em>}' reference.
+   * Sets the value of the '{@link org.xtext.project.rds.myRds.Menu#getId <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Restaurant</em>' reference.
-   * @see #getRestaurant()
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
    * @generated
    */
-  void setRestaurant(Restaurant value);
+  void setId(String value);
 
   /**
-   * Returns the value of the '<em><b>Menu Items</b></em>' reference list.
+   * Returns the value of the '<em><b>Menu Items</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.project.rds.myRds.MenuItem}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Menu Items</em>' reference list.
+   * @return the value of the '<em>Menu Items</em>' containment reference list.
    * @see org.xtext.project.rds.myRds.MyRdsPackage#getMenu_MenuItems()
-   * @model
+   * @model containment="true"
    * @generated
    */
   EList<MenuItem> getMenuItems();
