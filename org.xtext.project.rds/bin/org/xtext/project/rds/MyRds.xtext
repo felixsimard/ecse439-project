@@ -19,14 +19,12 @@ RDS :
 ;
 
 
-
-
 User:
 	'User' '{'
-		'name' ':' name=STRING ','
+		'fullName' ':' fullName=STRING ','
 		'password' ':' password=STRING ','
 		'phone' ':' phone=PHONE ','
-		'email' ':' email=EMAIL ','
+		'email' ':' email=STRING ','
 		(roles+=UserRole (',' roles+=UserRole)*)+
 	'}'
 ;
@@ -34,33 +32,33 @@ User:
 UserRole : Customer | DeliveryDriver;
 	
 Customer:
-	'Customer'  username=ID
+	'Customer'  name=ID
 ;
 
 DeliveryDriver:
-	'DeliveryDriver' username=ID '{'
-		(isAvailable?='isAvailable')? ','
-		'carLicenceNumber' ':' carLicenceNumber=LICENCE
+	'DeliveryDriver' name=ID '{'
+		(isAvailable?='isAvailable'',')? 
+		'carLicenceNumber' ':' carLicenceNumber=STRING
 	'}'
 ;
 
 Order:
 	'Order' orderNumber=ID '{'
 		'STATUS' ':' status=OrderStatus ','
-		'DELIVER_TO' ':' deliveryAddress=ADDRESS ','
+		'DELIVER_TO' ':' deliveryAddress=STRING ','
 		'CUSTOMER' ':' customer=[Customer] ','
 		'DRIVER' ':' deliveryDriver=[DeliveryDriver] ','
 		'ORDERED_AT' ':' orderedDatetime=DATETIME ','
 		'DELIVERED_AT' ':' deliveredDatetime=DATETIME ','
 		'REQUESTEDDELIVERYDATETIME' ':' requestedDeliveryDatetime=DATETIME ','
 		'ITEMS' ':' (orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
-		(review+=Review)?
+		(','(review+=Review)?)?
 	'}'
 ;
 
 Restaurant:
 	'Restaurant' name=ID '{'
-		'address' ':' address=ADDRESS ','
+		'address' ':' address=STRING ','
 		(menu+=Menu)
 	'}'
 ;
@@ -111,6 +109,5 @@ PHONE: INT '-' INT '-' INT;
 EMAIL: STRING '@' STRING '.com';
 DATETIME: INT '-' INT '-' INT INT ':' INT;
 ADDRESS: INT STRING ',' STRING;
-//LICENCE: STRING INT INT STRING STRING STRING;
 LICENCE: STRING INT;
 

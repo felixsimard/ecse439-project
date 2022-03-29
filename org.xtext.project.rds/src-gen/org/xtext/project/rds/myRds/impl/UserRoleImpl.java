@@ -21,7 +21,7 @@ import org.xtext.project.rds.myRds.UserRole;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.impl.UserRoleImpl#getUsername <em>Username</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.UserRoleImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import org.xtext.project.rds.myRds.UserRole;
 public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRole
 {
   /**
-   * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUsername()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String USERNAME_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUsername() <em>Username</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUsername()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String username = USERNAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +75,9 @@ public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRo
    * @generated
    */
   @Override
-  public String getUsername()
+  public String getName()
   {
-    return username;
+    return name;
   }
 
   /**
@@ -86,12 +86,12 @@ public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRo
    * @generated
    */
   @Override
-  public void setUsername(String newUsername)
+  public void setName(String newName)
   {
-    String oldUsername = username;
-    username = newUsername;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER_ROLE__USERNAME, oldUsername, username));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER_ROLE__NAME, oldName, name));
   }
 
   /**
@@ -104,8 +104,8 @@ public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRo
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER_ROLE__USERNAME:
-        return getUsername();
+      case MyRdsPackage.USER_ROLE__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +120,8 @@ public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRo
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER_ROLE__USERNAME:
-        setUsername((String)newValue);
+      case MyRdsPackage.USER_ROLE__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRo
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER_ROLE__USERNAME:
-        setUsername(USERNAME_EDEFAULT);
+      case MyRdsPackage.USER_ROLE__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +154,8 @@ public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRo
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER_ROLE__USERNAME:
-        return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
+      case MyRdsPackage.USER_ROLE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +171,8 @@ public class UserRoleImpl extends MinimalEObjectImpl.Container implements UserRo
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (username: ");
-    result.append(username);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

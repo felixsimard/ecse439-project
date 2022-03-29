@@ -31,7 +31,7 @@ import org.xtext.project.rds.myRds.UserRole;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getPhone <em>Phone</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.impl.UserImpl#getEmail <em>Email</em>}</li>
@@ -43,24 +43,24 @@ import org.xtext.project.rds.myRds.UserRole;
 public class UserImpl extends MinimalEObjectImpl.Container implements User
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getFullName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String FULL_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getFullName()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String fullName = FULL_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
@@ -159,9 +159,9 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User
    * @generated
    */
   @Override
-  public String getName()
+  public String getFullName()
   {
-    return name;
+    return fullName;
   }
 
   /**
@@ -170,12 +170,12 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setFullName(String newFullName)
   {
-    String oldName = name;
-    name = newName;
+    String oldFullName = fullName;
+    fullName = newFullName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyRdsPackage.USER__FULL_NAME, oldFullName, fullName));
   }
 
   /**
@@ -294,8 +294,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER__NAME:
-        return getName();
+      case MyRdsPackage.USER__FULL_NAME:
+        return getFullName();
       case MyRdsPackage.USER__PASSWORD:
         return getPassword();
       case MyRdsPackage.USER__PHONE:
@@ -319,8 +319,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER__NAME:
-        setName((String)newValue);
+      case MyRdsPackage.USER__FULL_NAME:
+        setFullName((String)newValue);
         return;
       case MyRdsPackage.USER__PASSWORD:
         setPassword((String)newValue);
@@ -349,8 +349,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER__NAME:
-        setName(NAME_EDEFAULT);
+      case MyRdsPackage.USER__FULL_NAME:
+        setFullName(FULL_NAME_EDEFAULT);
         return;
       case MyRdsPackage.USER__PASSWORD:
         setPassword(PASSWORD_EDEFAULT);
@@ -378,8 +378,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User
   {
     switch (featureID)
     {
-      case MyRdsPackage.USER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyRdsPackage.USER__FULL_NAME:
+        return FULL_NAME_EDEFAULT == null ? fullName != null : !FULL_NAME_EDEFAULT.equals(fullName);
       case MyRdsPackage.USER__PASSWORD:
         return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
       case MyRdsPackage.USER__PHONE:
@@ -403,8 +403,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (fullName: ");
+    result.append(fullName);
     result.append(", password: ");
     result.append(password);
     result.append(", phone: ");

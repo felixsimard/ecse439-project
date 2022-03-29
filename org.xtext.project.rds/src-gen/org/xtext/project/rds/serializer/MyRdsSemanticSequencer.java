@@ -82,15 +82,15 @@ public class MyRdsSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Customer returns Customer
 	 *
 	 * Constraint:
-	 *     username=ID
+	 *     name=ID
 	 */
 	protected void sequence_Customer(ISerializationContext context, Customer semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.USER_ROLE__USERNAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.USER_ROLE__USERNAME));
+			if (transientValues.isValueTransient(semanticObject, MyRdsPackage.Literals.USER_ROLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyRdsPackage.Literals.USER_ROLE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCustomerAccess().getUsernameIDTerminalRuleCall_1_0(), semanticObject.getUsername());
+		feeder.accept(grammarAccess.getCustomerAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -101,7 +101,7 @@ public class MyRdsSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     DeliveryDriver returns DeliveryDriver
 	 *
 	 * Constraint:
-	 *     (username=ID isAvailable?='isAvailable'? carLicenceNumber=LICENCE)
+	 *     (name=ID isAvailable?='isAvailable'? carLicenceNumber=STRING)
 	 */
 	protected void sequence_DeliveryDriver(ISerializationContext context, DeliveryDriver semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -176,7 +176,7 @@ public class MyRdsSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         orderNumber=ID 
 	 *         status=OrderStatus 
-	 *         deliveryAddress=ADDRESS 
+	 *         deliveryAddress=STRING 
 	 *         customer=[Customer|ID] 
 	 *         deliveryDriver=[DeliveryDriver|ID] 
 	 *         orderedDatetime=DATETIME 
@@ -212,7 +212,7 @@ public class MyRdsSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Restaurant returns Restaurant
 	 *
 	 * Constraint:
-	 *     (name=ID address=ADDRESS menu+=Menu)
+	 *     (name=ID address=STRING menu+=Menu)
 	 */
 	protected void sequence_Restaurant(ISerializationContext context, Restaurant semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -251,7 +251,7 @@ public class MyRdsSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     User returns User
 	 *
 	 * Constraint:
-	 *     (name=STRING password=STRING phone=PHONE email=EMAIL (roles+=UserRole roles+=UserRole*)+)
+	 *     (fullName=STRING password=STRING phone=PHONE email=STRING (roles+=UserRole roles+=UserRole*)+)
 	 */
 	protected void sequence_User(ISerializationContext context, User semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

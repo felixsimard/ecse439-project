@@ -115,13 +115,13 @@ public interface MyRdsPackage extends EPackage
   int USER = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Full Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USER__NAME = 0;
+  int USER__FULL_NAME = 0;
 
   /**
    * The feature id for the '<em><b>Password</b></em>' attribute.
@@ -179,13 +179,13 @@ public interface MyRdsPackage extends EPackage
   int USER_ROLE = 2;
 
   /**
-   * The feature id for the '<em><b>Username</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USER_ROLE__USERNAME = 0;
+  int USER_ROLE__NAME = 0;
 
   /**
    * The number of structural features of the '<em>User Role</em>' class.
@@ -207,13 +207,13 @@ public interface MyRdsPackage extends EPackage
   int CUSTOMER = 3;
 
   /**
-   * The feature id for the '<em><b>Username</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOMER__USERNAME = USER_ROLE__USERNAME;
+  int CUSTOMER__NAME = USER_ROLE__NAME;
 
   /**
    * The number of structural features of the '<em>Customer</em>' class.
@@ -235,13 +235,13 @@ public interface MyRdsPackage extends EPackage
   int DELIVERY_DRIVER = 4;
 
   /**
-   * The feature id for the '<em><b>Username</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIVERY_DRIVER__USERNAME = USER_ROLE__USERNAME;
+  int DELIVERY_DRIVER__NAME = USER_ROLE__NAME;
 
   /**
    * The feature id for the '<em><b>Is Available</b></em>' attribute.
@@ -684,15 +684,15 @@ public interface MyRdsPackage extends EPackage
   EClass getUser();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.User#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.User#getFullName <em>Full Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.project.rds.myRds.User#getName()
+   * @return the meta object for the attribute '<em>Full Name</em>'.
+   * @see org.xtext.project.rds.myRds.User#getFullName()
    * @see #getUser()
    * @generated
    */
-  EAttribute getUser_Name();
+  EAttribute getUser_FullName();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.User#getPassword <em>Password</em>}'.
@@ -749,15 +749,15 @@ public interface MyRdsPackage extends EPackage
   EClass getUserRole();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.UserRole#getUsername <em>Username</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.project.rds.myRds.UserRole#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Username</em>'.
-   * @see org.xtext.project.rds.myRds.UserRole#getUsername()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.project.rds.myRds.UserRole#getName()
    * @see #getUserRole()
    * @generated
    */
-  EAttribute getUserRole_Username();
+  EAttribute getUserRole_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.project.rds.myRds.Customer <em>Customer</em>}'.
@@ -1224,12 +1224,12 @@ public interface MyRdsPackage extends EPackage
     EClass USER = eINSTANCE.getUser();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute USER__NAME = eINSTANCE.getUser_Name();
+    EAttribute USER__FULL_NAME = eINSTANCE.getUser_FullName();
 
     /**
      * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
@@ -1274,12 +1274,12 @@ public interface MyRdsPackage extends EPackage
     EClass USER_ROLE = eINSTANCE.getUserRole();
 
     /**
-     * The meta object literal for the '<em><b>Username</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute USER_ROLE__USERNAME = eINSTANCE.getUserRole_Username();
+    EAttribute USER_ROLE__NAME = eINSTANCE.getUserRole_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.project.rds.myRds.impl.CustomerImpl <em>Customer</em>}' class.

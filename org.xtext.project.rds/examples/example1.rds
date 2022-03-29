@@ -1,0 +1,195 @@
+User {
+	fullName: 'Thomas Alarcon',
+	password: 'abcd123',
+	phone: 514-123-4567,
+	email: 'thalaracon@gmail.com',
+	Customer ThomasA,
+	DeliveryDriver TAlarcon {
+		isAvailable,
+		carLicenceNumber: 'FKR4563' 
+	}
+},
+
+User {
+	fullName: 'John Dubont',
+	password: '987bcd',
+	phone: 999-999-9999,
+	email: 'johnd@hotmail.com',
+	DeliveryDriver JohnD {
+		isAvailable,
+		carLicenceNumber: 'GHT1253' 
+	}
+},
+
+User {
+	fullName: 'Wesley Bernard',
+	password: 'hnr430s',
+	phone: 438-908-0982,
+	email: 'wbern@hotmail.com',
+	Customer WBernard
+},
+
+User {
+	fullName: 'Richard Heinz',
+	password: 'ytn5j03',
+	phone: 514-545-4514,
+	email: 'rhenz@gmail.com',
+	Customer RHeinz
+},
+
+User {
+	fullName: 'Simon C.',
+	password: 'kjn34nm',
+	phone: 438-907-2391,
+	email: 'simc@hotmail.com',
+	DeliveryDriver SimonC {
+		isAvailable,
+		carLicenceNumber: 'HGR3401' 
+	}
+}
+
+
+Restaurant CasaDeRome {
+	address: '23 Italian St., Montreal',
+	Menu menu1 {
+		items: {
+			name: TomatoSoup,
+			price: 8.5,
+			description: 'Fresh, hot tomato soup with oregano and garlic',
+			category: appetizer
+		},
+		{
+			name: Bolognese,
+			price: 12.5,
+			description: 'Pasta with tomato sauce and ground beef',
+			category: main_dish
+		},
+		{
+			name: PizzaArugula,
+			price: 16.0,
+			description: 'Pizza with mushrooms, arugula and cream sauce',
+			category: main_dish
+		},
+		{
+			name: Tiramisu,
+			price: 9.5,
+			description: 'Ladyfingers (savoiardi) dipped in coffee, layered with a whipped mixture of eggs, sugar and mascarpone cheese',
+			category: dessert
+		}
+	}
+},
+
+Restaurant LaBelleProvince {
+	address: '43 Blvd Saint-Martin, Laval',
+	Menu menu2 {
+		
+		items: {
+			name: GreekSalad,
+			price: 5.5,
+			description: 'Salad with tomato, cucumber and feta cheese',
+			category: side_dish
+		},
+		{
+			name: Poutine,
+			price: 9.5,
+			description: 'Pasta with tomato sauce and ground beef',
+			category: main_dish
+		},
+		{
+			name: Fries,
+			price: 5.5,
+			description: 'Crispy golden fries',
+			category: side_dish
+		},
+		{
+			name: BeefBurger,
+			price: 10.0,
+			description: 'Pizza with mushrooms, arugula and cream sauce',
+			category: main_dish
+		},
+		{
+			name: GingerAil,
+			price: 2.5,
+			description: 'A chilled refreshing ginger drink',
+			category: drink
+		}
+	}
+}
+
+
+Order O234 {
+	STATUS: delivered,
+	DELIVER_TO: '487 Blvd St-Laurent, Montreal',
+	CUSTOMER: ThomasA,
+	DRIVER: JohnD,
+	ORDERED_AT: 2022-03-29 13:30,
+	DELIVERED_AT: 2022-03-29 14:30,
+	REQUESTEDDELIVERYDATETIME: 2022-03-29 14:40,
+	ITEMS: {
+		quantity: 3,
+		menuItem: Bolognese
+	},
+	{
+		quantity: 2,
+		menuItem: Tiramisu
+	},
+	Review R493 {
+		numStars: 5,
+		description: 'Excellent service',
+		reviewDatetime: 2022-03-29 15:30
+	}
+},
+Order O318 {
+	STATUS: accepted,
+	DELIVER_TO: '76 Rue Fleury E, Montreal',
+	CUSTOMER: WBernard,
+	DRIVER: TAlarcon,
+	ORDERED_AT: 2022-03-30 15:00,
+	DELIVERED_AT: 2022-03-30 16:10,
+	REQUESTEDDELIVERYDATETIME: 2022-03-30 15:40,
+	ITEMS: {
+		quantity: 2,
+		menuItem: Poutine
+	},
+	{
+		quantity: 1,
+		menuItem: BeefBurger
+	},
+	{
+		quantity: 1,
+		menuItem: GingerAil
+	},
+	{
+		quantity: 3,
+		menuItem: Fries
+	},
+	Review R513 {
+		numStars: 3,
+		description: 'Delivered late',
+		reviewDatetime: 2022-03-30 18:32
+	}
+},
+
+Order O703 {
+	STATUS: preparation,
+	DELIVER_TO: '55 Blvd Corbusier, Laval',
+	CUSTOMER: RHeinz,
+	DRIVER: SimonC,
+	ORDERED_AT: 2022-03-31 19:42,
+	DELIVERED_AT: 2022-03-31 20:40,
+	REQUESTEDDELIVERYDATETIME: 2022-03-31 20:30,
+	ITEMS: {
+		quantity: 1,
+		menuItem: TomatoSoup
+	},
+	{
+		quantity: 1,
+		menuItem: Tiramisu
+	},
+	{
+		quantity: 1,
+		menuItem: PizzaArugula
+	}
+
+}
+

@@ -26,14 +26,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyRds.ecore#//RDS/orders"/>
     </genClasses>
     <genClasses ecoreClass="MyRds.ecore#//User">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/fullName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/password"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/phone"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//User/email"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyRds.ecore#//User/roles"/>
     </genClasses>
     <genClasses ecoreClass="MyRds.ecore#//UserRole">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//UserRole/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyRds.ecore#//UserRole/name"/>
     </genClasses>
     <genClasses ecoreClass="MyRds.ecore#//Customer"/>
     <genClasses ecoreClass="MyRds.ecore#//DeliveryDriver">

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ASCII"?>
+<myRds:RDS xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:myRds="http://www.xtext.org/project/rds/MyRds">
+  <users fullName="Smith Stone" password="umh45c" phone="514-340-9824" email="sstone@gmail.com">
+    <roles xsi:type="myRds:Customer" name="SmithS"/>
+  </users>
+  <users fullName="Jordan West" password="kimn34a" phone="438-098-9271" email="jordanw@hotmail.com">
+    <roles xsi:type="myRds:DeliveryDriver" name="JordanW" isAvailable="true" carLicenceNumber="JHN2301"/>
+  </users>
+  <users fullName="Michael Ray" password="jmner2301" phone="438-091-2314" email="mray21@hotmail.com">
+    <roles xsi:type="myRds:Customer" name="MichR"/>
+    <roles xsi:type="myRds:DeliveryDriver" name="MRay" carLicenceNumber="LNR3401"/>
+  </users>
+  <users fullName="Alex T." password="knla2301" phone="514-297-3760" email="alext@gmail.com">
+    <roles xsi:type="myRds:Customer" name="AlexT"/>
+  </users>
+  <users fullName="Ben Coast" password="mkal232y" phone="514-910-4501" email="bcoast@hotmail.com">
+    <roles xsi:type="myRds:Customer" name="BCoast"/>
+  </users>
+  <users fullName="Mathieu Louis" password="mnerl21k" phone="438-097-2034" email="mlouis@gmail.com">
+    <roles xsi:type="myRds:DeliveryDriver" name="MLouis" isAvailable="true" carLicenceNumber="WSM9031"/>
+  </users>
+  <restaurants name="CasaGreque" address="23 Blvd Saint-Martin O, Laval">
+    <menu id="menu1">
+      <menuItems name="Giro" price="12.0" description="Marinated chicken with yoghurt sandwich" category="main_dish"/>
+      <menuItems name="GreekSalad" price="10.5" description="Greek salad made with fresh tomatoes and cheese"/>
+      <menuItems name="Souvlaki" price="20.0" description="Grilled Souvlaki skewers" category="main_dish"/>
+      <menuItems name="Rice" price="8.0" description="Steamed white rice" category="side_dish"/>
+    </menu>
+  </restaurants>
+  <restaurants name="Origin" address="34 Bay St, Toronto">
+    <menu id="menu2">
+      <menuItems name="OnionSoup" price="25.0" description="A sweet and light onion soup"/>
+      <menuItems name="BeetSalad" price="20.5" description="An inviting, colorful root beet salad with balsamic glaze" category="side_dish"/>
+      <menuItems name="Steak" price="40.0" description="A tender marinated steak  served with Bearnaise sauce" category="side_dish"/>
+      <menuItems name="CoffeeCake" price="15.0" description="A delectable coffee cake topped with chocolate sauce" category="dessert"/>
+    </menu>
+  </restaurants>
+  <restaurants name="BlueBay" address="19 Rue Stanley, Montreal">
+    <menu id="menu3">
+      <menuItems name="FriedShrimp" price="20.0" description="Breadcrumbed deep fried shrimp"/>
+      <menuItems name="Dynamite" price="25.0" description="Shrimp with dynamite sauce"/>
+      <menuItems name="DoradeRoyale" price="30.0" description="A whole Dorade Royale grilled fish, served with rice" category="main_dish"/>
+      <menuItems name="CrabSalad" price="20.0" description="A crab salad" category="side_dish"/>
+    </menu>
+  </restaurants>
+  <restaurants name="EdoJ" address="23 Rue Rene-Levesque, Montreal">
+    <menu id="menu4">
+      <menuItems name="Sushi" price="14.0" description="14 pieces of sushi nigiri, futomaki and hosomaki" category="main_dish"/>
+      <menuItems name="SpringRoll" price="6.5" description="A veggie stuffed spring roll"/>
+      <menuItems name="BeefYakisoba" price="13.5" description="Gilled noodles grilled with vegetables. Served with grilled beef and teriyaki sauce" category="main_dish"/>
+      <menuItems name="SteamedRice" price="7.0" description="Steamed rice" category="side_dish"/>
+      <menuItems name="Coke" price="2.0" description="Coke" category="drink"/>
+    </menu>
+  </restaurants>
+  <orders orderNumber="O452" status="delivered" deliveryAddress="50 Blvd Corbusier, Laval" customer="//@users.0/@roles.0" deliveryDriver="//@users.1/@roles.0" orderedDatetime="2022-03-31 14:30" deliveredDatetime="2022-03-31 15:30" requestedDeliveryDatetime="2022-03-31 15:30">
+    <orderItems quantity="1" menuItem="//@restaurants.0/@menu.0/@menuItems.2"/>
+    <orderItems quantity="1" menuItem="//@restaurants.0/@menu.0/@menuItems.0"/>
+    <review id="R490" numStars="5" description="Delivery on time" reviewDatetime="2022-03-31 17:21"/>
+  </orders>
+  <orders orderNumber="O901" status="preparation" deliveryAddress="106 Bay St., Toronto" customer="//@users.2/@roles.0" deliveryDriver="//@users.5/@roles.0" orderedDatetime="2022-04-01 18:11" deliveredDatetime="2022-03-30 18:55" requestedDeliveryDatetime="2022-03-30 19:00">
+    <orderItems quantity="2" menuItem="//@restaurants.1/@menu.0/@menuItems.0"/>
+    <orderItems quantity="1" menuItem="//@restaurants.1/@menu.0/@menuItems.1"/>
+    <orderItems quantity="2" menuItem="//@restaurants.1/@menu.0/@menuItems.2"/>
+    <orderItems quantity="2" menuItem="//@restaurants.1/@menu.0/@menuItems.3"/>
+  </orders>
+  <orders orderNumber="O542" status="ready_pickup" deliveryAddress="415 Rue Dobrin, Monteral" customer="//@users.3/@roles.0" deliveryDriver="//@users.1/@roles.0" orderedDatetime="2022-03-28 12:42" deliveredDatetime="2022-03-28 13:40" requestedDeliveryDatetime="2022-03-28 13:20">
+    <orderItems quantity="3" menuItem="//@restaurants.2/@menu.0/@menuItems.1"/>
+    <orderItems quantity="2" menuItem="//@restaurants.2/@menu.0/@menuItems.2"/>
+    <orderItems quantity="1" menuItem="//@restaurants.2/@menu.0/@menuItems.3"/>
+  </orders>
+  <orders orderNumber="O638" status="picked_up" deliveryAddress="550 Rue University, Montreal" customer="//@users.4/@roles.0" deliveryDriver="//@users.2/@roles.1" orderedDatetime="2022-04-02 15:42" deliveredDatetime="2022-04-02 17:05" requestedDeliveryDatetime="2022-04-02 17:00">
+    <orderItems quantity="1" menuItem="//@restaurants.3/@menu.0/@menuItems.0"/>
+    <orderItems quantity="2" menuItem="//@restaurants.3/@menu.0/@menuItems.1"/>
+    <orderItems quantity="1" menuItem="//@restaurants.3/@menu.0/@menuItems.2"/>
+    <orderItems quantity="1" menuItem="//@restaurants.3/@menu.0/@menuItems.4"/>
+  </orders>
+  <orders orderNumber="O481" deliveryAddress="760 Rue Montpellier, Montreal" customer="//@users.0/@roles.0" deliveryDriver="//@users.5/@roles.0" orderedDatetime="2022-04-04 21:40" deliveredDatetime="2022-04-04 22:20" requestedDeliveryDatetime="2022-04-04 22:10">
+    <orderItems quantity="1" menuItem="//@restaurants.0/@menu.0/@menuItems.0"/>
+  </orders>
+</myRds:RDS>

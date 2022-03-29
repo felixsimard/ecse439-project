@@ -137,10 +137,10 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cUserKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cFullNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cFullNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFullNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cFullNameAssignment_4.eContents().get(0);
 		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cPasswordKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
@@ -155,7 +155,7 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cEmailKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		private final Keyword cColonKeyword_15 = (Keyword)cGroup.eContents().get(15);
 		private final Assignment cEmailAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final RuleCall cEmailEMAILParserRuleCall_16_0 = (RuleCall)cEmailAssignment_16.eContents().get(0);
+		private final RuleCall cEmailSTRINGTerminalRuleCall_16_0 = (RuleCall)cEmailAssignment_16.eContents().get(0);
 		private final Keyword cCommaKeyword_17 = (Keyword)cGroup.eContents().get(17);
 		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
 		private final Assignment cRolesAssignment_18_0 = (Assignment)cGroup_18.eContents().get(0);
@@ -168,20 +168,20 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//User:
 		//    'User' '{'
-		//        'name' ':' name=STRING ','
+		//        'fullName' ':' fullName=STRING ','
 		//        'password' ':' password=STRING ','
 		//        'phone' ':' phone=PHONE ','
-		//        'email' ':' email=EMAIL ','
+		//        'email' ':' email=STRING ','
 		//        (roles+=UserRole (',' roles+=UserRole)*)+
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'User' '{'
-		//    'name' ':' name=STRING ','
+		//    'fullName' ':' fullName=STRING ','
 		//    'password' ':' password=STRING ','
 		//    'phone' ':' phone=PHONE ','
-		//    'email' ':' email=EMAIL ','
+		//    'email' ':' email=STRING ','
 		//    (roles+=UserRole (',' roles+=UserRole)*)+
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -192,17 +192,17 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//'name'
-		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
+		//'fullName'
+		public Keyword getFullNameKeyword_2() { return cFullNameKeyword_2; }
 		
 		//':'
 		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//fullName=STRING
+		public Assignment getFullNameAssignment_4() { return cFullNameAssignment_4; }
 		
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getFullNameSTRINGTerminalRuleCall_4_0() { return cFullNameSTRINGTerminalRuleCall_4_0; }
 		
 		//','
 		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
@@ -243,11 +243,11 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//':'
 		public Keyword getColonKeyword_15() { return cColonKeyword_15; }
 		
-		//email=EMAIL
+		//email=STRING
 		public Assignment getEmailAssignment_16() { return cEmailAssignment_16; }
 		
-		//EMAIL
-		public RuleCall getEmailEMAILParserRuleCall_16_0() { return cEmailEMAILParserRuleCall_16_0; }
+		//STRING
+		public RuleCall getEmailSTRINGTerminalRuleCall_16_0() { return cEmailSTRINGTerminalRuleCall_16_0; }
 		
 		//','
 		public Keyword getCommaKeyword_17() { return cCommaKeyword_17; }
@@ -298,91 +298,95 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.Customer");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCustomerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cUsernameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUsernameIDTerminalRuleCall_1_0 = (RuleCall)cUsernameAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Customer:
-		//    'Customer'  username=ID
+		//    'Customer'  name=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Customer'  username=ID
+		//'Customer'  name=ID
 		public Group getGroup() { return cGroup; }
 		
 		//'Customer'
 		public Keyword getCustomerKeyword_0() { return cCustomerKeyword_0; }
 		
-		//username=ID
-		public Assignment getUsernameAssignment_1() { return cUsernameAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getUsernameIDTerminalRuleCall_1_0() { return cUsernameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 	public class DeliveryDriverElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.DeliveryDriver");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDeliveryDriverKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cUsernameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUsernameIDTerminalRuleCall_1_0 = (RuleCall)cUsernameAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cIsAvailableAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Keyword cIsAvailableIsAvailableKeyword_3_0 = (Keyword)cIsAvailableAssignment_3.eContents().get(0);
-		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cCarLicenceNumberKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cCarLicenceNumberAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cCarLicenceNumberLICENCEParserRuleCall_7_0 = (RuleCall)cCarLicenceNumberAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cIsAvailableAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cIsAvailableIsAvailableKeyword_3_0_0 = (Keyword)cIsAvailableAssignment_3_0.eContents().get(0);
+		private final Keyword cCommaKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Keyword cCarLicenceNumberKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cCarLicenceNumberAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cCarLicenceNumberSTRINGTerminalRuleCall_6_0 = (RuleCall)cCarLicenceNumberAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//DeliveryDriver:
-		//    'DeliveryDriver' username=ID '{'
-		//        (isAvailable?='isAvailable')? ','
-		//        'carLicenceNumber' ':' carLicenceNumber=LICENCE
+		//    'DeliveryDriver' name=ID '{'
+		//        (isAvailable?='isAvailable'',')?
+		//        'carLicenceNumber' ':' carLicenceNumber=STRING
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'DeliveryDriver' username=ID '{'
-		//    (isAvailable?='isAvailable')? ','
-		//    'carLicenceNumber' ':' carLicenceNumber=LICENCE
+		//'DeliveryDriver' name=ID '{'
+		//    (isAvailable?='isAvailable'',')?
+		//    'carLicenceNumber' ':' carLicenceNumber=STRING
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//'DeliveryDriver'
 		public Keyword getDeliveryDriverKeyword_0() { return cDeliveryDriverKeyword_0; }
 		
-		//username=ID
-		public Assignment getUsernameAssignment_1() { return cUsernameAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getUsernameIDTerminalRuleCall_1_0() { return cUsernameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//(isAvailable?='isAvailable')?
-		public Assignment getIsAvailableAssignment_3() { return cIsAvailableAssignment_3; }
+		//(isAvailable?='isAvailable'',')?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//isAvailable?='isAvailable'
+		public Assignment getIsAvailableAssignment_3_0() { return cIsAvailableAssignment_3_0; }
 		
 		//'isAvailable'
-		public Keyword getIsAvailableIsAvailableKeyword_3_0() { return cIsAvailableIsAvailableKeyword_3_0; }
+		public Keyword getIsAvailableIsAvailableKeyword_3_0_0() { return cIsAvailableIsAvailableKeyword_3_0_0; }
 		
 		//','
-		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		public Keyword getCommaKeyword_3_1() { return cCommaKeyword_3_1; }
 		
 		//'carLicenceNumber'
-		public Keyword getCarLicenceNumberKeyword_5() { return cCarLicenceNumberKeyword_5; }
+		public Keyword getCarLicenceNumberKeyword_4() { return cCarLicenceNumberKeyword_4; }
 		
 		//':'
-		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
+		public Keyword getColonKeyword_5() { return cColonKeyword_5; }
 		
-		//carLicenceNumber=LICENCE
-		public Assignment getCarLicenceNumberAssignment_7() { return cCarLicenceNumberAssignment_7; }
+		//carLicenceNumber=STRING
+		public Assignment getCarLicenceNumberAssignment_6() { return cCarLicenceNumberAssignment_6; }
 		
-		//LICENCE
-		public RuleCall getCarLicenceNumberLICENCEParserRuleCall_7_0() { return cCarLicenceNumberLICENCEParserRuleCall_7_0; }
+		//STRING
+		public RuleCall getCarLicenceNumberSTRINGTerminalRuleCall_6_0() { return cCarLicenceNumberSTRINGTerminalRuleCall_6_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class OrderElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.rds.MyRds.Order");
@@ -399,7 +403,7 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cDELIVER_TOKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Keyword cColonKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cDeliveryAddressAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cDeliveryAddressADDRESSParserRuleCall_9_0 = (RuleCall)cDeliveryAddressAssignment_9.eContents().get(0);
+		private final RuleCall cDeliveryAddressSTRINGTerminalRuleCall_9_0 = (RuleCall)cDeliveryAddressAssignment_9.eContents().get(0);
 		private final Keyword cCommaKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		private final Keyword cCUSTOMERKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final Keyword cColonKeyword_12 = (Keyword)cGroup.eContents().get(12);
@@ -437,35 +441,37 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cCommaKeyword_33_1_0 = (Keyword)cGroup_33_1.eContents().get(0);
 		private final Assignment cOrderItemsAssignment_33_1_1 = (Assignment)cGroup_33_1.eContents().get(1);
 		private final RuleCall cOrderItemsOrderItemParserRuleCall_33_1_1_0 = (RuleCall)cOrderItemsAssignment_33_1_1.eContents().get(0);
-		private final Assignment cReviewAssignment_34 = (Assignment)cGroup.eContents().get(34);
-		private final RuleCall cReviewReviewParserRuleCall_34_0 = (RuleCall)cReviewAssignment_34.eContents().get(0);
+		private final Group cGroup_34 = (Group)cGroup.eContents().get(34);
+		private final Keyword cCommaKeyword_34_0 = (Keyword)cGroup_34.eContents().get(0);
+		private final Assignment cReviewAssignment_34_1 = (Assignment)cGroup_34.eContents().get(1);
+		private final RuleCall cReviewReviewParserRuleCall_34_1_0 = (RuleCall)cReviewAssignment_34_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_35 = (Keyword)cGroup.eContents().get(35);
 		
 		//Order:
 		//    'Order' orderNumber=ID '{'
 		//        'STATUS' ':' status=OrderStatus ','
-		//        'DELIVER_TO' ':' deliveryAddress=ADDRESS ','
+		//        'DELIVER_TO' ':' deliveryAddress=STRING ','
 		//        'CUSTOMER' ':' customer=[Customer] ','
 		//        'DRIVER' ':' deliveryDriver=[DeliveryDriver] ','
 		//        'ORDERED_AT' ':' orderedDatetime=DATETIME ','
 		//        'DELIVERED_AT' ':' deliveredDatetime=DATETIME ','
 		//        'REQUESTEDDELIVERYDATETIME' ':' requestedDeliveryDatetime=DATETIME ','
 		//        'ITEMS' ':' (orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
-		//        (review+=Review)?
+		//        (','(review+=Review)?)?
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Order' orderNumber=ID '{'
 		//    'STATUS' ':' status=OrderStatus ','
-		//    'DELIVER_TO' ':' deliveryAddress=ADDRESS ','
+		//    'DELIVER_TO' ':' deliveryAddress=STRING ','
 		//    'CUSTOMER' ':' customer=[Customer] ','
 		//    'DRIVER' ':' deliveryDriver=[DeliveryDriver] ','
 		//    'ORDERED_AT' ':' orderedDatetime=DATETIME ','
 		//    'DELIVERED_AT' ':' deliveredDatetime=DATETIME ','
 		//    'REQUESTEDDELIVERYDATETIME' ':' requestedDeliveryDatetime=DATETIME ','
 		//    'ITEMS' ':' (orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
-		//    (review+=Review)?
+		//    (','(review+=Review)?)?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -502,11 +508,11 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//':'
 		public Keyword getColonKeyword_8() { return cColonKeyword_8; }
 		
-		//deliveryAddress=ADDRESS
+		//deliveryAddress=STRING
 		public Assignment getDeliveryAddressAssignment_9() { return cDeliveryAddressAssignment_9; }
 		
-		//ADDRESS
-		public RuleCall getDeliveryAddressADDRESSParserRuleCall_9_0() { return cDeliveryAddressADDRESSParserRuleCall_9_0; }
+		//STRING
+		public RuleCall getDeliveryAddressSTRINGTerminalRuleCall_9_0() { return cDeliveryAddressSTRINGTerminalRuleCall_9_0; }
 		
 		//','
 		public Keyword getCommaKeyword_10() { return cCommaKeyword_10; }
@@ -619,11 +625,17 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//OrderItem
 		public RuleCall getOrderItemsOrderItemParserRuleCall_33_1_1_0() { return cOrderItemsOrderItemParserRuleCall_33_1_1_0; }
 		
+		//(','(review+=Review)?)?
+		public Group getGroup_34() { return cGroup_34; }
+		
+		//','
+		public Keyword getCommaKeyword_34_0() { return cCommaKeyword_34_0; }
+		
 		//(review+=Review)?
-		public Assignment getReviewAssignment_34() { return cReviewAssignment_34; }
+		public Assignment getReviewAssignment_34_1() { return cReviewAssignment_34_1; }
 		
 		//Review
-		public RuleCall getReviewReviewParserRuleCall_34_0() { return cReviewReviewParserRuleCall_34_0; }
+		public RuleCall getReviewReviewParserRuleCall_34_1_0() { return cReviewReviewParserRuleCall_34_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_35() { return cRightCurlyBracketKeyword_35; }
@@ -638,7 +650,7 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cAddressKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cAddressAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cAddressADDRESSParserRuleCall_5_0 = (RuleCall)cAddressAssignment_5.eContents().get(0);
+		private final RuleCall cAddressSTRINGTerminalRuleCall_5_0 = (RuleCall)cAddressAssignment_5.eContents().get(0);
 		private final Keyword cCommaKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cMenuAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cMenuMenuParserRuleCall_7_0 = (RuleCall)cMenuAssignment_7.eContents().get(0);
@@ -646,14 +658,14 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//Restaurant:
 		//    'Restaurant' name=ID '{'
-		//        'address' ':' address=ADDRESS ','
+		//        'address' ':' address=STRING ','
 		//        (menu+=Menu)
 		//    '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Restaurant' name=ID '{'
-		//    'address' ':' address=ADDRESS ','
+		//    'address' ':' address=STRING ','
 		//    (menu+=Menu)
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -676,11 +688,11 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 		
-		//address=ADDRESS
+		//address=STRING
 		public Assignment getAddressAssignment_5() { return cAddressAssignment_5; }
 		
-		//ADDRESS
-		public RuleCall getAddressADDRESSParserRuleCall_5_0() { return cAddressADDRESSParserRuleCall_5_0; }
+		//STRING
+		public RuleCall getAddressSTRINGTerminalRuleCall_5_0() { return cAddressSTRINGTerminalRuleCall_5_0; }
 		
 		//','
 		public Keyword getCommaKeyword_6() { return cCommaKeyword_6; }
@@ -1205,7 +1217,6 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		////LICENCE: STRING INT INT STRING STRING STRING;
 		//LICENCE: STRING INT;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1426,10 +1437,10 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//User:
 	//    'User' '{'
-	//        'name' ':' name=STRING ','
+	//        'fullName' ':' fullName=STRING ','
 	//        'password' ':' password=STRING ','
 	//        'phone' ':' phone=PHONE ','
-	//        'email' ':' email=EMAIL ','
+	//        'email' ':' email=STRING ','
 	//        (roles+=UserRole (',' roles+=UserRole)*)+
 	//    '}'
 	//;
@@ -1451,7 +1462,7 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Customer:
-	//    'Customer'  username=ID
+	//    'Customer'  name=ID
 	//;
 	public CustomerElements getCustomerAccess() {
 		return pCustomer;
@@ -1462,9 +1473,9 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//DeliveryDriver:
-	//    'DeliveryDriver' username=ID '{'
-	//        (isAvailable?='isAvailable')? ','
-	//        'carLicenceNumber' ':' carLicenceNumber=LICENCE
+	//    'DeliveryDriver' name=ID '{'
+	//        (isAvailable?='isAvailable'',')?
+	//        'carLicenceNumber' ':' carLicenceNumber=STRING
 	//    '}'
 	//;
 	public DeliveryDriverElements getDeliveryDriverAccess() {
@@ -1478,14 +1489,14 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//Order:
 	//    'Order' orderNumber=ID '{'
 	//        'STATUS' ':' status=OrderStatus ','
-	//        'DELIVER_TO' ':' deliveryAddress=ADDRESS ','
+	//        'DELIVER_TO' ':' deliveryAddress=STRING ','
 	//        'CUSTOMER' ':' customer=[Customer] ','
 	//        'DRIVER' ':' deliveryDriver=[DeliveryDriver] ','
 	//        'ORDERED_AT' ':' orderedDatetime=DATETIME ','
 	//        'DELIVERED_AT' ':' deliveredDatetime=DATETIME ','
 	//        'REQUESTEDDELIVERYDATETIME' ':' requestedDeliveryDatetime=DATETIME ','
 	//        'ITEMS' ':' (orderItems+=OrderItem (',' orderItems+=OrderItem)*)?
-	//        (review+=Review)?
+	//        (','(review+=Review)?)?
 	//    '}'
 	//;
 	public OrderElements getOrderAccess() {
@@ -1498,7 +1509,7 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//Restaurant:
 	//    'Restaurant' name=ID '{'
-	//        'address' ':' address=ADDRESS ','
+	//        'address' ':' address=STRING ','
 	//        (menu+=Menu)
 	//    '}'
 	//;
@@ -1646,7 +1657,6 @@ public class MyRdsGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getADDRESSAccess().getRule();
 	}
 	
-	////LICENCE: STRING INT INT STRING STRING STRING;
 	//LICENCE: STRING INT;
 	public LICENCEElements getLICENCEAccess() {
 		return pLICENCE;

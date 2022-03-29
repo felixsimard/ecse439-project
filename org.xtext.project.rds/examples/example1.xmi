@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<myRds:RDS xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:myRds="http://www.xtext.org/project/rds/MyRds">
+  <users fullName="Thomas Alarcon" password="abcd123" phone="514-123-4567" email="thalaracon@gmail.com">
+    <roles xsi:type="myRds:Customer" name="ThomasA"/>
+    <roles xsi:type="myRds:DeliveryDriver" name="TAlarcon" isAvailable="true" carLicenceNumber="FKR4563"/>
+  </users>
+  <users fullName="John Dubont" password="987bcd" phone="999-999-9999" email="johnd@hotmail.com">
+    <roles xsi:type="myRds:DeliveryDriver" name="JohnD" isAvailable="true" carLicenceNumber="GHT1253"/>
+  </users>
+  <users fullName="Wesley Bernard" password="hnr430s" phone="438-908-0982" email="wbern@hotmail.com">
+    <roles xsi:type="myRds:Customer" name="WBernard"/>
+  </users>
+  <users fullName="Richard Heinz" password="ytn5j03" phone="514-545-4514" email="rhenz@gmail.com">
+    <roles xsi:type="myRds:Customer" name="RHeinz"/>
+  </users>
+  <users fullName="Simon C." password="kjn34nm" phone="438-907-2391" email="simc@hotmail.com">
+    <roles xsi:type="myRds:DeliveryDriver" name="SimonC" isAvailable="true" carLicenceNumber="HGR3401"/>
+  </users>
+  <restaurants name="CasaDeRome" address="23 Italian St., Montreal">
+    <menu id="menu1">
+      <menuItems name="TomatoSoup" price="8.5" description="Fresh, hot tomato soup with oregano and garlic"/>
+      <menuItems name="Bolognese" price="12.5" description="Pasta with tomato sauce and ground beef" category="main_dish"/>
+      <menuItems name="PizzaArugula" price="16.0" description="Pizza with mushrooms, arugula and cream sauce" category="main_dish"/>
+      <menuItems name="Tiramisu" price="9.5" description="Ladyfingers (savoiardi) dipped in coffee, layered with a whipped mixture of eggs, sugar and mascarpone cheese" category="dessert"/>
+    </menu>
+  </restaurants>
+  <restaurants name="LaBelleProvince" address="43 Blvd Saint-Martin, Laval">
+    <menu id="menu2">
+      <menuItems name="GreekSalad" price="5.5" description="Salad with tomato, cucumber and feta cheese" category="side_dish"/>
+      <menuItems name="Poutine" price="9.5" description="Pasta with tomato sauce and ground beef" category="main_dish"/>
+      <menuItems name="Fries" price="5.5" description="Crispy golden fries" category="side_dish"/>
+      <menuItems name="BeefBurger" price="10.0" description="Pizza with mushrooms, arugula and cream sauce" category="main_dish"/>
+      <menuItems name="GingerAil" price="2.5" description="A chilled refreshing ginger drink" category="drink"/>
+    </menu>
+  </restaurants>
+  <orders orderNumber="O234" status="delivered" deliveryAddress="487 Blvd St-Laurent, Montreal" customer="//@users.0/@roles.0" deliveryDriver="//@users.1/@roles.0" orderedDatetime="2022-03-29 13:30" deliveredDatetime="2022-03-29 14:30" requestedDeliveryDatetime="2022-03-29 14:40">
+    <orderItems quantity="3" menuItem="//@restaurants.0/@menu.0/@menuItems.1"/>
+    <orderItems quantity="2" menuItem="//@restaurants.0/@menu.0/@menuItems.3"/>
+    <review id="R493" numStars="5" description="Excellent service" reviewDatetime="2022-03-29 15:30"/>
+  </orders>
+  <orders orderNumber="O318" deliveryAddress="76 Rue Fleury E, Montreal" customer="//@users.2/@roles.0" deliveryDriver="//@users.0/@roles.1" orderedDatetime="2022-03-30 15:00" deliveredDatetime="2022-03-30 16:10" requestedDeliveryDatetime="2022-03-30 15:40">
+    <orderItems quantity="2" menuItem="//@restaurants.1/@menu.0/@menuItems.1"/>
+    <orderItems quantity="1" menuItem="//@restaurants.1/@menu.0/@menuItems.3"/>
+    <orderItems quantity="1" menuItem="//@restaurants.1/@menu.0/@menuItems.4"/>
+    <orderItems quantity="3" menuItem="//@restaurants.1/@menu.0/@menuItems.2"/>
+    <review id="R513" numStars="3" description="Delivered late" reviewDatetime="2022-03-30 18:32"/>
+  </orders>
+  <orders orderNumber="O703" status="preparation" deliveryAddress="55 Blvd Corbusier, Laval" customer="//@users.3/@roles.0" deliveryDriver="//@users.4/@roles.0" orderedDatetime="2022-03-31 19:42" deliveredDatetime="2022-03-31 20:40" requestedDeliveryDatetime="2022-03-31 20:30">
+    <orderItems quantity="1" menuItem="//@restaurants.0/@menu.0/@menuItems.0"/>
+    <orderItems quantity="1" menuItem="//@restaurants.0/@menu.0/@menuItems.3"/>
+    <orderItems quantity="1" menuItem="//@restaurants.0/@menu.0/@menuItems.2"/>
+  </orders>
+</myRds:RDS>

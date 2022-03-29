@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.rds.myRds.User#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.rds.myRds.User#getFullName <em>Full Name</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.User#getPassword <em>Password</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.User#getPhone <em>Phone</em>}</li>
  *   <li>{@link org.xtext.project.rds.myRds.User#getEmail <em>Email</em>}</li>
@@ -30,26 +30,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface User extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Full Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUser_Name()
+   * @return the value of the '<em>Full Name</em>' attribute.
+   * @see #setFullName(String)
+   * @see org.xtext.project.rds.myRds.MyRdsPackage#getUser_FullName()
    * @model
    * @generated
    */
-  String getName();
+  String getFullName();
 
   /**
-   * Sets the value of the '{@link org.xtext.project.rds.myRds.User#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.project.rds.myRds.User#getFullName <em>Full Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Full Name</em>' attribute.
+   * @see #getFullName()
    * @generated
    */
-  void setName(String value);
+  void setFullName(String value);
 
   /**
    * Returns the value of the '<em><b>Password</b></em>' attribute.

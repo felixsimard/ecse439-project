@@ -249,7 +249,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getUser_Name()
+  public EAttribute getUser_FullName()
   {
     return (EAttribute)userEClass.getEStructuralFeatures().get(0);
   }
@@ -315,7 +315,7 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
    * @generated
    */
   @Override
-  public EAttribute getUserRole_Username()
+  public EAttribute getUserRole_Name()
   {
     return (EAttribute)userRoleEClass.getEStructuralFeatures().get(0);
   }
@@ -764,14 +764,14 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
     createEReference(rdsEClass, RDS__ORDERS);
 
     userEClass = createEClass(USER);
-    createEAttribute(userEClass, USER__NAME);
+    createEAttribute(userEClass, USER__FULL_NAME);
     createEAttribute(userEClass, USER__PASSWORD);
     createEAttribute(userEClass, USER__PHONE);
     createEAttribute(userEClass, USER__EMAIL);
     createEReference(userEClass, USER__ROLES);
 
     userRoleEClass = createEClass(USER_ROLE);
-    createEAttribute(userRoleEClass, USER_ROLE__USERNAME);
+    createEAttribute(userRoleEClass, USER_ROLE__NAME);
 
     customerEClass = createEClass(CUSTOMER);
 
@@ -860,14 +860,14 @@ public class MyRdsPackageImpl extends EPackageImpl implements MyRdsPackage
     initEReference(getRDS_Orders(), this.getOrder(), null, "orders", null, 0, -1, org.xtext.project.rds.myRds.RDS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUser_Name(), ecorePackage.getEString(), "name", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUser_FullName(), ecorePackage.getEString(), "fullName", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUser_Password(), ecorePackage.getEString(), "password", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUser_Phone(), ecorePackage.getEString(), "phone", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUser_Email(), ecorePackage.getEString(), "email", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUser_Roles(), this.getUserRole(), null, "roles", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(userRoleEClass, UserRole.class, "UserRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUserRole_Username(), ecorePackage.getEString(), "username", null, 0, 1, UserRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUserRole_Name(), ecorePackage.getEString(), "name", null, 0, 1, UserRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
