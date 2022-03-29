@@ -2,6 +2,9 @@
 [module generate('http://www.xtext.org/project/rds/MyRds')]
 
 
-[template public generate(aCustomer : Customer)]
+[template public generate(aRDS : RDS)]
 [comment @main/]
+[file('rds.txt', false, 'UTF-8')]
+[/file]
 [/template]
+
