@@ -1,0 +1,298 @@
+User {
+	fullName: 'Smith Stone',
+	password: 'umh45c',
+	phone: 514-340-9824,
+	email: 'sstone@gmail.com',
+	Customer SmithS
+},
+
+User {
+	fullName: 'Jordan West',
+	password: 'kimn34a',
+	phone: 438-098-9271,
+	email: 'jordanw@hotmail.com',
+	DeliveryDriver JordanW {
+		isAvailable,
+		carLicenceNumber: 'JHN2301' 
+	}
+},
+
+User {
+	fullName: 'Michael Ray',
+	password: 'jmner2301',
+	phone: 438-091-2314,
+	email: 'mray21@hotmail.com',
+	Customer MichR,
+	DeliveryDriver MRay {
+		carLicenceNumber: 'LNR3401' 
+	}
+},
+
+User {
+	fullName: 'Alex T.',
+	password: 'knla2301',
+	phone: 514-297-3760,
+	email: 'alext@gmail.com',
+	Customer AlexT
+},
+
+User {
+	fullName: 'Ben Coast',
+	password: 'mkal232y',
+	phone: 514-910-4501,
+	email: 'bcoast@hotmail.com',
+	Customer BCoast
+},
+
+User {
+	fullName: 'Mathieu Louis',
+	password: 'mnerl21k',
+	phone: 438-097-2034,
+	email: 'mlouis@gmail.com',
+	DeliveryDriver MLouis {
+		isAvailable,
+		carLicenceNumber: 'WSM9031' 
+	}
+}
+
+
+Restaurant CasaGreque {
+	address: '23 Blvd Saint-Martin O, Laval',
+	Menu menu1 {
+		items: {
+			name: Giro,
+			price: 12.0,
+			description: 'Marinated chicken with yoghurt sandwich',
+			category: main_dish
+		},
+		{
+			name: GreekSalad,
+			price: 10.5,
+			description: 'Greek salad made with fresh tomatoes and cheese',
+			category: appetizer
+		},
+		{
+			name: Souvlaki,
+			price: 20.0,
+			description: 'Grilled Souvlaki skewers',
+			category: main_dish
+		},
+		{
+			name: Rice,
+			price: 8.0,
+			description: 'Steamed white rice',
+			category: side_dish
+		}
+	}
+},
+
+Restaurant Origin {
+	address: '34 Bay St, Toronto',
+	Menu menu2 {
+		items: {
+			name: OnionSoup,
+			price: 25.0,
+			description: 'A sweet and light onion soup',
+			category: appetizer
+		},
+		{
+			name: BeetSalad,
+			price: 20.5,
+			description: 'An inviting, colorful root beet salad with balsamic glaze',
+			category: side_dish
+		},
+		{
+			name: Steak,
+			price: 40.0,
+			description: 'A tender marinated steak  served with Bearnaise sauce',
+			category: side_dish
+		},
+		{
+			name: CoffeeCake,
+			price: 15.0,
+			description: 'A delectable coffee cake topped with chocolate sauce',
+			category: dessert
+		}
+	}
+},
+
+Restaurant BlueBay {
+	address: '19 Rue Stanley, Montreal',
+	Menu menu3 {
+		items: {
+			name: FriedShrimp,
+			price: 20.0,
+			description: 'Breadcrumbed deep fried shrimp',
+			category: appetizer
+		},
+		{
+			name: Dynamite,
+			price: 25.0,
+			description: 'Shrimp with dynamite sauce',
+			category: appetizer
+		},
+		{
+			name: DoradeRoyale,
+			price: 30.0,
+			description: 'A whole Dorade Royale grilled fish, served with rice',
+			category: main_dish
+		},
+		{
+			name: CrabSalad,
+			price: 20.0,
+			description: 'A crab salad',
+			category: side_dish
+		}
+	}
+},
+
+Restaurant EdoJ {
+	address: '23 Rue Rene-Levesque, Montreal',
+	Menu menu4 {
+		items: {
+			name: Sushi,
+			price: 14.0,
+			description: '14 pieces of sushi nigiri, futomaki and hosomaki',
+			category: main_dish
+		},
+		{
+			name: SpringRoll,
+			price: 6.5,
+			description: 'A veggie stuffed spring roll',
+			category: appetizer
+		},
+		{
+			name: BeefYakisoba,
+			price: 13.5,
+			description: 'Gilled noodles grilled with vegetables. Served with grilled beef and teriyaki sauce',
+			category: main_dish
+		},
+		{
+			name: SteamedRice,
+			price: 7.0,
+			description: 'Steamed rice',
+			category: side_dish
+		},
+		{
+			name: Coke,
+			price: 2.0,
+			description: 'Coke',
+			category: drink
+		}
+	}
+}
+
+
+Order O452 {
+	STATUS: delivered,
+	DELIVER_TO: '50 Blvd Corbusier, Laval',
+	CUSTOMER: SmithS,
+	DRIVER: JordanW,
+	ORDERED_AT: 2022-03-31 14:30,
+	DELIVERED_AT: 2022-03-31 15:30,
+	REQUESTEDDELIVERYDATETIME: 2022-03-31 15:30,
+	ITEMS: {
+		quantity: 1,
+		menuItem: Souvlaki
+	},
+	{
+		quantity: 1,
+		menuItem: Giro
+	},
+	Review R490 {
+		numStars: 5,
+		description: 'Delivery on time',
+		reviewDatetime: 2022-03-31 17:21
+	}
+},
+Order O901 {
+	STATUS: preparation,
+	DELIVER_TO: '106 Bay St., Toronto',
+	CUSTOMER: MichR,
+	DRIVER: MLouis,
+	ORDERED_AT: 2022-04-01 18:11,
+	DELIVERED_AT: 2022-03-30 18:55,
+	REQUESTEDDELIVERYDATETIME: 2022-03-30 19:00,
+	ITEMS: {
+		quantity: 2,
+		menuItem: OnionSoup
+	},
+	{
+		quantity: 1,
+		menuItem: BeetSalad
+	},
+	{
+		quantity: 2,
+		menuItem: Steak
+	},
+	{
+		quantity: 2,
+		menuItem: CoffeeCake
+	}
+},
+
+Order O542 {
+	STATUS: ready_pickup,
+	DELIVER_TO: '415 Rue Dobrin, Monteral',
+	CUSTOMER: AlexT,
+	DRIVER: JordanW,
+	ORDERED_AT: 2022-03-28 12:42,
+	DELIVERED_AT: 2022-03-28 13:40,
+	REQUESTEDDELIVERYDATETIME: 2022-03-28 13:20,
+	ITEMS: {
+		quantity: 3,
+		menuItem: Dynamite
+	},
+	{
+		quantity: 2,
+		menuItem: DoradeRoyale
+	},
+	{
+		quantity: 1,
+		menuItem: CrabSalad
+	}
+
+},
+Order O638 {
+	STATUS: picked_up,
+	DELIVER_TO: '550 Rue University, Montreal',
+	CUSTOMER: BCoast,
+	DRIVER: MRay,
+	ORDERED_AT: 2022-04-02 15:42,
+	DELIVERED_AT: 2022-04-02 17:05,
+	REQUESTEDDELIVERYDATETIME: 2022-04-02 17:00,
+	ITEMS: {
+		quantity: 1,
+		menuItem: Sushi
+	},
+	{
+		quantity: 2,
+		menuItem: SpringRoll
+	},
+	{
+		quantity: 1,
+		menuItem: BeefYakisoba
+	},
+	{
+		quantity: 1,
+		menuItem: Coke
+	}
+
+},
+
+Order O481 {
+	STATUS: accepted,
+	DELIVER_TO: '760 Rue Montpellier, Montreal',
+	CUSTOMER: SmithS,
+	DRIVER: MLouis,
+	ORDERED_AT: 2022-04-04 21:40,
+	DELIVERED_AT: 2022-04-04 22:20,
+	REQUESTEDDELIVERYDATETIME: 2022-04-04 22:10,
+	ITEMS: {
+		quantity: 1,
+		menuItem: Giro
+	}
+
+}
+
+
