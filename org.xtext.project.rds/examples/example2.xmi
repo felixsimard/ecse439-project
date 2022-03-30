@@ -74,7 +74,16 @@
     <orderItems quantity="1" menuItem="//@restaurants.3/@menu.0/@menuItems.2"/>
     <orderItems quantity="1" menuItem="//@restaurants.3/@menu.0/@menuItems.4"/>
   </orders>
-  <orders orderNumber="O481" deliveryAddress="760 Rue Montpellier, Montreal" customer="//@users.0/@roles.0" deliveryDriver="//@users.5/@roles.0" orderedDatetime="2022-04-04 21:40" deliveredDatetime="2022-04-04 22:20" requestedDeliveryDatetime="2022-04-04 22:10">
+  <orders orderNumber="O481" status="preparation" deliveryAddress="760 Rue Montpellier, Montreal" customer="//@users.0/@roles.0" deliveryDriver="//@users.5/@roles.0" orderedDatetime="2022-04-04 21:40" deliveredDatetime="2022-04-04 22:20" requestedDeliveryDatetime="2022-04-04 22:10">
     <orderItems quantity="1" menuItem="//@restaurants.0/@menu.0/@menuItems.0"/>
+  </orders>
+  <orders orderNumber="O502" status="delivered" deliveryAddress="487 Blvd St-Laurent, Montreal" customer="//@users.0/@roles.0" deliveryDriver="//@users.5/@roles.0" orderedDatetime="2022-03-29 13:30" deliveredDatetime="2022-03-29 14:30" requestedDeliveryDatetime="2022-03-29 14:40">
+    <orderItems quantity="3" menuItem="//@restaurants.3/@menu.0/@menuItems.1"/>
+    <orderItems quantity="2" menuItem="//@restaurants.3/@menu.0/@menuItems.4"/>
+    <review id="R493" numStars="5" description="Excellent service" reviewDatetime="2022-03-29 15:30"/>
+  </orders>
+  <orders orderNumber="O613" status="delivered" deliveryAddress="55 John St., Toronto" customer="//@users.2/@roles.0" deliveryDriver="//@users.1/@roles.0" orderedDatetime="2022-03-31 19:42" deliveredDatetime="2022-03-31 20:40" requestedDeliveryDatetime="2022-03-31 20:30">
+    <orderItems quantity="1" menuItem="//@restaurants.1/@menu.0/@menuItems.0"/>
+    <orderItems quantity="1" menuItem="//@restaurants.1/@menu.0/@menuItems.2"/>
   </orders>
 </myRds:RDS>

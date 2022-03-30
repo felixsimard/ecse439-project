@@ -281,7 +281,7 @@ Order O638 {
 },
 
 Order O481 {
-	STATUS: accepted,
+	STATUS: preparation,
 	DELIVER_TO: '760 Rue Montpellier, Montreal',
 	CUSTOMER: SmithS,
 	DRIVER: MLouis,
@@ -293,6 +293,46 @@ Order O481 {
 		menuItem: Giro
 	}
 
+},
+
+Order O502 {
+	STATUS: delivered,
+	DELIVER_TO: '487 Blvd St-Laurent, Montreal',
+	CUSTOMER: SmithS,
+	DRIVER: MLouis,
+	ORDERED_AT: 2022-03-29 13:30,
+	DELIVERED_AT: 2022-03-29 14:30,
+	REQUESTEDDELIVERYDATETIME: 2022-03-29 14:40,
+	ITEMS: {
+		quantity: 3,
+		menuItem: SpringRoll
+	},
+	{
+		quantity: 2,
+		menuItem: Coke
+	},
+	Review R493 {
+		numStars: 5,
+		description: 'Excellent service',
+		reviewDatetime: 2022-03-29 15:30
+	}
+},
+
+Order O613 {
+	STATUS: delivered,
+	DELIVER_TO: '55 John St., Toronto',
+	CUSTOMER: MichR,
+	DRIVER: JordanW,
+	ORDERED_AT: 2022-03-31 19:42,
+	DELIVERED_AT: 2022-03-31 20:40,
+	REQUESTEDDELIVERYDATETIME: 2022-03-31 20:30,
+	ITEMS: {
+		quantity: 1,
+		menuItem: OnionSoup
+	},
+	{
+		quantity: 1,
+		menuItem: Steak
+	}
+
 }
-
-

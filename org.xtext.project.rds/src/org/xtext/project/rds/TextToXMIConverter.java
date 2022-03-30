@@ -16,7 +16,7 @@ public class TextToXMIConverter {
 	    XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 
 	    // replace absoluteTargetFolderPath with the path to your folder
-	    String absoluteTargetFolderPath = "C:\\Users\\raghe\\git\\ecse439-project\\org.xtext.project.rds\\examples\\";
+	    String absoluteTargetFolderPath = "C:\\Users\\samih\\OneDrive\\Documents\\Winter 2022\\ECSE 439\\Projects\\Projects\\ecse439-project\\org.xtext.project.rds\\examples\\";
 	    String inputURI = "file:///" + absoluteTargetFolderPath + "example2.rds";
 	    String outputURI = "file:///" + absoluteTargetFolderPath + "example2.xmi";
 	    

@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<script>
+	function filterSelection(c) {
+	  var x, i;
+	  x = document.getElementsByClassName("filterDiv");
+	  if (c == "all") c = "";
+		console.log(c);
+	  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+		console.log(x.length);
+	  for (i = 0; i < x.length; i++) {
+	    w3RemoveClass(x[i], "show");
+	    if (x[i].className.indexOf(c) > -1) {
+			w3AddClass(x[i], "show");
+		}
+	  }
+	}
+	
+	// Show filtered elements
+	function w3AddClass(element, name) {
+	  var i, arr1, arr2;
+	  arr1 = element.className.split(" ");
+	  arr2 = name.split(" ");
+	  for (i = 0; i < arr2.length; i++) {
+	    if (arr1.indexOf(arr2[i]) == -1) {
+	      element.className += " " + arr2[i];
+	    }
+	  }
+	}
+	
+	// Hide elements that are not selected
+	function w3RemoveClass(element, name) {
+	  var i, arr1, arr2;
+	  arr1 = element.className.split(" ");
+	  arr2 = name.split(" ");
+	  for (i = 0; i < arr2.length; i++) {
+	    while (arr1.indexOf(arr2[i]) > -1) {
+	      arr1.splice(arr1.indexOf(arr2[i]), 1);
+	    }
+	  }
+	  element.className = arr1.join(" ");
+	}
+</script>
+<style>
+		.filterDiv {
+			background-color: #808080;
+			color: #000000;
+			display: none;
+		}
+		
+		.show {
+		  display: block;
+		}
+		
+		.container {
+		  margin-top: 20px;
+		  overflow: hidden;
+		}
+		
+		/* Style the buttons */
+		.btn {
+		  border: none;
+		  outline: none;
+		  padding: 12px 16px;
+		  background-color: #f1f1f1;
+		  cursor: pointer;
+		}
+		
+		.btn:hover {
+		  background-color: #ddd;
+		}
+		
+		.btn.active {
+		  background-color: #666;
+		  color: white;
+		}
+</style>
+
+</head>
+
+<body>
+
+<div>
+		<h2> Filter the orders by their status : </h2>
+		<button class="btn active" onclick="filterSelection('all')"> Show all</button>
+</div>
+<div>
+			<button class="btn" onclick="filterSelection('delivered')">delivered</button>
+
+			<button class="btn" onclick="filterSelection('accepted')">accepted</button>
+
+			<button class="btn" onclick="filterSelection('preparation')">preparation</button>
+</div>
+
+</div>
+
+<div class="container">
+		<div class="filterDiv  delivered">
+			<h2>Order Number : O234 <h2>
+			<p>STATUS : delivered <p>
+			<p>DELIVER TO : 487 Blvd St-Laurent, Montreal <p>
+			<p>CUSTOMER : ThomasA <p>
+			<p>DRIVER : JohnD <p>
+			<p>ORDERED AT : 2022-03-29 13:30 <p>
+			<p>REQUESTED DELIVERY TIME : 2022-03-29 14:30 <p>
+				<p>Order Item : Bolognese <p>
+				<p>Price : 12.5$ <p>
+
+				<p>Order Item : Tiramisu <p>
+				<p>Price : 9.5$ <p>
+		</div>
+
+		<div class="filterDiv  accepted">
+			<h2>Order Number : O318 <h2>
+			<p>STATUS : accepted <p>
+			<p>DELIVER TO : 76 Rue Fleury E, Montreal <p>
+			<p>CUSTOMER : WBernard <p>
+			<p>DRIVER : TAlarcon <p>
+			<p>ORDERED AT : 2022-03-30 15:00 <p>
+			<p>REQUESTED DELIVERY TIME : 2022-03-30 16:10 <p>
+				<p>Order Item : Poutine <p>
+				<p>Price : 9.5$ <p>
+
+				<p>Order Item : BeefBurger <p>
+				<p>Price : 10.0$ <p>
+
+				<p>Order Item : GingerAil <p>
+				<p>Price : 2.5$ <p>
+
+				<p>Order Item : Fries <p>
+				<p>Price : 5.5$ <p>
+		</div>
+
+		<div class="filterDiv  preparation">
+			<h2>Order Number : O703 <h2>
+			<p>STATUS : preparation <p>
+			<p>DELIVER TO : 55 Blvd Corbusier, Laval <p>
+			<p>CUSTOMER : RHeinz <p>
+			<p>DRIVER : SimonC <p>
+			<p>ORDERED AT : 2022-03-31 19:42 <p>
+			<p>REQUESTED DELIVERY TIME : 2022-03-31 20:40 <p>
+				<p>Order Item : TomatoSoup <p>
+				<p>Price : 8.5$ <p>
+
+				<p>Order Item : Tiramisu <p>
+				<p>Price : 9.5$ <p>
+
+				<p>Order Item : PizzaArugula <p>
+				<p>Price : 16.0$ <p>
+		</div>
+</div>
+
+
+<script>
+	filterSelection("all");
+</script>
+
+</body>
+</html>
+
+
+	
