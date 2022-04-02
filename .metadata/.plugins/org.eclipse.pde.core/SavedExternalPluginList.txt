@@ -1,4 +1,4 @@
-# List of external plug-in models previously loaded. Timestamp: 1648065094782
+# List of external plug-in models previously loaded. Timestamp: 1648920007337
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/com.google.gson_2.8.8.v20211029-0838.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/com.google.guava_30.1.0.v20210127-2300.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/com.google.inject_3.0.0.v201605172100.jar
@@ -74,14 +74,22 @@ file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.e
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.common_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.common.ide_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.common.ui_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.compatibility_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.compatibility.ui_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.doc_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.engine_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.examples_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.ide.ui_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.model_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.model.edit_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.parser_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.profiler_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.profiler.edit_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.profiler.editor_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.query_7.0.0.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.traceability_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.traceability.model_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.ui.capabilities_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.ui.interpreter_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.ant.core_3.6.200.v20210907-1007.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.ant.launching_1.3.100.v20211011-0944.jar
@@ -1059,6 +1067,22 @@ file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.a
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.apache.lucene.core.source_8.4.1.v20200122-1459.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.apache.xmlgraphics.source_2.6.0.v20210409-0748.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.apiguardian.source_1.1.2.v20211018-1956.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.common.ide.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.common.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.common.ui.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.compatibility.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.compatibility.ui.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.engine.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.ide.ui.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.model.edit.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.model.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.parser.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.profiler.edit.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.profiler.editor.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.profiler.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.traceability.model.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.traceability.source_3.7.11.202102190929.jar
+file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.acceleo.ui.interpreter.source_3.7.11.202102190929.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.ant.core.source_3.6.200.v20210907-1007.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.ant.launching.source_1.3.100.v20211011-0944.jar
 file:/Applications/Eclipse%20Modeling%20Tools.app/Contents/Eclipse/plugins/org.eclipse.ant.ui.source_3.8.100.v20211011-0944.jar

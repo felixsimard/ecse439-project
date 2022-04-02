@@ -14,13 +14,21 @@
 <head>
 
 <script>
-	function filterSelection(c) {
+	function filterSelection(btn_elem, c) {
 	  var x, i;
 	  x = document.getElementsByClassName("filterDiv");
+		if(btn_elem != null) {
+			btns = document.getElementsByTagName("BUTTON");
+			for(var i = 0; i < btns.length; i++) {
+				if(btns['['/]i[']'/] != btn_elem) {
+					w3RemoveClass(btnsx['['/]i[']'/], "btn_active");
+				} else {
+					w3AddClass(btnsx['['/]i[']'/], "btn_active");
+				}
+			}
+		}
 	  if (c == "all") c = "";
-		console.log(c);
 	  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-		console.log(x.length);
 	  for (i = 0; i < x.length; i++) {
 	    w3RemoveClass(x['['/]i[']'/], "show");
 	    if (x['['/]i[']'/].className.indexOf(c) > -1) {
@@ -55,77 +63,118 @@
 	}
 </script>
 <style>
+	body {
+		padding: 20px;
+		margin: 0px;
+		background: rgba(240, 240, 240, 0.2);
+	}
 		.filterDiv {
-			background-color: #808080;
-			color: #000000;
+			width: 75%;
+			padding: 10px 20px;
+			margin: 10px 0px;
+			background-color: rgba(255, 255, 255, 1);
+			color: black;
+			border: 1px #e6e6e6 solid;
+			border-radius: 0px;
+			border-left: 2px rgba(48,187,0,255) solid;
 			display: none;
+			box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.2);
 		}
-		
+
 		.show {
 		  display: block;
 		}
-		
-		.container {
-		  margin-top: 20px;
-		  overflow: hidden;
+		.title {
+			font-size: 18px;
+			font-weight: 800;
+			margin: 10px 0px;
 		}
-		
-		/* Style the buttons */
+
+		.container {
+		  margin-top: 80px;
+		  overflow: hidden;
+			padding: 0px;
+		}
+
 		.btn {
 		  border: none;
 		  outline: none;
+			border-radius: 2px;
+			font-size: 14px;
+			font-weight: 600;
 		  padding: 12px 16px;
-		  background-color: #f1f1f1;
+			margin-left: 4px;
+			box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.2);
+		  background-color: white;
 		  cursor: pointer;
 		}
-		
-		.btn:hover {
-		  background-color: #ddd;
-		}
-		
-		.btn.active {
-		  background-color: #666;
+
+		.btn_active {
+		  background-color: black;
 		  color: white;
 		}
+
+		.navbar {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			background: black;
+			padding: 25px 20px;
+			font-size: 24px;
+			font-weight: 800;
+		}
+
+		.dsl_title_pre {
+			color: white;
+		}
+
+		.dsl_title_post {
+			color: rgba(48,187,0,255);
+		}
+
 </style>
 
 </head>
 
 <body>
 
-[comment put code here/]
-<div>
-		<h2> Filter the orders by their status : </h2>
-		<button class="btn active" onclick="filterSelection('all')"> Show all</button>
-</div>
-<div>
-		[for (s: OrderStatus | aRDS.orders.status) separator('\n')]
-			<button class="btn" onclick="filterSelection('[s/]')">[s/]</button>
-		[/for]
-</div>
-</div>
+	<div class="navbar">
+		<span class="dsl_title_pre">RDS</span>
+		<span class="dsl_title_post"> Eats</span>
+	</div>
+
 
 <div class="container">
+
+		<div class="title"> Filter by order status : </div>
+		<button class="btn btn_active" onclick="filterSelection(this, 'all')"> Show all</button>
+		[for (s: OrderStatus | aRDS.orders.status) separator('\n')]
+			<button class="btn" onclick="filterSelection(this, '[s/]')">[s/]</button>
+		[/for]
+		<br><br>
+
 		[for (o: Order| aRDS.orders) separator('\n')]
 		<div class="filterDiv [for (s: OrderStatus | o.status)][/for] [o.status/]">
-			<h2>Order Number : [o.orderNumber/] <h2>
-			<p>STATUS : [o.status/] <p>
-			<p>DELIVER TO : [o.deliveryAddress/] <p>
-			<p>CUSTOMER : [o.customer.name/] <p>
-			<p>DRIVER : [o.deliveryDriver.name/] <p>
-			<p>ORDERED AT : [o.orderedDatetime/] <p>
-			<p>REQUESTED DELIVERY TIME : [o.deliveredDatetime/] <p>
+			<h2>Order Number : [o.orderNumber/] </h2>
+			<p>STATUS : [o.status/] </p>
+			<p>DELIVER TO : [o.deliveryAddress/] </p>
+			<p>CUSTOMER : [o.customer.name/] </p>
+			<p>DRIVER : [o.deliveryDriver.name/] </p>
+			<p>ORDERED AT : [o.orderedDatetime/] </p>
+			<p>REQUESTED DELIVERY TIME : [o.deliveredDatetime/] </p>
 			[for ( oi : OrderItem | o.orderItems) separator('\n')]
-				<p>Order Item : [oi.menuItem.name/] <p>
-				<p>Price : [oi.menuItem.price/]$ <p>
+				<p>Order Item : [oi.menuItem.name/] </p>
+				<p>Price : [oi.menuItem.price/]$ </p>
 			[/for]
 		</div>
 		[/for]
+
 </div>
 
 
 <script>
-	filterSelection("all");
+	filterSelection(null, "all");
 </script>
 
 </body>
