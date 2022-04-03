@@ -13,55 +13,6 @@
 <html>
 <head>
 
-<script>
-	function filterSelection(btn_elem, c) {
-	  var x, i;
-	  x = document.getElementsByClassName("filterDiv");
-		if(btn_elem != null) {
-			btns = document.getElementsByTagName("BUTTON");
-			for(var i = 0; i < btns.length; i++) {
-				if(btns['['/]i[']'/] != btn_elem) {
-					w3RemoveClass(btnsx['['/]i[']'/], "btn_active");
-				} else {
-					w3AddClass(btnsx['['/]i[']'/], "btn_active");
-				}
-			}
-		}
-	  if (c == "all") c = "";
-	  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-	  for (i = 0; i < x.length; i++) {
-	    w3RemoveClass(x['['/]i[']'/], "show");
-	    if (x['['/]i[']'/].className.indexOf(c) > -1) {
-			w3AddClass(x['['/]i[']'/], "show");
-		}
-	  }
-	}
-	
-	// Show filtered elements
-	function w3AddClass(element, name) {
-	  var i, arr1, arr2;
-	  arr1 = element.className.split(" ");
-	  arr2 = name.split(" ");
-	  for (i = 0; i < arr2.length; i++) {
-	    if (arr1.indexOf(arr2['['/]i[']'/]) == -1) {
-	      element.className += " " + arr2['['/]i[']'/];
-	    }
-	  }
-	}
-	
-	// Hide elements that are not selected
-	function w3RemoveClass(element, name) {
-	  var i, arr1, arr2;
-	  arr1 = element.className.split(" ");
-	  arr2 = name.split(" ");
-	  for (i = 0; i < arr2.length; i++) {
-	    while (arr1.indexOf(arr2['['/]i[']'/]) > -1) {
-	      arr1.splice(arr1.indexOf(arr2['['/]i[']'/]), 1);
-	    }
-	  }
-	  element.className = arr1.join(" ");
-	}
-</script>
 <style>
 	body {
 		padding: 20px;
@@ -149,7 +100,7 @@
 
 		<div class="title"> Filter by order status : </div>
 		<button class="btn btn_active" onclick="filterSelection(this, 'all')"> Show all</button>
-		[for (s: OrderStatus | aRDS.orders.status) separator('\n')]
+		[for (s: OrderStatus | aRDS.orders.status -> asSet()) separator('\n')]
 			<button class="btn" onclick="filterSelection(this, '[s/]')">[s/]</button>
 		[/for]
 		<br><br>
@@ -159,14 +110,16 @@
 			<h2>Order Number : [o.orderNumber/] </h2>
 			<p>STATUS : [o.status/] </p>
 			<p>DELIVER TO : [o.deliveryAddress/] </p>
-			<p>CUSTOMER : [o.customer.name/] </p>
-			<p>DRIVER : [o.deliveryDriver.name/] </p>
+			<p>CUSTOMER : [o.customer.name/] , [(o.customer.eContainer().oclAsType(User).phone)/] </p>
+			<p>DRIVER : [o.deliveryDriver.name/], [(o.deliveryDriver.eContainer().oclAsType(User).phone)/] </p>
 			<p>ORDERED AT : [o.orderedDatetime/] </p>
 			<p>REQUESTED DELIVERY TIME : [o.deliveredDatetime/] </p>
-			[for ( oi : OrderItem | o.orderItems) separator('\n')]
-				<p>Order Item : [oi.menuItem.name/] </p>
-				<p>Price : [oi.menuItem.price/]$ </p>
+			[for ( oi : OrderItem | o.orderItems) ]
+				<p>ORDER ITEM : [oi.menuItem.name/], Price : [oi.menuItem.price/]$, Quantity : [oi.quantity/]  </p>
 			[/for]
+			[if (o.review.numStars -> notEmpty())]
+				<p>REVIEW : description : [o.review.description/], Nb of stars : [o.review.numStars/] </p>
+			[/if]
 		</div>
 		[/for]
 
@@ -175,6 +128,53 @@
 
 <script>
 	filterSelection(null, "all");
+	function filterSelection(btn_elem, c) {
+	  var x, i;
+	  x = document.getElementsByClassName("filterDiv");
+		if(btn_elem != null) {
+			var btns = document.getElementsByTagName("BUTTON");
+			for(var i = 0; i < btns.length; i++) {
+				if(btns['['/]i[']'/] != btn_elem) {
+					RemoveClass(btns['['/]i[']'/], "btn_active");
+				} else {
+					AddClass(btns['['/]i[']'/], "btn_active");
+				}
+			}
+		}
+	  if (c == "all") c = "";
+	  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+	  for (i = 0; i < x.length; i++) {
+	    RemoveClass(x['['/]i[']'/], "show");
+	    if (x['['/]i[']'/].className.indexOf(c) > -1) {
+			AddClass(x['['/]i[']'/], "show");
+		}
+	  }
+	}
+	
+	// Show filtered elements
+	function AddClass(element, name) {
+	  var i, arr1, arr2;
+	  arr1 = element.className.split(" ");
+	  arr2 = name.split(" ");
+	  for (i = 0; i < arr2.length; i++) {
+	    if (arr1.indexOf(arr2['['/]i[']'/]) == -1) {
+	      element.className += " " + arr2['['/]i[']'/];
+	    }
+	  }
+	}
+	
+	// Hide elements that are not selected
+	function RemoveClass(element, name) {
+	  var i, arr1, arr2;
+	  arr1 = element.className.split(" ");
+	  arr2 = name.split(" ");
+	  for (i = 0; i < arr2.length; i++) {
+	    while (arr1.indexOf(arr2['['/]i[']'/]) > -1) {
+	      arr1.splice(arr1.indexOf(arr2['['/]i[']'/]), 1);
+	    }
+	  }
+	  element.className = arr1.join(" ");
+	}
 </script>
 
 </body>

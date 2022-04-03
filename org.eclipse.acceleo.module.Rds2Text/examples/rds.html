@@ -4,24 +4,222 @@
 <html>
 <head>
 
+<style>
+	body {
+		padding: 20px;
+		margin: 0px;
+		background: rgba(240, 240, 240, 0.2);
+	}
+		.filterDiv {
+			width: 75%;
+			padding: 10px 20px;
+			margin: 10px 0px;
+			background-color: rgba(255, 255, 255, 1);
+			color: black;
+			border: 1px #e6e6e6 solid;
+			border-radius: 0px;
+			border-left: 2px rgba(48,187,0,255) solid;
+			display: none;
+			box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.2);
+		}
+
+		.show {
+		  display: block;
+		}
+		.title {
+			font-size: 18px;
+			font-weight: 800;
+			margin: 10px 0px;
+		}
+
+		.container {
+		  margin-top: 80px;
+		  overflow: hidden;
+			padding: 0px;
+		}
+
+		.btn {
+		  border: none;
+		  outline: none;
+			border-radius: 2px;
+			font-size: 14px;
+			font-weight: 600;
+		  padding: 12px 16px;
+			margin-left: 4px;
+			box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.2);
+		  background-color: white;
+		  cursor: pointer;
+		}
+
+		.btn_active {
+		  background-color: black;
+		  color: white;
+		}
+
+		.navbar {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			background: black;
+			padding: 25px 20px;
+			font-size: 24px;
+			font-weight: 800;
+		}
+
+		.dsl_title_pre {
+			color: white;
+		}
+
+		.dsl_title_post {
+			color: rgba(48,187,0,255);
+		}
+
+</style>
+
+</head>
+
+<body>
+
+	<div class="navbar">
+		<span class="dsl_title_pre">RDS</span>
+		<span class="dsl_title_post"> Eats</span>
+	</div>
+
+
+<div class="container">
+
+		<div class="title"> Filter by order status : </div>
+		<button class="btn btn_active" onclick="filterSelection(this, 'all')"> Show all</button>
+			<button class="btn" onclick="filterSelection(this, 'delivered')">delivered</button>
+
+			<button class="btn" onclick="filterSelection(this, 'picked_up')">picked_up</button>
+
+			<button class="btn" onclick="filterSelection(this, 'preparation')">preparation</button>
+
+			<button class="btn" onclick="filterSelection(this, 'ready_pickup')">ready_pickup</button>
+		<br><br>
+
+		<div class="filterDiv  delivered">
+			<h2>Order Number : O452 </h2>
+			<p>STATUS : delivered </p>
+			<p>DELIVER TO : 50 Blvd Corbusier, Laval </p>
+			<p>CUSTOMER : SmithS , 514-340-9824 </p>
+			<p>DRIVER : JordanW, 438-098-9271 </p>
+			<p>ORDERED AT : 2022-03-31 14:30 </p>
+			<p>REQUESTED DELIVERY TIME : 2022-03-31 15:30 </p>
+				<p>ORDER ITEM : Souvlaki, Price : 20.0$, Quantity : 1  </p>
+				<p>ORDER ITEM : Giro, Price : 12.0$, Quantity : 1  </p>
+				<p>REVIEW : description : Delivery on time, Nb of stars : 5 </p>
+		</div>
+
+		<div class="filterDiv  preparation">
+			<h2>Order Number : O901 </h2>
+			<p>STATUS : preparation </p>
+			<p>DELIVER TO : 106 Bay St., Toronto </p>
+			<p>CUSTOMER : MichR , 438-091-2314 </p>
+			<p>DRIVER : MLouis, 438-097-2034 </p>
+			<p>ORDERED AT : 2022-04-01 18:11 </p>
+			<p>REQUESTED DELIVERY TIME : 2022-03-30 18:55 </p>
+				<p>ORDER ITEM : OnionSoup, Price : 25.0$, Quantity : 2  </p>
+				<p>ORDER ITEM : BeetSalad, Price : 20.5$, Quantity : 1  </p>
+				<p>ORDER ITEM : Steak, Price : 40.0$, Quantity : 2  </p>
+				<p>ORDER ITEM : CoffeeCake, Price : 15.0$, Quantity : 2  </p>
+		</div>
+
+		<div class="filterDiv  ready_pickup">
+			<h2>Order Number : O542 </h2>
+			<p>STATUS : ready_pickup </p>
+			<p>DELIVER TO : 415 Rue Dobrin, Monteral </p>
+			<p>CUSTOMER : AlexT , 514-297-3760 </p>
+			<p>DRIVER : JordanW, 438-098-9271 </p>
+			<p>ORDERED AT : 2022-03-28 12:42 </p>
+			<p>REQUESTED DELIVERY TIME : 2022-03-28 13:40 </p>
+				<p>ORDER ITEM : Dynamite, Price : 25.0$, Quantity : 3  </p>
+				<p>ORDER ITEM : DoradeRoyale, Price : 30.0$, Quantity : 2  </p>
+				<p>ORDER ITEM : CrabSalad, Price : 20.0$, Quantity : 1  </p>
+		</div>
+
+		<div class="filterDiv  picked_up">
+			<h2>Order Number : O638 </h2>
+			<p>STATUS : picked_up </p>
+			<p>DELIVER TO : 550 Rue University, Montreal </p>
+			<p>CUSTOMER : BCoast , 514-910-4501 </p>
+			<p>DRIVER : MRay, 438-091-2314 </p>
+			<p>ORDERED AT : 2022-04-02 15:42 </p>
+			<p>REQUESTED DELIVERY TIME : 2022-04-02 17:05 </p>
+				<p>ORDER ITEM : Sushi, Price : 14.0$, Quantity : 1  </p>
+				<p>ORDER ITEM : SpringRoll, Price : 6.5$, Quantity : 2  </p>
+				<p>ORDER ITEM : BeefYakisoba, Price : 13.5$, Quantity : 1  </p>
+				<p>ORDER ITEM : Coke, Price : 2.0$, Quantity : 1  </p>
+		</div>
+
+		<div class="filterDiv  preparation">
+			<h2>Order Number : O481 </h2>
+			<p>STATUS : preparation </p>
+			<p>DELIVER TO : 760 Rue Montpellier, Montreal </p>
+			<p>CUSTOMER : SmithS , 514-340-9824 </p>
+			<p>DRIVER : MLouis, 438-097-2034 </p>
+			<p>ORDERED AT : 2022-04-04 21:40 </p>
+			<p>REQUESTED DELIVERY TIME : 2022-04-04 22:20 </p>
+				<p>ORDER ITEM : Giro, Price : 12.0$, Quantity : 1  </p>
+		</div>
+
+		<div class="filterDiv  delivered">
+			<h2>Order Number : O502 </h2>
+			<p>STATUS : delivered </p>
+			<p>DELIVER TO : 487 Blvd St-Laurent, Montreal </p>
+			<p>CUSTOMER : SmithS , 514-340-9824 </p>
+			<p>DRIVER : MLouis, 438-097-2034 </p>
+			<p>ORDERED AT : 2022-03-29 13:30 </p>
+			<p>REQUESTED DELIVERY TIME : 2022-03-29 14:30 </p>
+				<p>ORDER ITEM : SpringRoll, Price : 6.5$, Quantity : 3  </p>
+				<p>ORDER ITEM : Coke, Price : 2.0$, Quantity : 2  </p>
+				<p>REVIEW : description : Excellent service, Nb of stars : 5 </p>
+		</div>
+
+		<div class="filterDiv  delivered">
+			<h2>Order Number : O613 </h2>
+			<p>STATUS : delivered </p>
+			<p>DELIVER TO : 55 John St., Toronto </p>
+			<p>CUSTOMER : MichR , 438-091-2314 </p>
+			<p>DRIVER : JordanW, 438-098-9271 </p>
+			<p>ORDERED AT : 2022-03-31 19:42 </p>
+			<p>REQUESTED DELIVERY TIME : 2022-03-31 20:40 </p>
+				<p>ORDER ITEM : OnionSoup, Price : 25.0$, Quantity : 1  </p>
+				<p>ORDER ITEM : Steak, Price : 40.0$, Quantity : 1  </p>
+		</div>
+
+</div>
+
+
 <script>
-	function filterSelection(c) {
+	filterSelection(null, "all");
+	function filterSelection(btn_elem, c) {
 	  var x, i;
 	  x = document.getElementsByClassName("filterDiv");
+		if(btn_elem != null) {
+			var btns = document.getElementsByTagName("BUTTON");
+			for(var i = 0; i < btns.length; i++) {
+				if(btns[i] != btn_elem) {
+					RemoveClass(btns[i], "btn_active");
+				} else {
+					AddClass(btns[i], "btn_active");
+				}
+			}
+		}
 	  if (c == "all") c = "";
-		console.log(c);
 	  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-		console.log(x.length);
 	  for (i = 0; i < x.length; i++) {
-	    w3RemoveClass(x[i], "show");
+	    RemoveClass(x[i], "show");
 	    if (x[i].className.indexOf(c) > -1) {
-			w3AddClass(x[i], "show");
+			AddClass(x[i], "show");
 		}
 	  }
 	}
 	
 	// Show filtered elements
-	function w3AddClass(element, name) {
+	function AddClass(element, name) {
 	  var i, arr1, arr2;
 	  arr1 = element.className.split(" ");
 	  arr2 = name.split(" ");
@@ -33,7 +231,7 @@
 	}
 	
 	// Hide elements that are not selected
-	function w3RemoveClass(element, name) {
+	function RemoveClass(element, name) {
 	  var i, arr1, arr2;
 	  arr1 = element.className.split(" ");
 	  arr2 = name.split(" ");
@@ -44,119 +242,6 @@
 	  }
 	  element.className = arr1.join(" ");
 	}
-</script>
-<style>
-		.filterDiv {
-			background-color: #808080;
-			color: #000000;
-			display: none;
-		}
-		
-		.show {
-		  display: block;
-		}
-		
-		.container {
-		  margin-top: 20px;
-		  overflow: hidden;
-		}
-		
-		/* Style the buttons */
-		.btn {
-		  border: none;
-		  outline: none;
-		  padding: 12px 16px;
-		  background-color: #f1f1f1;
-		  cursor: pointer;
-		}
-		
-		.btn:hover {
-		  background-color: #ddd;
-		}
-		
-		.btn.active {
-		  background-color: #666;
-		  color: white;
-		}
-</style>
-
-</head>
-
-<body>
-
-<div>
-		<h2> Filter the orders by their status : </h2>
-		<button class="btn active" onclick="filterSelection('all')"> Show all</button>
-</div>
-<div>
-			<button class="btn" onclick="filterSelection('delivered')">delivered</button>
-
-			<button class="btn" onclick="filterSelection('accepted')">accepted</button>
-
-			<button class="btn" onclick="filterSelection('preparation')">preparation</button>
-</div>
-
-</div>
-
-<div class="container">
-		<div class="filterDiv  delivered">
-			<h2>Order Number : O234 <h2>
-			<p>STATUS : delivered <p>
-			<p>DELIVER TO : 487 Blvd St-Laurent, Montreal <p>
-			<p>CUSTOMER : ThomasA <p>
-			<p>DRIVER : JohnD <p>
-			<p>ORDERED AT : 2022-03-29 13:30 <p>
-			<p>REQUESTED DELIVERY TIME : 2022-03-29 14:30 <p>
-				<p>Order Item : Bolognese <p>
-				<p>Price : 12.5$ <p>
-
-				<p>Order Item : Tiramisu <p>
-				<p>Price : 9.5$ <p>
-		</div>
-
-		<div class="filterDiv  accepted">
-			<h2>Order Number : O318 <h2>
-			<p>STATUS : accepted <p>
-			<p>DELIVER TO : 76 Rue Fleury E, Montreal <p>
-			<p>CUSTOMER : WBernard <p>
-			<p>DRIVER : TAlarcon <p>
-			<p>ORDERED AT : 2022-03-30 15:00 <p>
-			<p>REQUESTED DELIVERY TIME : 2022-03-30 16:10 <p>
-				<p>Order Item : Poutine <p>
-				<p>Price : 9.5$ <p>
-
-				<p>Order Item : BeefBurger <p>
-				<p>Price : 10.0$ <p>
-
-				<p>Order Item : GingerAil <p>
-				<p>Price : 2.5$ <p>
-
-				<p>Order Item : Fries <p>
-				<p>Price : 5.5$ <p>
-		</div>
-
-		<div class="filterDiv  preparation">
-			<h2>Order Number : O703 <h2>
-			<p>STATUS : preparation <p>
-			<p>DELIVER TO : 55 Blvd Corbusier, Laval <p>
-			<p>CUSTOMER : RHeinz <p>
-			<p>DRIVER : SimonC <p>
-			<p>ORDERED AT : 2022-03-31 19:42 <p>
-			<p>REQUESTED DELIVERY TIME : 2022-03-31 20:40 <p>
-				<p>Order Item : TomatoSoup <p>
-				<p>Price : 8.5$ <p>
-
-				<p>Order Item : Tiramisu <p>
-				<p>Price : 9.5$ <p>
-
-				<p>Order Item : PizzaArugula <p>
-				<p>Price : 16.0$ <p>
-		</div>
-</div>
-
-
-<script>
-	filterSelection("all");
 </script>
 
 </body>
